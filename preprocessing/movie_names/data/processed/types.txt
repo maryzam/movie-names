@@ -1,0 +1,10 @@
+movie
+short
+tvMovie
+tvSeries
+tvEpisode
+tvShort
+tvMiniSeries
+tvSpecial
+video
+videoGame
