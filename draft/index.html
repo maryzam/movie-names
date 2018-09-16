@@ -8,7 +8,33 @@
   </head>
   <body>
     <div id="tooltip" class="tooltip"></div>
-    <div id="container"></div>
+    <header>
+      <h1>Cinema names</h1>
+      <p>What can we learn by aggregating first names of characters from millions of movies and tv series (since 1890th years till our days)?</p>
+      <p>How far the tv & cinema names diverge from the real life?</p>
+      <p><small>(Based on IMDB and "Baby names from social security card applications" data sets)</small></p>
+    </header>
+    <main>
+      <article>
+        <section id="names_triangle" class="vis"></section>
+        <section class="note">
+          <h2>Names & Genres</h2>
+          <p>
+            The frequency of the name's occurrence depends on movie genre as well.
+          </p>
+          <p>
+            There are a lot of comedies with main characters called <span class="female">Candy</span>, <span class="female">Tiffany</span>, <span class="male">Randy</span> or <span class="male">Chip</span>. But it can be a bit tricky to find a commedy about <span class="male">Elias</span> or <span class="female">Marian<span>.
+          </p>
+          <p>
+            However, <span class="female">Anna</span>, <span class="female">Teresa</span> and <span class="female">Cecilia</span> are without doubt Drama Queens and <span class="male">Bruce</span>,<span class="male">Wong</span> and <span class="male">Duke</span> are mainly adventure guys.
+          </p>
+        </section>
+      </article>
+      <article>
+        <section id="real_cinema" class="vis"></section>
+        <section id="names_input" class="note"></section>
+      </article>
+    </main>
     <script type="text/javascript" src="namesTriangle.js"></script>
   </body>
 </html>
