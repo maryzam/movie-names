@@ -10,3 +10,25 @@
     pointer-events: none;	
     z-index: 10;		
 }
+
+.axis text {
+    font-family: monospace;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.name {
+
+    stroke-width: 1px;
+    fill-opacity: 0.3;
+}
+
+.male {
+    fill: #8CBEC7;
+    stroke: #3FA3BA;
+}
+
+.female {
+    fill: #F4CBDB;
+    stroke: #EA8F98;
+}
