@@ -29,7 +29,7 @@ main {
 article {
     display: flex;
     flex-direction: row;
-    justify-content: middle;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }

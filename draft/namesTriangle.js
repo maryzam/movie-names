@@ -94,6 +94,6 @@ d3.tsv("data/top1000.tsv")
 			.datum(axisData)
 			.attr("d", triangleLine)
 			.style("fill", "none")
-			.style("stroke", "#dadada");
+			.style("stroke", "#aaa");
 
   });		
