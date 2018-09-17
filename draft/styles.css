@@ -100,3 +100,30 @@ small {
     stroke: #EA8F98;
     color: #EA8F98;
 }
+
+.line {
+    
+    stroke-width: 5px;
+    stroke-linecap: round;
+}
+
+.base {
+    stroke-width: 3px;
+    stroke: #999;
+}
+
+.mark {
+    fill: #40484B;
+    fill-opacity: 1;
+}
+
+.cinema {
+    stroke: #5DBFB0;
+}
+
+.name-label {
+    text-anchor: end;
+    font-size: 0.8em;
+    fill: black;
+    fill-opacity: 1;
+}
