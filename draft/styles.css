@@ -112,18 +112,35 @@ small {
     stroke: #999;
 }
 
+.real {
+    stroke: #555;
+    color: #555;
+    font-weight: bold;
+}
+
+.cinema {
+    stroke: orange;
+    color: orange;
+    font-weight: bold;
+}
+
 .mark {
     fill: #40484B;
     fill-opacity: 1;
 }
 
-.cinema {
-    stroke: #5DBFB0;
-}
-
-.name-label {
+.label {
     text-anchor: end;
     font-size: 0.8em;
-    fill: black;
     fill-opacity: 1;
+    stroke: none;
 }
+
+.label.male {
+    fill: #3FA3BA;
+}
+
+.label.female {
+    fill: #EA8F98;
+}
+

@@ -1,12 +1,11 @@
 
-
 d3.tsv("data/real_vs_cinema_50.tsv")
   .then((source) => {
 
   		console.log(source);
   		source.sort((a,b) => (a.ratio - b.ratio));
   		// prepare container
-  		const width = 850;
+  		const width = 700;
   		const height = 800;
   		const svg = d3.select("#real_vs_cinema")
   						.append("svg")
@@ -33,7 +32,7 @@ d3.tsv("data/real_vs_cinema_50.tsv")
 
   		names
   			.append("line")
-  			.attr("class", (d) => `line ${(d.sex == "M" ? "male" : "female")}`)
+  			.attr("class", (d) => `line ${(+d.ratio >= 0.48 ? "real" : "cinema")}`)
   			.attr("x1", scaleFrac(0))
   			.attr("x2", (d) => scaleFrac(d.ratio) - 3);
 
@@ -45,10 +44,9 @@ d3.tsv("data/real_vs_cinema_50.tsv")
 
   		names
   			.append("text")
-  			.attr("class", "name-label")
+  			.attr("class", (d) => `label ${(d.sex == "M" ? "male" : "female")}`)
   			.attr("dy", 4)
   			.attr("transform", `translate(${labelSize}, 0)`)
-  			.style("fill", (d) => (+d.ratio > 0.45 ? "#7a7a7a" : "black"))
   			.text((d) => d.name);
 
   		// legend
