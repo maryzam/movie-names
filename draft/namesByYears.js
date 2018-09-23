@@ -44,9 +44,32 @@ d3.tsv("data/cinematic_by_years_50_normalized.tsv")
     						.x(function(d) { return scaleYears(d.year); })
     						.y(function(d) { return scaleRange(d.val); });
 
+    	// draw axis 
+    	const labeledYears = Object.keys(data[0].Years)
+								.filter((x) => (+x % 5 == 0))
+		const axis = svg
+			.append("g")
+				.attr("class", "axis")
+			.selectAll(".year")
+				.data(labeledYears).enter()
+			.append("g")
+				.attr("class", "year")
+				.attr("transform", (d) => `translate(${scaleYears(d)}, 0)`);
+
+		axis
+			.append("line")
+			.attr("y2", height * data.length)
+			.style("fill", "none")
+			.style("stroke", "#efefef");
+
+		axis
+			.append("text")
+			.text((d) => d)
+			.attr("dy", 10)
+
+
 		// draw chart for each name
 		data.forEach((d, i) => {
-			console.log(i);
 			
 			const container = svg
 								.append("g")
@@ -67,7 +90,7 @@ d3.tsv("data/cinematic_by_years_50_normalized.tsv")
 					.append("line")
 						.datum(curr)
 				      		.style("fill", "none")
-				      		.style("stroke", "#dadada")
+				      		.style("stroke", "#999")
 				      		.attr("x2", width) 
 				      		.attr("y1", height)
 				      		.attr("y2", height); 
@@ -77,4 +100,6 @@ d3.tsv("data/cinematic_by_years_50_normalized.tsv")
 						.attr("class", `label ${(d.Sex == "F" ? "female": "male")}`)
 						.attr("transform", `translate(${labelOffset - 5}, ${height - 5})`); 
 		});
+
+
 	});
