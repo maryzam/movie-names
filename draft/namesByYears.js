@@ -67,7 +67,6 @@ d3.tsv("data/cinematic_by_years_50_normalized.tsv")
 			.text((d) => d)
 			.attr("dy", 10)
 
-
 		// draw chart for each name
 		data.forEach((d, i) => {
 			
