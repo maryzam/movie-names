@@ -2,7 +2,6 @@
 d3.tsv("data/real_vs_cinema_50.tsv")
   .then((source) => {
 
-  		console.log(source);
   		source.sort((a,b) => (a.ratio - b.ratio));
   		// prepare container
   		const width = 700;
