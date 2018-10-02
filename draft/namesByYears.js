@@ -99,7 +99,6 @@ Promise.all([
 				      		.attr("d", line);
 			container
 					.append("line")
-						.datum(cCurr)
 				      		.style("fill", "none")
 				      		.style("stroke", "#999")
 				      		.attr("x2", width) 
