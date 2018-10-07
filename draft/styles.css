@@ -50,6 +50,29 @@ small {
     color: #777;
 }
 
+button {
+    padding: 5px 10px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #eee;
+    color: black;
+}
+
+button.active {
+    color: white;
+    background-color: black;
+}
+
+.one-column {
+    flex-direction: column;
+}
+
 .vis {
 }
 
