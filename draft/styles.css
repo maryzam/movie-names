@@ -144,3 +144,13 @@ small {
     fill: #EA8F98;
 }
 
+/* top names by genre */
+#top_names_by_genre text {
+    text-anchor: middle;
+    font-size: 0.75em;
+}
+
+#top_names_by_genre .title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
