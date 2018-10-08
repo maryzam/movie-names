@@ -102,7 +102,7 @@ d3.json("data/top_10_by_genre.json")
 
 			newLabels
 				.transition()
-					.delay(200)
+					.delay(150)
 					.duration(600)
 				.attr("transform", (d) => 
 						`translate(${scaleGenres(d.Genre) - itemWidth / 2}, ${scaleRating(d.Rating[type])})`);

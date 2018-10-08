@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style type="text/css">
+      article {
+        padding: 30px 0;
+      }
+      .note { 
+          width: 20%;
+       }
+
+       .freqs path {
+          fill: none;
+          stroke: orange;
+       }
+
+       .freqs text {
+          font-size: 10px;
+          text-anchor: end;
+        }
+    </style>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <div id="tooltip" class="tooltip"></div>
+
+    <header></header>
+    <main id="container"></main>
+    <footer></footer>
+
+    <script type="text/javascript" src="namesFrequencies.js"></script>
+  </body>
+</html>
