@@ -1,0 +1,36 @@
+{
+  "name": "movie-names",
+  "version": "1.0.0",
+  "description": "🎥 Movie names",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maryzam/movie-names.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maryzam/movie-names/issues"
+  },
+  "homepage": "https://github.com/maryzam/movie-names#readme",
+  "dependencies": {
+    "d3": "^5.7.0",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
+    "json-loader": "^0.5.7",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}

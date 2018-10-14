@@ -2,3 +2,6 @@
 preprocessing/movie_names/data/title.basics.tsv
 preprocessing/movie_names/data/title.principals.tsv
 preprocessing/movie_names/data/title.ratings.tsv
+
+node_modules/
+dist/
