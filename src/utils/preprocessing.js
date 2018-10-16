@@ -1,4 +1,4 @@
-function processMovieInfluencers(source) {
+export function processMovieInfluencers(source) {
 	source.sort((a, b) => (b.Total - a.Total));
 	const data = [];
 	for (let i = 0; i < source.length; i++) {

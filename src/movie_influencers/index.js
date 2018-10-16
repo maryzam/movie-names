@@ -11,7 +11,6 @@ const scale = {
 
 const chartBuilder = d3.area()
 						.x((d) => scale.years(d.year))
-						.y0((d) => scale.freqs(0))
 						.y1((d) => scale.freqs(d.freq))
 						.curve(d3.curveCardinal);
 
@@ -25,7 +24,6 @@ const $container = d3.select("#movie_influencers");
 const $chart = $container.select(".viz").append('svg');
 
 const showInfluencer = function(movieName) {
-	console.log(movieName);
 	const data = cache[movieName];
 	if (!!data) {
 		drawStats(data);
@@ -125,8 +123,9 @@ const updateSize = () => {
 	//update scale
 	scale.names.range([paddings.y, (size.height - paddings.y - labels.x)]);
 	scale.years.range([ (paddings.x + labels.y), (size.width - paddings.x) ]);
-	scale.freqs.range([size.height - paddings.y - labels.x, paddings.y]);
-	console.log(size.height);
+	scale.freqs.range([ (size.height - paddings.y - labels.x), paddings.y]);
+
+	chartBuilder.y0(scale.freqs(0));
 
 	// update container
 	$chart
