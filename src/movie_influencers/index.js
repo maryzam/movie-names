@@ -1,7 +1,10 @@
 import * as d3 from 'd3';
 import { debounce } from 'lodash';
 
-const cache = {};
+const cache = {
+	movies: {},
+	keyDates: []
+};
 
 const scale = {
 	names: d3.scaleBand(),
@@ -24,9 +27,12 @@ const $container = d3.select("#movie_influencers");
 const $chart = $container.select(".viz").append('svg');
 
 const showInfluencer = function(movieName) {
-	const data = cache[movieName];
+
+	const keyYears = cache.keyDates.find((d) => d.title == movieName);
+
+	const data = cache.movies[movieName];
 	if (!!data) {
-		drawStats(data);
+		drawStats(data, keyYears);
 		return;
 	}
 
@@ -34,12 +40,12 @@ const showInfluencer = function(movieName) {
 
 	d3.json(sourceUrl)
 		.then((source) => {
-			cache[movieName] = source;
-			drawStats(source);
+			cache.movies[movieName] = source;
+			drawStats(source, keyYears);
 		});
 };
 
-const drawStats = function(data) {
+const drawStats = function(data, keyYears) {
 
 	// update scale
 	const names = data.map((d) => d.name);
@@ -50,39 +56,77 @@ const drawStats = function(data) {
 	scale.names.domain(names);
 
 	// add/update line graphs
-	const lines = $chart
+	const curvies = $chart
 					.selectAll('.name')
 					.data(data, (d) => d.name);
-	lines.exit().remove();
 
-	lines.attr('d', (d) => chartBuilder(d.stats)); 
+	curvies.exit().remove();
 
-	lines.enter()
+	curvies.attr('d', (d) => chartBuilder(d.stats)); 
+
+	curvies.enter()
 		.append('path')
 		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
 		.attr('d', (d) => chartBuilder(d.stats));
 
+	// add/update key years 
+	const lines = $chart
+					.selectAll('.key-year')
+					.data(keyYears.dates, (d) => d);
+
+	lines.exit().remove();
+
+	lines.enter()
+		.append('line')
+			.attr('class', 'key-year')
+			.attr("x1", (d) => scale.years(d)) 
+			.attr("x2", (d) => scale.years(d)) 
+			.attr("y1", 0)
+			.attr("y2", scale.freqs(0));
+
+	lines
+		.attr("x1", (d) => scale.years(d)) 
+		.attr("x2", (d) => scale.years(d));
+
 	// add/update x-axis 
+	const yearAxis = d3.axisBottom(scale.years)
+						.tickFormat((d) => d)
+						.tickSizeOuter(0);
+	$chart
+		.append('g')
+		.attr('class', 'years-axis')
+		.attr('transform', `translate(0, ${scale.freqs(0)})`)
+		.call(yearAxis);
 	// add/update y-axis
 };
 
 const init = () => {
-	
-	prepareSections();
 
+	prepareSections();
 	updateSize();
 
+	d3.json('data/movies/key-dates.json')
+		.then((keyDates) => {
+			cache.keyDates = keyDates;
+			setOnScrollHandlers();
+			updateSectionChart();
+		})
 	// set onScroll listener
-	window.addEventListener('scroll', debounce(() => {
-			const current = detectCurrentSection();
-			if (!current) { return; }
-			if (!sections.isActive(current)) {
-				showInfluencer(current);
-				sections.active = current;
-			}
-		}, 100)
-	);
+	
 
+};
+
+const updateSectionChart =() => {
+	const current = detectCurrentSection();
+	if (!current) { return; }
+	if (!sections.isActive(current)) {
+		showInfluencer(current);
+		sections.active = current;
+	}
+};
+
+const setOnScrollHandlers = () => {
+	window.addEventListener('scroll', debounce(updateSectionChart, 100));
 };
 
 const prepareSections = () => {

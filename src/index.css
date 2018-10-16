@@ -49,8 +49,8 @@ main {
 }
 
 .viz {
-	width: 100%;
-	height: 100vh;
+	width: 0;
+	height: 0;
 
 	position: sticky;
 	top: 0;
@@ -64,4 +64,17 @@ main {
 	stroke-width: 1px;
 	fill: orange;
 	fill-opacity: 0.1;
+}
+
+.domain {
+	stroke: none;
+	fill: none;
+	stroke-width: 0;
+}
+
+.key-year {
+	fill: none;
+	stroke: #777;
+	stroke-width: 1px;
+	stroke-dasharray: 1 3;
 }

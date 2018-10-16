@@ -1,0 +1,42 @@
+[
+	{
+		"title": "star-wars",
+		"dates": [ 1977,1980,2002,2005,1993,1999,2015,2017 ],
+		"range": {
+			"from": 1970,
+			"till": 2018
+		}
+	},
+	{
+		"title": "game-of-thrones",
+		"dates": [ 2011 ],
+		"range": {
+			"from": 2007,
+			"till": 2018
+		}
+	},
+	{
+		"title": "harry-potter",
+		"dates": [ 2001,2005,2011 ],
+		"range": {
+			"from": 1999,
+			"till": 2015
+		}
+	},		
+	{
+		"title": "friends",
+		"dates": [ 1994, 2004 ],
+		"range": {
+			"from": 1990,
+			"till": 2008
+		}
+	},
+	{
+		"title": "the-big-bang-theory",
+		"dates": [ 2007 ],
+		"range": {
+			"from": 2005,
+			"till": 2018
+		}
+	}
+]
