@@ -28,6 +28,10 @@ main {
 }
 
 .note-container {
+	position: relative;
+	top: 0;
+	left: 0;
+
 	height: 100vh;
 	width: 100%;
 
@@ -40,5 +44,24 @@ main {
 
 .note {
 	padding: 1rem;
+	background: white;
 	box-shadow: 0 0 7px 2px rgba(77,77,77,.25);
+}
+
+.viz {
+	width: 100%;
+	height: 100vh;
+
+	position: sticky;
+	top: 0;
+	left: 0;
+
+	background: #dadada;
+}
+
+.name {
+	stroke: black;
+	stroke-width: 1px;
+	fill: orange;
+	fill-opacity: 0.1;
 }
