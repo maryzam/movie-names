@@ -1,6 +1,11 @@
 import * as d3 from 'd3';
 import { debounce } from 'lodash';
 
+const animSettings = {
+	delay: 0,
+	duration: 600
+};
+
 const cache = {
 	movies: {},
 	keyDates: []
@@ -48,29 +53,47 @@ const showInfluencer = function(movieName) {
 const drawStats = function(data, keyYears) {
 
 	// update scale
-	const names = data.map((d) => d.name);
 	const yearsRange = d3.extent(data[0].stats, (d) => d.year);
-	const maxFreq = d3.max(data, (d) => d3.max(d.stats, (s) => s.freq));
-	scale.years.domain(yearsRange);
+	const fromYear = Math.max(keyYears.range.from || yearsRange[0], yearsRange[0]);
+	const tillYear = Math.min(keyYears.range.till || yearsRange[1], yearsRange[1]);
+	const predicate = (s) => (s.year >= fromYear && s.year <= tillYear);
+
+	const names = data.map((d) => d.name);
+	const maxFreq = d3.max(data, (d) => d3.max(d.stats.filter(predicate), (s) => s.freq));
+
+	
+	scale.years.domain([fromYear, tillYear]);
 	scale.freqs.domain([0, maxFreq]);
 	scale.names.domain(names);
 
 	// add/update line graphs
-	const curvies = $chart
-					.selectAll('.name')
-					.data(data, (d) => d.name);
+	const curvies = $chart.select('.chart')
+						.selectAll('.name')
+						.data(data, (d) => d.name);
 
 	curvies.exit().remove();
 
-	curvies.attr('d', (d) => chartBuilder(d.stats)); 
+	curvies
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
+		.attr('d', (d) => chartBuilder(d.stats)); 
 
+	const initState = d3.range(fromYear, tillYear + 1).map((year) => ({ year, freq: 0}));
 	curvies.enter()
 		.append('path')
 		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
-		.attr('d', (d) => chartBuilder(d.stats));
+		.attr('d', chartBuilder(initState))
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
+		.attr('d', (d) => {
+			const stats = d.stats.filter(predicate);
+			return chartBuilder(stats);
+		});
 
 	// add/update key years 
-	const lines = $chart
+	const lines = $chart.select('.key-lines')
 					.selectAll('.key-year')
 					.data(keyYears.dates, (d) => d);
 
@@ -81,10 +104,17 @@ const drawStats = function(data, keyYears) {
 			.attr('class', 'key-year')
 			.attr("x1", (d) => scale.years(d)) 
 			.attr("x2", (d) => scale.years(d)) 
-			.attr("y1", 0)
-			.attr("y2", scale.freqs(0));
+			.attr("y1", scale.freqs(0))
+			.attr("y2", scale.freqs(0))
+			.transition()
+				.delay(animSettings.delay)
+				.duration(animSettings.duration)
+			.attr("y1", scale.freqs(maxFreq))
 
 	lines
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
 		.attr("x1", (d) => scale.years(d)) 
 		.attr("x2", (d) => scale.years(d));
 
@@ -93,9 +123,10 @@ const drawStats = function(data, keyYears) {
 						.tickFormat((d) => d)
 						.tickSizeOuter(0);
 	$chart
-		.append('g')
-		.attr('class', 'years-axis')
-		.attr('transform', `translate(0, ${scale.freqs(0)})`)
+		.select('.years-axis')
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
 		.call(yearAxis);
 	// add/update y-axis
 };
@@ -103,6 +134,7 @@ const drawStats = function(data, keyYears) {
 const init = () => {
 
 	prepareSections();
+	prepareContainers();
 	updateSize();
 
 	d3.json('data/movies/key-dates.json')
@@ -111,9 +143,6 @@ const init = () => {
 			setOnScrollHandlers();
 			updateSectionChart();
 		})
-	// set onScroll listener
-	
-
 };
 
 const updateSectionChart =() => {
@@ -145,6 +174,13 @@ const prepareSections = () => {
 		});
 };
 
+const prepareContainers = () => {
+	$chart.append('g').attr('class', 'chart');
+	$chart.append('g').attr('class', 'key-lines');
+	$chart.append('g').attr('class', 'names-axis');
+	$chart.append('g').attr('class', 'years-axis');
+}
+
 const detectCurrentSection = () => {
 	const top  = window.scrollY || document.documentElement.scrollTop || 0;
 	const center = Math.round(top + (screen.height / 2));
@@ -175,6 +211,10 @@ const updateSize = () => {
 	$chart
 		.attr("width", Math.floor(size.width))
 		.attr("height", Math.floor(size.height));
+
+	$chart
+		.select('.years-axis')
+		.attr('transform', `translate(0, ${scale.freqs(0)})`);
 };
 
 init();
