@@ -1,3 +1,20 @@
+import * as d3 from "d3";
+
+export function loadMovieInfluencers(titles) {
+
+	titles.forEach((title) => {
+
+		d3.tsv(`data/movies/${title}.tsv`)
+			.then((data) => {
+				console.log(title);
+				processMovieInfluencers(data);
+				console.log();
+			})
+			.catch((e) => { console.error(e); })
+
+	})
+}
+
 export function processMovieInfluencers(source) {
 	source.sort((a, b) => (b.Total - a.Total));
 	const data = [];
@@ -13,7 +30,7 @@ export function processMovieInfluencers(source) {
 		delete curr.Sex;
 		const stats = Object.keys(curr).map((year) => ({
 			year: year,
-			freq: curr[year] * 10000
+			count: curr[year]
 		}));
 		res["stats"] = stats;
 		data.push(res);

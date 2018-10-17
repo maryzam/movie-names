@@ -14,12 +14,12 @@ const cache = {
 const scale = {
 	names: d3.scaleBand(),
 	years: d3.scaleLinear(),
-	freqs: d3.scaleLinear()
+	count: d3.scaleLinear()
 };
 
 const chartBuilder = d3.area()
 						.x((d) => scale.years(d.year))
-						.y1((d) => scale.freqs(d.freq))
+						.y1((d) => scale.count(d.count))
 						.curve(d3.curveCardinal);
 
 const sections = {
@@ -53,17 +53,16 @@ const showInfluencer = function(movieName) {
 const drawStats = function(data, keyYears) {
 
 	// update scale
-	const yearsRange = d3.extent(data[0].stats, (d) => d.year);
+	const yearsRange = d3.extent(data[0].stats, (d) => +d.year);
 	const fromYear = Math.max(keyYears.range.from || yearsRange[0], yearsRange[0]);
 	const tillYear = Math.min(keyYears.range.till || yearsRange[1], yearsRange[1]);
 	const predicate = (s) => (s.year >= fromYear && s.year <= tillYear);
 
 	const names = data.map((d) => d.name);
-	const maxFreq = d3.max(data, (d) => d3.max(d.stats.filter(predicate), (s) => s.freq));
-
-	
+	const maxCount = d3.max(data, (d) => d3.max(d.stats, (s) => +s.count));
+	console.log(maxCount, data);
 	scale.years.domain([fromYear, tillYear]);
-	scale.freqs.domain([0, maxFreq]);
+	scale.count.domain([0, maxCount]);
 	scale.names.domain(names);
 
 	// add/update line graphs
@@ -77,9 +76,9 @@ const drawStats = function(data, keyYears) {
 		.transition()
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
-		.attr('d', (d) => chartBuilder(d.stats)); 
+		.attr('d', (d) => chartBuilder(d.stats.filter(predicate))); 
 
-	const initState = d3.range(fromYear, tillYear + 1).map((year) => ({ year, freq: 0}));
+	const initState = d3.range(fromYear, tillYear + 1).map((year) => ({ year, count: 0}));
 	curvies.enter()
 		.append('path')
 		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
@@ -104,12 +103,12 @@ const drawStats = function(data, keyYears) {
 			.attr('class', 'key-year')
 			.attr("x1", (d) => scale.years(d)) 
 			.attr("x2", (d) => scale.years(d)) 
-			.attr("y1", scale.freqs(0))
-			.attr("y2", scale.freqs(0))
+			.attr("y1", scale.count(0))
+			.attr("y2", scale.count(0))
 			.transition()
 				.delay(animSettings.delay)
 				.duration(animSettings.duration)
-			.attr("y1", scale.freqs(maxFreq))
+			.attr("y1", scale.count(maxCount))
 
 	lines
 		.transition()
@@ -203,9 +202,9 @@ const updateSize = () => {
 	//update scale
 	scale.names.range([paddings.y, (size.height - paddings.y - labels.x)]);
 	scale.years.range([ (paddings.x + labels.y), (size.width - paddings.x) ]);
-	scale.freqs.range([ (size.height - paddings.y - labels.x), paddings.y]);
+	scale.count.range([ (size.height - paddings.y - labels.x), paddings.y]);
 
-	chartBuilder.y0(scale.freqs(0));
+	chartBuilder.y0(scale.count(0));
 
 	// update container
 	$chart
@@ -214,7 +213,7 @@ const updateSize = () => {
 
 	$chart
 		.select('.years-axis')
-		.attr('transform', `translate(0, ${scale.freqs(0)})`);
+		.attr('transform', `translate(0, ${scale.count(0)})`);
 };
 
 init();
