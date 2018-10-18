@@ -23,14 +23,14 @@ export function processMovieInfluencers(source) {
 		const res = {
 			name: curr.Name,
 			sex: curr.Sex,
-			total: curr.Total
+			total: +curr.Total
 		};
 		delete curr.Total;
 		delete curr.Name;
 		delete curr.Sex;
 		const stats = Object.keys(curr).map((year) => ({
 			year: year,
-			count: curr[year]
+			count: +curr[year]
 		}));
 		res["stats"] = stats;
 		data.push(res);

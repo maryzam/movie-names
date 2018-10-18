@@ -2,1719 +2,1528 @@
   {
     "name": "Luke",
     "sex": "M",
-    "total": "247177",
+    "total": 247177,
     "stats": [
       {
         "year": "1972",
-        "count": "575"
+        "count": 575
       },
       {
         "year": "1973",
-        "count": "636"
+        "count": 636
       },
       {
         "year": "1974",
-        "count": "726"
+        "count": 726
       },
       {
         "year": "1975",
-        "count": "777"
+        "count": 777
       },
       {
         "year": "1976",
-        "count": "915"
+        "count": 915
       },
       {
         "year": "1977",
-        "count": "1241"
+        "count": 1241
       },
       {
         "year": "1978",
-        "count": "1890"
+        "count": 1890
       },
       {
         "year": "1979",
-        "count": "2474"
+        "count": 2474
       },
       {
         "year": "1980",
-        "count": "3109"
+        "count": 3109
       },
       {
         "year": "1981",
-        "count": "3016"
+        "count": 3016
       },
       {
         "year": "1982",
-        "count": "2477"
+        "count": 2477
       },
       {
         "year": "1983",
-        "count": "2651"
+        "count": 2651
       },
       {
         "year": "1984",
-        "count": "2472"
+        "count": 2472
       },
       {
         "year": "1985",
-        "count": "2742"
+        "count": 2742
       },
       {
         "year": "1986",
-        "count": "2651"
+        "count": 2651
       },
       {
         "year": "1987",
-        "count": "2591"
+        "count": 2591
       },
       {
         "year": "1988",
-        "count": "2620"
+        "count": 2620
       },
       {
         "year": "1989",
-        "count": "2709"
+        "count": 2709
       },
       {
         "year": "1990",
-        "count": "2881"
+        "count": 2881
       },
       {
         "year": "1991",
-        "count": "3014"
+        "count": 3014
       },
       {
         "year": "1992",
-        "count": "4064"
+        "count": 4064
       },
       {
         "year": "1993",
-        "count": "4352"
+        "count": 4352
       },
       {
         "year": "1994",
-        "count": "4094"
+        "count": 4094
       },
       {
         "year": "1995",
-        "count": "4628"
+        "count": 4628
       },
       {
         "year": "1996",
-        "count": "5016"
+        "count": 5016
       },
       {
         "year": "1997",
-        "count": "4952"
+        "count": 4952
       },
       {
         "year": "1998",
-        "count": "5284"
+        "count": 5284
       },
       {
         "year": "1999",
-        "count": "6136"
+        "count": 6136
       },
       {
         "year": "2000",
-        "count": "7145"
+        "count": 7145
       },
       {
         "year": "2001",
-        "count": "8005"
+        "count": 8005
       },
       {
         "year": "2002",
-        "count": "8692"
+        "count": 8692
       },
       {
         "year": "2003",
-        "count": "9299"
+        "count": 9299
       },
       {
         "year": "2004",
-        "count": "9593"
+        "count": 9593
       },
       {
         "year": "2005",
-        "count": "10004"
+        "count": 10004
       },
       {
         "year": "2006",
-        "count": "10085"
+        "count": 10085
       },
       {
         "year": "2007",
-        "count": "9603"
+        "count": 9603
       },
       {
         "year": "2008",
-        "count": "9417"
+        "count": 9417
       },
       {
         "year": "2009",
-        "count": "8616"
+        "count": 8616
       },
       {
         "year": "2010",
-        "count": "8838"
+        "count": 8838
       },
       {
         "year": "2011",
-        "count": "8701"
+        "count": 8701
       },
       {
         "year": "2012",
-        "count": "9008"
+        "count": 9008
       },
       {
         "year": "2013",
-        "count": "9568"
+        "count": 9568
       },
       {
         "year": "2014",
-        "count": "10503"
+        "count": 10503
       },
       {
         "year": "2015",
-        "count": "10270"
+        "count": 10270
       },
       {
         "year": "2016",
-        "count": "9974"
+        "count": 9974
       },
       {
         "year": "2017",
-        "count": "9163"
+        "count": 9163
       }
     ]
   },
   {
     "name": "Finn",
     "sex": "M",
-    "total": "18382",
+    "total": 18382,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1974",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1977",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1978",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1979",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1980",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1981",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1982",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1983",
-        "count": "10"
+        "count": 10
       },
       {
         "year": "1984",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1985",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1986",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "1987",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1988",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1989",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1990",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1991",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1992",
-        "count": "17"
+        "count": 17
       },
       {
         "year": "1993",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "1994",
-        "count": "21"
+        "count": 21
       },
       {
         "year": "1995",
-        "count": "33"
+        "count": 33
       },
       {
         "year": "1996",
-        "count": "42"
+        "count": 42
       },
       {
         "year": "1997",
-        "count": "46"
+        "count": 46
       },
       {
         "year": "1998",
-        "count": "93"
+        "count": 93
       },
       {
         "year": "1999",
-        "count": "124"
+        "count": 124
       },
       {
         "year": "2000",
-        "count": "192"
+        "count": 192
       },
       {
         "year": "2001",
-        "count": "209"
+        "count": 209
       },
       {
         "year": "2002",
-        "count": "213"
+        "count": 213
       },
       {
         "year": "2003",
-        "count": "299"
+        "count": 299
       },
       {
         "year": "2004",
-        "count": "399"
+        "count": 399
       },
       {
         "year": "2005",
-        "count": "458"
+        "count": 458
       },
       {
         "year": "2006",
-        "count": "592"
+        "count": 592
       },
       {
         "year": "2007",
-        "count": "783"
+        "count": 783
       },
       {
         "year": "2008",
-        "count": "848"
+        "count": 848
       },
       {
         "year": "2009",
-        "count": "919"
+        "count": 919
       },
       {
         "year": "2010",
-        "count": "1092"
+        "count": 1092
       },
       {
         "year": "2011",
-        "count": "1090"
+        "count": 1090
       },
       {
         "year": "2012",
-        "count": "1215"
+        "count": 1215
       },
       {
         "year": "2013",
-        "count": "1454"
+        "count": 1454
       },
       {
         "year": "2014",
-        "count": "1582"
+        "count": 1582
       },
       {
         "year": "2015",
-        "count": "1902"
+        "count": 1902
       },
       {
         "year": "2016",
-        "count": "2289"
+        "count": 2289
       },
       {
         "year": "2017",
-        "count": "2365"
+        "count": 2365
       }
     ]
   },
   {
     "name": "Leia",
     "sex": "F",
-    "total": "9437",
+    "total": 9437,
     "stats": [
       {
         "year": "1972",
-        "count": "18"
+        "count": 18
       },
       {
         "year": "1973",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1974",
-        "count": "21"
+        "count": 21
       },
       {
         "year": "1975",
-        "count": "20"
+        "count": 20
       },
       {
         "year": "1976",
-        "count": "21"
+        "count": 21
       },
       {
         "year": "1977",
-        "count": "98"
+        "count": 98
       },
       {
         "year": "1978",
-        "count": "156"
+        "count": 156
       },
       {
         "year": "1979",
-        "count": "118"
+        "count": 118
       },
       {
         "year": "1980",
-        "count": "162"
+        "count": 162
       },
       {
         "year": "1981",
-        "count": "126"
+        "count": 126
       },
       {
         "year": "1982",
-        "count": "99"
+        "count": 99
       },
       {
         "year": "1983",
-        "count": "135"
+        "count": 135
       },
       {
         "year": "1984",
-        "count": "94"
+        "count": 94
       },
       {
         "year": "1985",
-        "count": "86"
+        "count": 86
       },
       {
         "year": "1986",
-        "count": "70"
+        "count": 70
       },
       {
         "year": "1987",
-        "count": "73"
+        "count": 73
       },
       {
         "year": "1988",
-        "count": "66"
+        "count": 66
       },
       {
         "year": "1989",
-        "count": "63"
+        "count": 63
       },
       {
         "year": "1990",
-        "count": "69"
+        "count": 69
       },
       {
         "year": "1991",
-        "count": "60"
+        "count": 60
       },
       {
         "year": "1992",
-        "count": "67"
+        "count": 67
       },
       {
         "year": "1993",
-        "count": "65"
+        "count": 65
       },
       {
         "year": "1994",
-        "count": "48"
+        "count": 48
       },
       {
         "year": "1995",
-        "count": "87"
+        "count": 87
       },
       {
         "year": "1996",
-        "count": "65"
+        "count": 65
       },
       {
         "year": "1997",
-        "count": "106"
+        "count": 106
       },
       {
         "year": "1998",
-        "count": "94"
+        "count": 94
       },
       {
         "year": "1999",
-        "count": "103"
+        "count": 103
       },
       {
         "year": "2000",
-        "count": "123"
+        "count": 123
       },
       {
         "year": "2001",
-        "count": "125"
+        "count": 125
       },
       {
         "year": "2002",
-        "count": "152"
+        "count": 152
       },
       {
         "year": "2003",
-        "count": "142"
+        "count": 142
       },
       {
         "year": "2004",
-        "count": "160"
+        "count": 160
       },
       {
         "year": "2005",
-        "count": "206"
+        "count": 206
       },
       {
         "year": "2006",
-        "count": "272"
+        "count": 272
       },
       {
         "year": "2007",
-        "count": "288"
+        "count": 288
       },
       {
         "year": "2008",
-        "count": "292"
+        "count": 292
       },
       {
         "year": "2009",
-        "count": "340"
+        "count": 340
       },
       {
         "year": "2010",
-        "count": "323"
+        "count": 323
       },
       {
         "year": "2011",
-        "count": "350"
+        "count": 350
       },
       {
         "year": "2012",
-        "count": "421"
+        "count": 421
       },
       {
         "year": "2013",
-        "count": "508"
+        "count": 508
       },
       {
         "year": "2014",
-        "count": "609"
+        "count": 609
       },
       {
         "year": "2015",
-        "count": "762"
+        "count": 762
       },
       {
         "year": "2016",
-        "count": "1009"
+        "count": 1009
       },
       {
         "year": "2017",
-        "count": "1151"
+        "count": 1151
       }
     ]
   },
   {
     "name": "Anakin",
     "sex": "M",
-    "total": "2633",
+    "total": 2633,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1974",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1977",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1978",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1979",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1980",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1981",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1982",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1983",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1984",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1985",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1986",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1987",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1988",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1989",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1990",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1991",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1992",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1993",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1994",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1995",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1996",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1997",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1998",
-        "count": "26"
+        "count": 26
       },
       {
         "year": "1999",
-        "count": "114"
+        "count": 114
       },
       {
         "year": "2000",
-        "count": "96"
+        "count": 96
       },
       {
         "year": "2001",
-        "count": "66"
+        "count": 66
       },
       {
         "year": "2002",
-        "count": "69"
+        "count": 69
       },
       {
         "year": "2003",
-        "count": "54"
+        "count": 54
       },
       {
         "year": "2004",
-        "count": "66"
+        "count": 66
       },
       {
         "year": "2005",
-        "count": "133"
+        "count": 133
       },
       {
         "year": "2006",
-        "count": "120"
+        "count": 120
       },
       {
         "year": "2007",
-        "count": "102"
+        "count": 102
       },
       {
         "year": "2008",
-        "count": "101"
+        "count": 101
       },
       {
         "year": "2009",
-        "count": "119"
+        "count": 119
       },
       {
         "year": "2010",
-        "count": "100"
+        "count": 100
       },
       {
         "year": "2011",
-        "count": "91"
+        "count": 91
       },
       {
         "year": "2012",
-        "count": "127"
+        "count": 127
       },
       {
         "year": "2013",
-        "count": "143"
+        "count": 143
       },
       {
         "year": "2014",
-        "count": "220"
+        "count": 220
       },
       {
         "year": "2015",
-        "count": "236"
+        "count": 236
       },
       {
         "year": "2016",
-        "count": "305"
+        "count": 305
       },
       {
         "year": "2017",
-        "count": "320"
+        "count": 320
       }
     ]
   },
   {
     "name": "Han",
     "sex": "M",
-    "total": "559",
+    "total": 559,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1974",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "1977",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1978",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1979",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "1980",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "1981",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "1982",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1983",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "1984",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "1985",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "1986",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "1987",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1988",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "1989",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "1990",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "1991",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1992",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "1993",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "1994",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1995",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "1996",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "1997",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "1998",
-        "count": "10"
+        "count": 10
       },
       {
         "year": "1999",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "2000",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2001",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "2002",
-        "count": "18"
+        "count": 18
       },
       {
         "year": "2003",
-        "count": "10"
+        "count": 10
       },
       {
         "year": "2004",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "2005",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "2006",
-        "count": "17"
+        "count": 17
       },
       {
         "year": "2007",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "2008",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2009",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2010",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "2011",
-        "count": "21"
+        "count": 21
       },
       {
         "year": "2012",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2013",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "2014",
-        "count": "20"
+        "count": 20
       },
       {
         "year": "2015",
-        "count": "22"
+        "count": 22
       },
       {
         "year": "2016",
-        "count": "19"
+        "count": 19
       },
       {
         "year": "2017",
-        "count": "29"
+        "count": 29
       }
     ]
   },
   {
     "name": "Kylo",
     "sex": "M",
-    "total": "463",
+    "total": 463,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1974",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1977",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1978",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1979",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "1980",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1981",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1982",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1983",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1984",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1985",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1986",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1987",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1988",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1989",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1990",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1991",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1992",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1993",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1994",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2008",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2009",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2010",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2011",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2012",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "2013",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2014",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "2015",
-        "count": "35"
+        "count": 35
       },
       {
         "year": "2016",
-        "count": "238"
+        "count": 238
       },
       {
         "year": "2017",
-        "count": "164"
+        "count": 164
       }
     ]
   },
   {
     "name": "Rey",
     "sex": "F",
-    "total": "138",
+    "total": 138,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1974",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1977",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1978",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1979",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1980",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1981",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1982",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1983",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1984",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1985",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1986",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1987",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1988",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1989",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1990",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1991",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1992",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1993",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1994",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2008",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2009",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2010",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2011",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2012",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2013",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2014",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2015",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2016",
-        "count": "63"
+        "count": 63
       },
       {
         "year": "2017",
-        "count": "75"
+        "count": 75
       }
     ]
   },
   {
     "name": "Darth",
     "sex": "M",
-    "total": "29",
+    "total": 29,
     "stats": [
       {
         "year": "1972",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1973",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1974",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1975",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1976",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1977",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "1978",
-        "count": "13"
+        "count": 13
       },
       {
         "year": "1979",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "1980",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1981",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1982",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1983",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1984",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1985",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1986",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1987",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1988",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1989",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1990",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1991",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1992",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1993",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1994",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2008",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2009",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2010",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2011",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2012",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2013",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2014",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2015",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2016",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2017",
-        "count": "0"
-      }
-    ]
-  },
-  {
-    "name": "Vader",
-    "sex": "M",
-    "total": "5",
-    "stats": [
-      {
-        "year": "1972",
-        "count": "0"
-      },
-      {
-        "year": "1973",
-        "count": "0"
-      },
-      {
-        "year": "1974",
-        "count": "0"
-      },
-      {
-        "year": "1975",
-        "count": "0"
-      },
-      {
-        "year": "1976",
-        "count": "0"
-      },
-      {
-        "year": "1977",
-        "count": "0"
-      },
-      {
-        "year": "1978",
-        "count": "0"
-      },
-      {
-        "year": "1979",
-        "count": "0"
-      },
-      {
-        "year": "1980",
-        "count": "0"
-      },
-      {
-        "year": "1981",
-        "count": "0"
-      },
-      {
-        "year": "1982",
-        "count": "0"
-      },
-      {
-        "year": "1983",
-        "count": "0"
-      },
-      {
-        "year": "1984",
-        "count": "0"
-      },
-      {
-        "year": "1985",
-        "count": "0"
-      },
-      {
-        "year": "1986",
-        "count": "0"
-      },
-      {
-        "year": "1987",
-        "count": "0"
-      },
-      {
-        "year": "1988",
-        "count": "0"
-      },
-      {
-        "year": "1989",
-        "count": "0"
-      },
-      {
-        "year": "1990",
-        "count": "0"
-      },
-      {
-        "year": "1991",
-        "count": "0"
-      },
-      {
-        "year": "1992",
-        "count": "0"
-      },
-      {
-        "year": "1993",
-        "count": "0"
-      },
-      {
-        "year": "1994",
-        "count": "0"
-      },
-      {
-        "year": "1995",
-        "count": "0"
-      },
-      {
-        "year": "1996",
-        "count": "0"
-      },
-      {
-        "year": "1997",
-        "count": "0"
-      },
-      {
-        "year": "1998",
-        "count": "0"
-      },
-      {
-        "year": "1999",
-        "count": "0"
-      },
-      {
-        "year": "2000",
-        "count": "0"
-      },
-      {
-        "year": "2001",
-        "count": "0"
-      },
-      {
-        "year": "2002",
-        "count": "0"
-      },
-      {
-        "year": "2003",
-        "count": "0"
-      },
-      {
-        "year": "2004",
-        "count": "0"
-      },
-      {
-        "year": "2005",
-        "count": "0"
-      },
-      {
-        "year": "2006",
-        "count": "0"
-      },
-      {
-        "year": "2007",
-        "count": "0"
-      },
-      {
-        "year": "2008",
-        "count": "0"
-      },
-      {
-        "year": "2009",
-        "count": "0"
-      },
-      {
-        "year": "2010",
-        "count": "0"
-      },
-      {
-        "year": "2011",
-        "count": "0"
-      },
-      {
-        "year": "2012",
-        "count": "5"
-      },
-      {
-        "year": "2013",
-        "count": "0"
-      },
-      {
-        "year": "2014",
-        "count": "0"
-      },
-      {
-        "year": "2015",
-        "count": "0"
-      },
-      {
-        "year": "2016",
-        "count": "0"
-      },
-      {
-        "year": "2017",
-        "count": "0"
+        "count": 0
       }
     ]
   }

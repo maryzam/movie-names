@@ -2,891 +2,891 @@
   {
     "name": "Harry",
     "sex": "M",
-    "total": "9432",
+    "total": 9432,
     "stats": [
       {
         "year": "1995",
-        "count": "508"
+        "count": 508
       },
       {
         "year": "1996",
-        "count": "482"
+        "count": 482
       },
       {
         "year": "1997",
-        "count": "449"
+        "count": 449
       },
       {
         "year": "1998",
-        "count": "479"
+        "count": 479
       },
       {
         "year": "1999",
-        "count": "460"
+        "count": 460
       },
       {
         "year": "2000",
-        "count": "438"
+        "count": 438
       },
       {
         "year": "2001",
-        "count": "454"
+        "count": 454
       },
       {
         "year": "2002",
-        "count": "437"
+        "count": 437
       },
       {
         "year": "2003",
-        "count": "447"
+        "count": 447
       },
       {
         "year": "2004",
-        "count": "446"
+        "count": 446
       },
       {
         "year": "2005",
-        "count": "459"
+        "count": 459
       },
       {
         "year": "2006",
-        "count": "414"
+        "count": 414
       },
       {
         "year": "2007",
-        "count": "445"
+        "count": 445
       },
       {
         "year": "2008",
-        "count": "381"
+        "count": 381
       },
       {
         "year": "2009",
-        "count": "384"
+        "count": 384
       },
       {
         "year": "2010",
-        "count": "364"
+        "count": 364
       },
       {
         "year": "2011",
-        "count": "324"
+        "count": 324
       },
       {
         "year": "2012",
-        "count": "325"
+        "count": 325
       },
       {
         "year": "2013",
-        "count": "328"
+        "count": 328
       },
       {
         "year": "2014",
-        "count": "336"
+        "count": 336
       },
       {
         "year": "2015",
-        "count": "301"
+        "count": 301
       },
       {
         "year": "2016",
-        "count": "374"
+        "count": 374
       },
       {
         "year": "2017",
-        "count": "397"
+        "count": 397
       }
     ]
   },
   {
     "name": "Lucius",
     "sex": "M",
-    "total": "2034",
+    "total": 2034,
     "stats": [
       {
         "year": "1995",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "1996",
-        "count": "35"
+        "count": 35
       },
       {
         "year": "1997",
-        "count": "21"
+        "count": 21
       },
       {
         "year": "1998",
-        "count": "24"
+        "count": 24
       },
       {
         "year": "1999",
-        "count": "18"
+        "count": 18
       },
       {
         "year": "2000",
-        "count": "28"
+        "count": 28
       },
       {
         "year": "2001",
-        "count": "47"
+        "count": 47
       },
       {
         "year": "2002",
-        "count": "51"
+        "count": 51
       },
       {
         "year": "2003",
-        "count": "48"
+        "count": 48
       },
       {
         "year": "2004",
-        "count": "70"
+        "count": 70
       },
       {
         "year": "2005",
-        "count": "109"
+        "count": 109
       },
       {
         "year": "2006",
-        "count": "136"
+        "count": 136
       },
       {
         "year": "2007",
-        "count": "140"
+        "count": 140
       },
       {
         "year": "2008",
-        "count": "127"
+        "count": 127
       },
       {
         "year": "2009",
-        "count": "130"
+        "count": 130
       },
       {
         "year": "2010",
-        "count": "128"
+        "count": 128
       },
       {
         "year": "2011",
-        "count": "127"
+        "count": 127
       },
       {
         "year": "2012",
-        "count": "117"
+        "count": 117
       },
       {
         "year": "2013",
-        "count": "125"
+        "count": 125
       },
       {
         "year": "2014",
-        "count": "122"
+        "count": 122
       },
       {
         "year": "2015",
-        "count": "136"
+        "count": 136
       },
       {
         "year": "2016",
-        "count": "159"
+        "count": 159
       },
       {
         "year": "2017",
-        "count": "122"
+        "count": 122
       }
     ]
   },
   {
     "name": "Ron",
     "sex": "M",
-    "total": "1762",
+    "total": 1762,
     "stats": [
       {
         "year": "1995",
-        "count": "127"
+        "count": 127
       },
       {
         "year": "1996",
-        "count": "123"
+        "count": 123
       },
       {
         "year": "1997",
-        "count": "117"
+        "count": 117
       },
       {
         "year": "1998",
-        "count": "103"
+        "count": 103
       },
       {
         "year": "1999",
-        "count": "106"
+        "count": 106
       },
       {
         "year": "2000",
-        "count": "95"
+        "count": 95
       },
       {
         "year": "2001",
-        "count": "88"
+        "count": 88
       },
       {
         "year": "2002",
-        "count": "79"
+        "count": 79
       },
       {
         "year": "2003",
-        "count": "86"
+        "count": 86
       },
       {
         "year": "2004",
-        "count": "74"
+        "count": 74
       },
       {
         "year": "2005",
-        "count": "84"
+        "count": 84
       },
       {
         "year": "2006",
-        "count": "92"
+        "count": 92
       },
       {
         "year": "2007",
-        "count": "69"
+        "count": 69
       },
       {
         "year": "2008",
-        "count": "49"
+        "count": 49
       },
       {
         "year": "2009",
-        "count": "63"
+        "count": 63
       },
       {
         "year": "2010",
-        "count": "58"
+        "count": 58
       },
       {
         "year": "2011",
-        "count": "53"
+        "count": 53
       },
       {
         "year": "2012",
-        "count": "59"
+        "count": 59
       },
       {
         "year": "2013",
-        "count": "43"
+        "count": 43
       },
       {
         "year": "2014",
-        "count": "62"
+        "count": 62
       },
       {
         "year": "2015",
-        "count": "39"
+        "count": 39
       },
       {
         "year": "2016",
-        "count": "47"
+        "count": 47
       },
       {
         "year": "2017",
-        "count": "46"
+        "count": 46
       }
     ]
   },
   {
     "name": "Hermione",
     "sex": "F",
-    "total": "897",
+    "total": 897,
     "stats": [
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2002",
-        "count": "17"
+        "count": 17
       },
       {
         "year": "2003",
-        "count": "59"
+        "count": 59
       },
       {
         "year": "2004",
-        "count": "54"
+        "count": 54
       },
       {
         "year": "2005",
-        "count": "57"
+        "count": 57
       },
       {
         "year": "2006",
-        "count": "74"
+        "count": 74
       },
       {
         "year": "2007",
-        "count": "67"
+        "count": 67
       },
       {
         "year": "2008",
-        "count": "61"
+        "count": 61
       },
       {
         "year": "2009",
-        "count": "47"
+        "count": 47
       },
       {
         "year": "2010",
-        "count": "37"
+        "count": 37
       },
       {
         "year": "2011",
-        "count": "55"
+        "count": 55
       },
       {
         "year": "2012",
-        "count": "52"
+        "count": 52
       },
       {
         "year": "2013",
-        "count": "47"
+        "count": 47
       },
       {
         "year": "2014",
-        "count": "57"
+        "count": 57
       },
       {
         "year": "2015",
-        "count": "57"
+        "count": 57
       },
       {
         "year": "2016",
-        "count": "71"
+        "count": 71
       },
       {
         "year": "2017",
-        "count": "80"
+        "count": 80
       }
     ]
   },
   {
     "name": "Draco",
     "sex": "M",
-    "total": "509",
+    "total": 509,
     "stats": [
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "1998",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "1999",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "2000",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2001",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "2002",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "2003",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2004",
-        "count": "19"
+        "count": 19
       },
       {
         "year": "2005",
-        "count": "25"
+        "count": 25
       },
       {
         "year": "2006",
-        "count": "23"
+        "count": 23
       },
       {
         "year": "2007",
-        "count": "28"
+        "count": 28
       },
       {
         "year": "2008",
-        "count": "26"
+        "count": 26
       },
       {
         "year": "2009",
-        "count": "20"
+        "count": 20
       },
       {
         "year": "2010",
-        "count": "31"
+        "count": 31
       },
       {
         "year": "2011",
-        "count": "32"
+        "count": 32
       },
       {
         "year": "2012",
-        "count": "51"
+        "count": 51
       },
       {
         "year": "2013",
-        "count": "27"
+        "count": 27
       },
       {
         "year": "2014",
-        "count": "42"
+        "count": 42
       },
       {
         "year": "2015",
-        "count": "36"
+        "count": 36
       },
       {
         "year": "2016",
-        "count": "36"
+        "count": 36
       },
       {
         "year": "2017",
-        "count": "38"
+        "count": 38
       }
     ]
   },
   {
     "name": "Neville",
     "sex": "M",
-    "total": "346",
+    "total": 346,
     "stats": [
       {
         "year": "1995",
-        "count": "18"
+        "count": 18
       },
       {
         "year": "1996",
-        "count": "25"
+        "count": 25
       },
       {
         "year": "1997",
-        "count": "20"
+        "count": 20
       },
       {
         "year": "1998",
-        "count": "16"
+        "count": 16
       },
       {
         "year": "1999",
-        "count": "19"
+        "count": 19
       },
       {
         "year": "2000",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2001",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2002",
-        "count": "16"
+        "count": 16
       },
       {
         "year": "2003",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "2004",
-        "count": "17"
+        "count": 17
       },
       {
         "year": "2005",
-        "count": "18"
+        "count": 18
       },
       {
         "year": "2006",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "2007",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2008",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "2009",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2010",
-        "count": "15"
+        "count": 15
       },
       {
         "year": "2011",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "2012",
-        "count": "19"
+        "count": 19
       },
       {
         "year": "2013",
-        "count": "14"
+        "count": 14
       },
       {
         "year": "2014",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2015",
-        "count": "16"
+        "count": 16
       },
       {
         "year": "2016",
-        "count": "17"
+        "count": 17
       },
       {
         "year": "2017",
-        "count": "13"
+        "count": 13
       }
     ]
   },
   {
     "name": "Fleur",
     "sex": "F",
-    "total": "95",
+    "total": 95,
     "stats": [
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2008",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2009",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2010",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "2011",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "2012",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "2013",
-        "count": "9"
+        "count": 9
       },
       {
         "year": "2014",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2015",
-        "count": "11"
+        "count": 11
       },
       {
         "year": "2016",
-        "count": "12"
+        "count": 12
       },
       {
         "year": "2017",
-        "count": "11"
+        "count": 11
       }
     ]
   },
   {
     "name": "Severus",
     "sex": "M",
-    "total": "82",
+    "total": 82,
     "stats": [
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2008",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2009",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2010",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2011",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2012",
-        "count": "6"
+        "count": 6
       },
       {
         "year": "2013",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2014",
-        "count": "5"
+        "count": 5
       },
       {
         "year": "2015",
-        "count": "7"
+        "count": 7
       },
       {
         "year": "2016",
-        "count": "32"
+        "count": 32
       },
       {
         "year": "2017",
-        "count": "22"
+        "count": 22
       }
     ]
   },
   {
     "name": "Albus",
     "sex": "M",
-    "total": "19",
+    "total": 19,
     "stats": [
       {
         "year": "1995",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1996",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1997",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1998",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "1999",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2000",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2001",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2002",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2003",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2004",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2005",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2006",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2007",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2008",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2009",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2010",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2011",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2012",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2013",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2014",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2015",
-        "count": "0"
+        "count": 0
       },
       {
         "year": "2016",
-        "count": "8"
+        "count": 8
       },
       {
         "year": "2017",
-        "count": "11"
+        "count": 11
       }
     ]
   }

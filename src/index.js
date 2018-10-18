@@ -11,5 +11,4 @@ loadMovieInfluencers([
 		'simpsons',
 		'star-wars',
 		'the-big-bang-theory'
-	]);
-*/
+	]); */

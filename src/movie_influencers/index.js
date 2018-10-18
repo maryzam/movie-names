@@ -19,14 +19,18 @@ const scale = {
 
 const chartBuilder = d3.area()
 						.x((d) => scale.years(d.year))
+						.y0((d) => scale.count(0))
 						.y1((d) => scale.count(d.count))
-						.curve(d3.curveCardinal);
-
+						.curve(d3.curveCardinal.tension(0.25));
 const sections = {
 	active: null,
 	all: {},
 	isActive: (current) => (current == sections.active)
 };
+
+const state = {
+	isSeparate: true
+}
 
 const $container = d3.select("#movie_influencers");
 const $chart = $container.select(".viz").append('svg');
@@ -51,21 +55,29 @@ const showInfluencer = function(movieName) {
 };
 
 const drawStats = function(data, keyYears) {
-
 	// update scale
 	const yearsRange = d3.extent(data[0].stats, (d) => +d.year);
-	const fromYear = Math.max(keyYears.range.from || yearsRange[0], yearsRange[0]);
-	const tillYear = Math.min(keyYears.range.till || yearsRange[1], yearsRange[1]);
-	const predicate = (s) => (s.year >= fromYear && s.year <= tillYear);
-
 	const names = data.map((d) => d.name);
-	const maxCount = d3.max(data, (d) => d3.max(d.stats, (s) => +s.count));
-	console.log(maxCount, data);
-	scale.years.domain([fromYear, tillYear]);
-	scale.count.domain([0, maxCount]);
+	const maxCount = d3.max(data, (d) => d3.max(d.stats, (s) => s.count));
+
+	scale.years.domain(yearsRange);
+	scale.count.domain([maxCount, 0]);
 	scale.names.domain(names);
 
-	// add/update line graphs
+	if (state.isSeparate) {
+		drawCurveSeparately(data, yearsRange);
+		drawNameAxis(data);
+	} else {
+		drawCurve(data, yearsRange);
+	}
+
+	drawKeyLines(keyYears, maxCount);
+	drawYearAxis();
+};
+
+const drawCurve = (data, yearsRange) => {
+	scale.count.range(scale.names.range());
+	
 	const curvies = $chart.select('.chart')
 						.selectAll('.name')
 						.data(data, (d) => d.name);
@@ -76,9 +88,10 @@ const drawStats = function(data, keyYears) {
 		.transition()
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
-		.attr('d', (d) => chartBuilder(d.stats.filter(predicate))); 
+		.attr('d', (d) => chartBuilder(d.stats))
+		.attr('transform', "translate(0, 0)"); 
 
-	const initState = d3.range(fromYear, tillYear + 1).map((year) => ({ year, count: 0}));
+	const initState = d3.range(yearsRange[0], yearsRange[1] + 1).map((year) => ({ year, count: 0}));
 	curvies.enter()
 		.append('path')
 		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
@@ -86,15 +99,87 @@ const drawStats = function(data, keyYears) {
 		.transition()
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
-		.attr('d', (d) => {
-			const stats = d.stats.filter(predicate);
-			return chartBuilder(stats);
-		});
+		.attr('d', (d) => chartBuilder(d.stats));
+};
 
-	// add/update key years 
+const drawCurveSeparately = (data, yearsRange) => {
+	scale.count.range([0, (scale.names.bandwidth() - 5)]);
+	
+	const curvies = $chart
+						.select('.chart')
+						.selectAll('.name')
+						.data(data, (d) => d.name);
+
+	const separateBuilder = (d) => {
+		const maxCount = d3.max(d.stats, (s) => s.count);
+		scale.count.domain([maxCount, 0]);
+		return chartBuilder(d.stats);
+	}
+
+	curvies.exit().remove();
+
+	curvies
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
+		.attr('d', separateBuilder)
+		.attr('transform', (d) => `translate(0, ${scale.names(d.name)})`); 
+
+	const initState = d3.range(yearsRange[0], yearsRange[1] + 1).map((year) => ({ year, count: 0}));
+	curvies.enter()
+		.append('path')
+		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
+		.attr('d', chartBuilder(initState))
+		.attr('transform', (d) => `translate(0, ${scale.names(d.name)})`)
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
+		.attr('d', separateBuilder);
+};
+
+const drawYearAxis = () => {
+
+	const yearAxis = d3.axisBottom(scale.years)
+						.tickFormat((d) => d)
+						.tickSizeOuter(0);
+	const chartBottom = scale.names.range()[1];
+	$chart
+		.select('.years-axis')
+		.transition()
+			.delay(animSettings.delay)
+			.duration(animSettings.duration)
+		.call(yearAxis);
+}
+
+const drawNameAxis = (data) => {
+	const names = $chart
+					.select('.names-axis')
+					.selectAll('.name-label')
+					.data(data, d => d.name);
+
+	names.exit().remove();
+
+	const center = scale.names.bandwidth() / 2;
+	const labels = names.enter()
+					.append('text')
+					.attr("class", "name-label")
+					.attr("transform", (d) => `translate(0, ${ Math.floor(scale.names(d.name) + center)})`)
+					.style("text-anchor", "end");
+
+	labels.append('tspan').text((d) => d.name);
+	labels.append('tspan')
+			.text((d) => `(total: ${d.total })`)
+			.attr("x", 0)
+			.attr("dy", "1em");
+}
+
+const drawKeyLines = (keyYears, maxCount) => {
+
 	const lines = $chart.select('.key-lines')
 					.selectAll('.key-year')
 					.data(keyYears.dates, (d) => d);
+
+	const chartRange = scale.names.range();
 
 	lines.exit().remove();
 
@@ -103,12 +188,12 @@ const drawStats = function(data, keyYears) {
 			.attr('class', 'key-year')
 			.attr("x1", (d) => scale.years(d)) 
 			.attr("x2", (d) => scale.years(d)) 
-			.attr("y1", scale.count(0))
-			.attr("y2", scale.count(0))
+			.attr("y1", chartRange[0])
+			.attr("y2", chartRange[0])
 			.transition()
 				.delay(animSettings.delay)
 				.duration(animSettings.duration)
-			.attr("y1", scale.count(maxCount))
+			.attr("y1", chartRange[1])
 
 	lines
 		.transition()
@@ -116,18 +201,6 @@ const drawStats = function(data, keyYears) {
 			.duration(animSettings.duration)
 		.attr("x1", (d) => scale.years(d)) 
 		.attr("x2", (d) => scale.years(d));
-
-	// add/update x-axis 
-	const yearAxis = d3.axisBottom(scale.years)
-						.tickFormat((d) => d)
-						.tickSizeOuter(0);
-	$chart
-		.select('.years-axis')
-		.transition()
-			.delay(animSettings.delay)
-			.duration(animSettings.duration)
-		.call(yearAxis);
-	// add/update y-axis
 };
 
 const init = () => {
@@ -178,6 +251,7 @@ const prepareContainers = () => {
 	$chart.append('g').attr('class', 'key-lines');
 	$chart.append('g').attr('class', 'names-axis');
 	$chart.append('g').attr('class', 'years-axis');
+	$chart.append('g').attr('class', 'names-axis');
 }
 
 const detectCurrentSection = () => {
@@ -194,17 +268,16 @@ const detectCurrentSection = () => {
 const updateSize = () => {
 
 	// get current size
-	const labels = { x: 25, y: 70 };
+	const labels = { x: 25, y: 100 };
 	const paddings = { x: 10, y: 10 };
 
 	const size = d3.select("body").node().getBoundingClientRect();
 
 	//update scale
-	scale.names.range([paddings.y, (size.height - paddings.y - labels.x)]);
+	const chartBottom = (size.height - paddings.y - labels.x);
+	scale.names.range([ paddings.y, chartBottom]);
+	scale.count.range([ paddings.y, chartBottom]);
 	scale.years.range([ (paddings.x + labels.y), (size.width - paddings.x) ]);
-	scale.count.range([ (size.height - paddings.y - labels.x), paddings.y]);
-
-	chartBuilder.y0(scale.count(0));
 
 	// update container
 	$chart
@@ -213,7 +286,11 @@ const updateSize = () => {
 
 	$chart
 		.select('.years-axis')
-		.attr('transform', `translate(0, ${scale.count(0)})`);
+		.attr('transform', `translate(0, ${chartBottom})`);
+
+	$chart
+		.select('.names-axis')
+		.attr('transform', `translate(${labels.y}, 0)`);
 };
 
 init();

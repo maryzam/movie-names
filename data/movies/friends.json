@@ -2,498 +2,498 @@
   {
     "name": "Rachel",
     "sex": "F",
-    "total": "201661",
+    "total": 201661,
     "stats": [
       {
         "year": "1991",
-        "count": "16343"
+        "count": 16343
       },
       {
         "year": "1992",
-        "count": "15837"
+        "count": 15837
       },
       {
         "year": "1993",
-        "count": "15971"
+        "count": 15971
       },
       {
         "year": "1994",
-        "count": "15486"
+        "count": 15486
       },
       {
         "year": "1995",
-        "count": "16044"
+        "count": 16044
       },
       {
         "year": "1996",
-        "count": "16115"
+        "count": 16115
       },
       {
         "year": "1997",
-        "count": "13787"
+        "count": 13787
       },
       {
         "year": "1998",
-        "count": "12201"
+        "count": 12201
       },
       {
         "year": "1999",
-        "count": "11624"
+        "count": 11624
       },
       {
         "year": "2000",
-        "count": "10673"
+        "count": 10673
       },
       {
         "year": "2001",
-        "count": "9537"
+        "count": 9537
       },
       {
         "year": "2002",
-        "count": "8923"
+        "count": 8923
       },
       {
         "year": "2003",
-        "count": "7981"
+        "count": 7981
       },
       {
         "year": "2004",
-        "count": "6914"
+        "count": 6914
       },
       {
         "year": "2005",
-        "count": "6213"
+        "count": 6213
       },
       {
         "year": "2006",
-        "count": "5527"
+        "count": 5527
       },
       {
         "year": "2007",
-        "count": "4825"
+        "count": 4825
       },
       {
         "year": "2008",
-        "count": "4078"
+        "count": 4078
       },
       {
         "year": "2009",
-        "count": "3582"
+        "count": 3582
       }
     ]
   },
   {
     "name": "Monica",
     "sex": "F",
-    "total": "49112",
+    "total": 49112,
     "stats": [
       {
         "year": "1991",
-        "count": "4156"
+        "count": 4156
       },
       {
         "year": "1992",
-        "count": "4587"
+        "count": 4587
       },
       {
         "year": "1993",
-        "count": "3900"
+        "count": 3900
       },
       {
         "year": "1994",
-        "count": "3911"
+        "count": 3911
       },
       {
         "year": "1995",
-        "count": "3968"
+        "count": 3968
       },
       {
         "year": "1996",
-        "count": "4325"
+        "count": 4325
       },
       {
         "year": "1997",
-        "count": "4223"
+        "count": 4223
       },
       {
         "year": "1998",
-        "count": "3229"
+        "count": 3229
       },
       {
         "year": "1999",
-        "count": "2133"
+        "count": 2133
       },
       {
         "year": "2000",
-        "count": "1990"
+        "count": 1990
       },
       {
         "year": "2001",
-        "count": "1793"
+        "count": 1793
       },
       {
         "year": "2002",
-        "count": "1778"
+        "count": 1778
       },
       {
         "year": "2003",
-        "count": "1613"
+        "count": 1613
       },
       {
         "year": "2004",
-        "count": "1512"
+        "count": 1512
       },
       {
         "year": "2005",
-        "count": "1409"
+        "count": 1409
       },
       {
         "year": "2006",
-        "count": "1362"
+        "count": 1362
       },
       {
         "year": "2007",
-        "count": "1190"
+        "count": 1190
       },
       {
         "year": "2008",
-        "count": "1061"
+        "count": 1061
       },
       {
         "year": "2009",
-        "count": "972"
+        "count": 972
       }
     ]
   },
   {
     "name": "Chandler",
     "sex": "M",
-    "total": "23792",
+    "total": 23792,
     "stats": [
       {
         "year": "1991",
-        "count": "467"
+        "count": 467
       },
       {
         "year": "1992",
-        "count": "553"
+        "count": 553
       },
       {
         "year": "1993",
-        "count": "661"
+        "count": 661
       },
       {
         "year": "1994",
-        "count": "704"
+        "count": 704
       },
       {
         "year": "1995",
-        "count": "1856"
+        "count": 1856
       },
       {
         "year": "1996",
-        "count": "2185"
+        "count": 2185
       },
       {
         "year": "1997",
-        "count": "1796"
+        "count": 1796
       },
       {
         "year": "1998",
-        "count": "1952"
+        "count": 1952
       },
       {
         "year": "1999",
-        "count": "2395"
+        "count": 2395
       },
       {
         "year": "2000",
-        "count": "2131"
+        "count": 2131
       },
       {
         "year": "2001",
-        "count": "1792"
+        "count": 1792
       },
       {
         "year": "2002",
-        "count": "1417"
+        "count": 1417
       },
       {
         "year": "2003",
-        "count": "1270"
+        "count": 1270
       },
       {
         "year": "2004",
-        "count": "1130"
+        "count": 1130
       },
       {
         "year": "2005",
-        "count": "870"
+        "count": 870
       },
       {
         "year": "2006",
-        "count": "753"
+        "count": 753
       },
       {
         "year": "2007",
-        "count": "674"
+        "count": 674
       },
       {
         "year": "2008",
-        "count": "607"
+        "count": 607
       },
       {
         "year": "2009",
-        "count": "579"
+        "count": 579
       }
     ]
   },
   {
     "name": "Ross",
     "sex": "M",
-    "total": "12400",
+    "total": 12400,
     "stats": [
       {
         "year": "1991",
-        "count": "1446"
+        "count": 1446
       },
       {
         "year": "1992",
-        "count": "1277"
+        "count": 1277
       },
       {
         "year": "1993",
-        "count": "942"
+        "count": 942
       },
       {
         "year": "1994",
-        "count": "838"
+        "count": 838
       },
       {
         "year": "1995",
-        "count": "1047"
+        "count": 1047
       },
       {
         "year": "1996",
-        "count": "1041"
+        "count": 1041
       },
       {
         "year": "1997",
-        "count": "795"
+        "count": 795
       },
       {
         "year": "1998",
-        "count": "789"
+        "count": 789
       },
       {
         "year": "1999",
-        "count": "667"
+        "count": 667
       },
       {
         "year": "2000",
-        "count": "561"
+        "count": 561
       },
       {
         "year": "2001",
-        "count": "503"
+        "count": 503
       },
       {
         "year": "2002",
-        "count": "425"
+        "count": 425
       },
       {
         "year": "2003",
-        "count": "377"
+        "count": 377
       },
       {
         "year": "2004",
-        "count": "350"
+        "count": 350
       },
       {
         "year": "2005",
-        "count": "313"
+        "count": 313
       },
       {
         "year": "2006",
-        "count": "283"
+        "count": 283
       },
       {
         "year": "2007",
-        "count": "261"
+        "count": 261
       },
       {
         "year": "2008",
-        "count": "258"
+        "count": 258
       },
       {
         "year": "2009",
-        "count": "227"
+        "count": 227
       }
     ]
   },
   {
     "name": "Phoebe",
     "sex": "F",
-    "total": "11139",
+    "total": 11139,
     "stats": [
       {
         "year": "1991",
-        "count": "233"
+        "count": 233
       },
       {
         "year": "1992",
-        "count": "194"
+        "count": 194
       },
       {
         "year": "1993",
-        "count": "214"
+        "count": 214
       },
       {
         "year": "1994",
-        "count": "247"
+        "count": 247
       },
       {
         "year": "1995",
-        "count": "396"
+        "count": 396
       },
       {
         "year": "1996",
-        "count": "432"
+        "count": 432
       },
       {
         "year": "1997",
-        "count": "419"
+        "count": 419
       },
       {
         "year": "1998",
-        "count": "397"
+        "count": 397
       },
       {
         "year": "1999",
-        "count": "527"
+        "count": 527
       },
       {
         "year": "2000",
-        "count": "641"
+        "count": 641
       },
       {
         "year": "2001",
-        "count": "752"
+        "count": 752
       },
       {
         "year": "2002",
-        "count": "665"
+        "count": 665
       },
       {
         "year": "2003",
-        "count": "688"
+        "count": 688
       },
       {
         "year": "2004",
-        "count": "751"
+        "count": 751
       },
       {
         "year": "2005",
-        "count": "730"
+        "count": 730
       },
       {
         "year": "2006",
-        "count": "890"
+        "count": 890
       },
       {
         "year": "2007",
-        "count": "988"
+        "count": 988
       },
       {
         "year": "2008",
-        "count": "959"
+        "count": 959
       },
       {
         "year": "2009",
-        "count": "1016"
+        "count": 1016
       }
     ]
   },
   {
     "name": "Joey",
     "sex": "M",
-    "total": "9347",
+    "total": 9347,
     "stats": [
       {
         "year": "1991",
-        "count": "652"
+        "count": 652
       },
       {
         "year": "1992",
-        "count": "573"
+        "count": 573
       },
       {
         "year": "1993",
-        "count": "653"
+        "count": 653
       },
       {
         "year": "1994",
-        "count": "554"
+        "count": 554
       },
       {
         "year": "1995",
-        "count": "507"
+        "count": 507
       },
       {
         "year": "1996",
-        "count": "470"
+        "count": 470
       },
       {
         "year": "1997",
-        "count": "441"
+        "count": 441
       },
       {
         "year": "1998",
-        "count": "403"
+        "count": 403
       },
       {
         "year": "1999",
-        "count": "449"
+        "count": 449
       },
       {
         "year": "2000",
-        "count": "481"
+        "count": 481
       },
       {
         "year": "2001",
-        "count": "435"
+        "count": 435
       },
       {
         "year": "2002",
-        "count": "448"
+        "count": 448
       },
       {
         "year": "2003",
-        "count": "494"
+        "count": 494
       },
       {
         "year": "2004",
-        "count": "508"
+        "count": 508
       },
       {
         "year": "2005",
-        "count": "482"
+        "count": 482
       },
       {
         "year": "2006",
-        "count": "473"
+        "count": 473
       },
       {
         "year": "2007",
-        "count": "470"
+        "count": 470
       },
       {
         "year": "2008",
-        "count": "447"
+        "count": 447
       },
       {
         "year": "2009",
-        "count": "407"
+        "count": 407
       }
     ]
   }
