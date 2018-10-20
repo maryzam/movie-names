@@ -89,7 +89,8 @@ const drawCurve = (data, yearsRange) => {
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
 		.attr('d', (d) => chartBuilder(d.stats))
-		.attr('transform', "translate(0, 0)"); 
+		.attr('transform', "translate(0, 0)")
+		.style("fill-opacity", (d) => d.total > 100 ? 0.5 : 0.2); 
 
 	const initState = d3.range(yearsRange[0], yearsRange[1] + 1).map((year) => ({ year, count: 0}));
 	curvies.enter()
@@ -99,7 +100,8 @@ const drawCurve = (data, yearsRange) => {
 		.transition()
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
-		.attr('d', (d) => chartBuilder(d.stats));
+		.attr('d', (d) => chartBuilder(d.stats))
+		.style("fill-opacity", (d) => d.total > 100 ? 0.5 : 0.2);
 };
 
 const drawCurveSeparately = (data, yearsRange) => {
@@ -123,7 +125,8 @@ const drawCurveSeparately = (data, yearsRange) => {
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
 		.attr('d', separateBuilder)
-		.attr('transform', (d) => `translate(0, ${scale.names(d.name)})`); 
+		.attr('transform', (d) => `translate(0, ${scale.names(d.name)})`)
+		.style("fill-opacity", (d) => d.total > 100 ? 0.5 : 0.2); 
 
 	const initState = d3.range(yearsRange[0], yearsRange[1] + 1).map((year) => ({ year, count: 0}));
 	curvies.enter()
@@ -131,10 +134,12 @@ const drawCurveSeparately = (data, yearsRange) => {
 		.attr('class', (d) => `name ${ (d.sex == 'F') ? 'female' : 'male' }`)
 		.attr('d', chartBuilder(initState))
 		.attr('transform', (d) => `translate(0, ${scale.names(d.name)})`)
+		.style("fill-opacity", 0.2)
 		.transition()
 			.delay(animSettings.delay)
 			.duration(animSettings.duration)
-		.attr('d', separateBuilder);
+		.attr('d', separateBuilder)
+		.style("fill-opacity", (d) => d.total > 100 ? 0.5 : 0.2);
 };
 
 const drawYearAxis = () => {
@@ -207,6 +212,7 @@ const init = () => {
 
 	prepareSections();
 	prepareContainers();
+	setupToggleButton();
 	updateSize();
 
 	d3.json('data/movies/key-dates.json')
@@ -216,6 +222,17 @@ const init = () => {
 			updateSectionChart();
 		})
 };
+
+const setupToggleButton= () => {
+	console.log("setupToggleButton");
+	$container
+		.select(".switch")
+		.select("button")
+		.on("click", () => {
+			state.isSeparate = !state.isSeparate;
+			showInfluencer(sections.active);
+		});
+}
 
 const updateSectionChart =() => {
 	const current = detectCurrentSection();
