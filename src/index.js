@@ -1,14 +1,11 @@
-import styles from './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import influencers from './movie_influencers';
+import './index.css';
 
-/*
-import { loadMovieInfluencers} from './utils/preprocessing';
-loadMovieInfluencers([
-		'friends',
-		'game-of-thrones',
-		'harry-potter',
-		'simpsons',
-		'star-wars',
-		'the-big-bang-theory'
-	]); */
+import App from './components/App';
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('root')
+);

@@ -27,6 +27,11 @@ main {
 	
 }
 
+section {
+	display: flex;
+	flex-direction: column;
+}
+
 article {
 	pointer-events: none;
 }
@@ -54,14 +59,12 @@ article {
 }
 
 .viz {
-	width: 0;
-	height: 0;
-
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	left: 0;
-
-	background: #dadada;
+	width: 0;
+	height: 0;
 }
 
 .name {

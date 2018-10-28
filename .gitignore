@@ -5,3 +5,4 @@ preprocessing/movie_names/data/title.ratings.tsv
 
 node_modules/
 dist/
+package-lock.json

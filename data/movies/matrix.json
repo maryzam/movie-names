@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Trinity",
+    "sex": "F",
+    "total": 32665,
+    "stats": [
+      {
+        "year": "1994",
+        "count": 260
+      },
+      {
+        "year": "1995",
+        "count": 322
+      },
+      {
+        "year": "1996",
+        "count": 331
+      },
+      {
+        "year": "1997",
+        "count": 436
+      },
+      {
+        "year": "1998",
+        "count": 481
+      },
+      {
+        "year": "1999",
+        "count": 1481
+      },
+      {
+        "year": "2000",
+        "count": 4284
+      },
+      {
+        "year": "2001",
+        "count": 4479
+      },
+      {
+        "year": "2002",
+        "count": 4384
+      },
+      {
+        "year": "2003",
+        "count": 5126
+      },
+      {
+        "year": "2004",
+        "count": 5632
+      },
+      {
+        "year": "2005",
+        "count": 5449
+      }
+    ]
+  },
+  {
+    "name": "Neo",
+    "sex": "M",
+    "total": 589,
+    "stats": [
+      {
+        "year": "1994",
+        "count": 0
+      },
+      {
+        "year": "1995",
+        "count": 0
+      },
+      {
+        "year": "1996",
+        "count": 0
+      },
+      {
+        "year": "1997",
+        "count": 0
+      },
+      {
+        "year": "1998",
+        "count": 0
+      },
+      {
+        "year": "1999",
+        "count": 24
+      },
+      {
+        "year": "2000",
+        "count": 116
+      },
+      {
+        "year": "2001",
+        "count": 111
+      },
+      {
+        "year": "2002",
+        "count": 66
+      },
+      {
+        "year": "2003",
+        "count": 84
+      },
+      {
+        "year": "2004",
+        "count": 108
+      },
+      {
+        "year": "2005",
+        "count": 80
+      }
+    ]
+  },
+  {
+    "name": "Tank",
+    "sex": "M",
+    "total": 8,
+    "stats": [
+      {
+        "year": "1994",
+        "count": 0
+      },
+      {
+        "year": "1995",
+        "count": 0
+      },
+      {
+        "year": "1996",
+        "count": 0
+      },
+      {
+        "year": "1997",
+        "count": 0
+      },
+      {
+        "year": "1998",
+        "count": 0
+      },
+      {
+        "year": "1999",
+        "count": 0
+      },
+      {
+        "year": "2000",
+        "count": 0
+      },
+      {
+        "year": "2001",
+        "count": 0
+      },
+      {
+        "year": "2002",
+        "count": 0
+      },
+      {
+        "year": "2003",
+        "count": 8
+      },
+      {
+        "year": "2004",
+        "count": 0
+      },
+      {
+        "year": "2005",
+        "count": 0
+      }
+    ]
+  },
+  {
+    "name": "Morpheus",
+    "sex": "M",
+    "total": 5,
+    "stats": [
+      {
+        "year": "1994",
+        "count": 0
+      },
+      {
+        "year": "1995",
+        "count": 0
+      },
+      {
+        "year": "1996",
+        "count": 0
+      },
+      {
+        "year": "1997",
+        "count": 0
+      },
+      {
+        "year": "1998",
+        "count": 0
+      },
+      {
+        "year": "1999",
+        "count": 0
+      },
+      {
+        "year": "2000",
+        "count": 5
+      },
+      {
+        "year": "2001",
+        "count": 0
+      },
+      {
+        "year": "2002",
+        "count": 0
+      },
+      {
+        "year": "2003",
+        "count": 0
+      },
+      {
+        "year": "2004",
+        "count": 0
+      },
+      {
+        "year": "2005",
+        "count": 0
+      }
+    ]
+  }
+]

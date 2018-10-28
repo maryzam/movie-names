@@ -1,0 +1,33 @@
+#top_names {
+	width: 100%;
+	height: 100vh;
+	background-color: #dadada;
+	align-items: stretch;
+}
+
+#top_names .male {
+    fill: #8CBEC7;
+    stroke: #3FA3BA;
+    color: #3FA3BA;
+}
+
+#top_names .female {
+    fill: #F4CBDB;
+    stroke: #EA8F98;
+    color: #EA8F98;
+}
+
+#top_names text {
+    text-anchor: middle;
+    font-size: 0.75em;
+}
+
+#top_names article {
+	flex: 1 0;
+}
+
+#top_names figure {
+	flex: 3 0;
+	height: 100%;
+	width: 100%;
+}

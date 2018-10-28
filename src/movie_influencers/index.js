@@ -21,7 +21,7 @@ const chartBuilder = d3.area()
 						.x((d) => scale.years(d.year))
 						.y0((d) => scale.count(0))
 						.y1((d) => scale.count(d.count))
-						.curve(d3.curveCardinal.tension(0.25));
+						.curve(d3.curveMonotoneX);
 const sections = {
 	active: null,
 	all: {},
@@ -224,7 +224,6 @@ const init = () => {
 };
 
 const setupToggleButton= () => {
-	console.log("setupToggleButton");
 	$container
 		.select(".switch")
 		.select("button")
@@ -236,7 +235,9 @@ const setupToggleButton= () => {
 
 const updateSectionChart =() => {
 	const current = detectCurrentSection();
-	if (!current) { return; }
+	if (!current) { 
+		return; 
+	}
 	if (!sections.isActive(current)) {
 		showInfluencer(current);
 		sections.active = current;
@@ -244,21 +245,17 @@ const updateSectionChart =() => {
 };
 
 const setOnScrollHandlers = () => {
-	window.addEventListener('scroll', debounce(updateSectionChart, 100));
+	window.addEventListener('scroll', updateSectionChart);
 };
 
 const prepareSections = () => {
-	d3.selectAll('.note-container')
+	$container.selectAll('.note-container')
 		.nodes()
 		.forEach((node, i) => {
-			const dim = node.getBoundingClientRect();
 			const $node = node.querySelector('.note');
 			const movie = $node.dataset.movie;
 			if (movie && movie.length > 0) {
-				sections.all[movie] = {
-					top: Math.round(dim.top),
-					bottom: Math.round(dim.bottom)
-				}
+				sections.all[movie] = node;
 			}
 		});
 };
@@ -272,11 +269,13 @@ const prepareContainers = () => {
 }
 
 const detectCurrentSection = () => {
-	const top  = window.scrollY || document.documentElement.scrollTop || 0;
+	const top = window.scrollY || document.documentElement.scrollTop || 0;
 	const center = Math.round(top + (screen.height / 2));
 	for (let movie in sections.all) {
 		const section = sections.all[movie];
-		if (center > section.top && center < section.bottom) {
+		const pos = section.getBoundingClientRect();
+		if (pos.top < center && pos.bottom > center) {
+			console.log(movie, pos.top, pos.bottom)
 			return movie;
 		}
 	};
