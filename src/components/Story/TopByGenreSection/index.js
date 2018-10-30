@@ -9,7 +9,8 @@ const TopByGenreSection = (props) => {
 		<section className="top-by-genre">
 			<TopNamesHeatMap 
 				width={ props.width }
-				height={ props.height }/>
+				height={ props.height }
+				mode={"All"}/>
 		</section>
 	);
 };

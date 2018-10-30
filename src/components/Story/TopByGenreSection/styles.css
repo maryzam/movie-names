@@ -1,1 +1,28 @@
-.top-by-gender {}
+.top-by-genre {}
+
+.top-by-genre text {
+	font-size: 0.75em;
+	text-anchor: middle;
+}
+
+.top-by-genre .female {
+	fill: #F4CBDB;
+	stroke: #EA8F98;
+	opacity: 1;
+}
+
+.top-by-genre .male {
+	fill: #8CBEC7;
+	stroke: #3FA3BA;
+	opacity: 1;
+}
+
+.top-by-genre .item text {
+	stroke: none;
+	fill: #000000;
+	pointer-events: none;
+}
+
+.top-by-genre rect {
+	cursor: pointer;
+}
