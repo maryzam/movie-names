@@ -24,7 +24,8 @@ function getGenres(data) {
 class TopNamesHeatMap extends React.Component {
 
 	state = {
-		isLoading: true
+		isLoading: true,
+		highlight: null
 	};
 
 	data = [];
@@ -62,6 +63,13 @@ class TopNamesHeatMap extends React.Component {
 		return this.data.filter(predicate);
 	}
 
+	handleNameClick = (event) => {
+		const name = event.target.dataset.name;
+		const highlight = (name == this.state.highlight) ? null : name;
+		console.log(highlight);
+		this.setState({ highlight });
+	}
+
 	componentDidMount() {
 
 		d3.json("data/top_names/by_genre.json")
@@ -86,6 +94,7 @@ class TopNamesHeatMap extends React.Component {
 		const itemCenter = { x: itemWidth / 2, y: itemHeight / 2 };
 
 		const mode = this.props.mode;
+		const highlight = this.state.highlight;
 		const data = this.getFilteredData();
 
 		return (
@@ -103,20 +112,26 @@ class TopNamesHeatMap extends React.Component {
 					</g>
 					<g className="">
 					{ 
-						data.map((item) => (
-							<g key={`${item.Name}_${item.Sex}_${item.Genre}`}
-								className={`item ${item.Sex == "M" ? "male" : "female"}`}
-								transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(item.Rating.All)})`}>
-								<rect 
-									width={itemWidth}
-									height={itemHeight}
-									style={{fillOpacity: this.scale.appearance(item.Appearance[mode])}}>
-								</rect>
-								<text dx={itemCenter.x} dy={itemCenter.y}>
-									{ item.Name }
-								</text>
-							</g>
-						)) 
+						data.map((item) => {
+							const genderClass = item.Sex == "M" ? " male" : " female";
+							const highlightClass = highlight && (highlight !== item.Name) ? " muted" : "";
+							return (
+								<g key={`${item.Name}_${item.Sex}_${item.Genre}`}
+									className={`item${genderClass}${highlightClass}`}
+									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(item.Rating.All)})`}
+									onClick={ this.handleNameClick }>
+									<rect 
+										data-name={item.Name}
+										width={itemWidth}
+										height={itemHeight}
+										style={{fillOpacity: this.scale.appearance(item.Appearance[mode])}}>
+									</rect>
+									<text dx={itemCenter.x} dy={itemCenter.y}>
+										{ item.Name }
+									</text>
+								</g>
+							)
+						}) 
 					}
 					</g>
 				</svg>
