@@ -10,7 +10,7 @@ const GENDERS = {
 const offset = {
 	x: 10,
 	y: 10,
-	header: 50
+	header: 20
 };
 
 function getGenres(data) {
@@ -34,8 +34,8 @@ class TopNamesHeatMap extends React.Component {
 
 	setupScales = () => {
 		
-		const scaleGenres = d3.scaleBand().domain(this.genres);
-		const scaleRating = d3.scaleLinear().domain([0, 10]);
+		const scaleGenres = d3.scaleBand().domain(this.genres).padding(0.1);
+		const scaleRating = d3.scaleBand().domain(d3.range(10)).padding(0.05);
 		const scaleAppearance = d3.scaleLinear()
 									.domain([0, this.genres.length])
 									.range([0.1, 1]);
@@ -55,8 +55,8 @@ class TopNamesHeatMap extends React.Component {
 	}
 
 	getFilteredData() {
-
-		const predicate = (this.props.mode == "All") ?
+		const { mode } = this.props;
+		const predicate = (mode == "All") ?
 								(d) => (d.Rating.All < 10) :
 								(d) => (d.Sex == mode);
 
@@ -90,12 +90,14 @@ class TopNamesHeatMap extends React.Component {
 		this.updateScales();
 
 		const itemWidth =  this.scale.genre.bandwidth();
-		const itemHeight = this.scale.rating(1) - this.scale.rating(0);
+		const itemHeight = this.scale.rating.bandwidth();
 		const itemCenter = { x: itemWidth / 2, y: itemHeight / 2 };
 
 		const mode = this.props.mode;
 		const highlight = this.state.highlight;
+
 		const data = this.getFilteredData();
+		const modeKey = (mode == "All") ? "All" : "Gender";
 
 		return (
 			<figure className="viz">
@@ -115,16 +117,18 @@ class TopNamesHeatMap extends React.Component {
 						data.map((item) => {
 							const genderClass = item.Sex == "M" ? " male" : " female";
 							const highlightClass = highlight && (highlight !== item.Name) ? " muted" : "";
+							const rating = item.Rating[modeKey];
+							const appearance = item.Appearance[modeKey];
 							return (
 								<g key={`${item.Name}_${item.Sex}_${item.Genre}`}
 									className={`item${genderClass}${highlightClass}`}
-									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(item.Rating.All)})`}
+									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(rating)})`}
 									onClick={ this.handleNameClick }>
 									<rect 
 										data-name={item.Name}
 										width={itemWidth}
 										height={itemHeight}
-										style={{fillOpacity: this.scale.appearance(item.Appearance[mode])}}>
+										style={{fillOpacity: this.scale.appearance(appearance)}}>
 									</rect>
 									<text dx={itemCenter.x} dy={itemCenter.y}>
 										{ item.Name }

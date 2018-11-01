@@ -31,3 +31,15 @@
 .top-by-genre rect {
 	cursor: pointer;
 }
+
+.top-by-genre button {
+	padding: 2px 10px;
+	background: #fff;
+	border: 1px solid #000;
+	cursor: pointer;
+}
+
+.top-by-genre button.active {
+	background-color: black;
+	color: white;
+}
