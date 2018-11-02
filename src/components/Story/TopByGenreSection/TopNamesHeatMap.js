@@ -21,6 +21,10 @@ function getGenres(data) {
 	return Object.keys(genres);
 };
 
+function generateKey(item) {
+	return `${item.Name}_${item.Sex}_${item.Genre}`;
+};
+
 class TopNamesHeatMap extends React.Component {
 
 	state = {
@@ -28,8 +32,9 @@ class TopNamesHeatMap extends React.Component {
 		highlight: null
 	};
 
-	data = [];
+	source = [];
 	genres = [];
+	filteredData = [];
 	scale = {};
 
 	setupScales = () => {
@@ -54,19 +59,18 @@ class TopNamesHeatMap extends React.Component {
 		this.scale.rating.range([offset.header + offset.y, height - offset.y]);
 	}
 
-	getFilteredData() {
+	updateFilteredData() {
 		const { mode } = this.props;
 		const predicate = (mode == "All") ?
 								(d) => (d.Rating.All < 10) :
 								(d) => (d.Sex == mode);
 
-		return this.data.filter(predicate);
+		this.filteredData = this.source.filter(predicate);
 	}
 
 	handleNameClick = (event) => {
 		const name = event.target.dataset.name;
 		const highlight = (name == this.state.highlight) ? null : name;
-		console.log(highlight);
 		this.setState({ highlight });
 	}
 
@@ -74,11 +78,30 @@ class TopNamesHeatMap extends React.Component {
 
 		d3.json("data/top_names/by_genre.json")
 			.then((source) => {
-				this.data = source;
+				this.source = source;
 				this.genres = getGenres(source);
-				this.setupScales();				
+				this.setupScales();	
+				this.updateFilteredData();			
 				this.setState({ isLoading: false });
 			});
+	}
+
+	componentDidUpdate() {
+		const mode = this.props.mode;
+		const modeKey = (mode == "All") ? "All" : "Gender";
+
+		const items = d3.select(this.viz)
+						.selectAll(".item")
+						.data(this.filteredData, function (d) { 
+							return !d ?	this.dataset.item : generateKey(d); 
+						});
+		items
+			.transition()
+			.attr("transform", (d) => (`translate(${this.scale.genre(d.Genre)},${this.scale.rating(d.Rating[modeKey])})`));
+		
+		items
+			.select("rect")
+			.style("fill-opacity", (d) => this.scale.appearance(d.Appearance[modeKey]));
 	}
 
 	render() {
@@ -88,20 +111,19 @@ class TopNamesHeatMap extends React.Component {
 		}
 
 		this.updateScales();
+		this.updateFilteredData();		
 
 		const itemWidth =  this.scale.genre.bandwidth();
 		const itemHeight = this.scale.rating.bandwidth();
 		const itemCenter = { x: itemWidth / 2, y: itemHeight / 2 };
-
-		const mode = this.props.mode;
+		
 		const highlight = this.state.highlight;
-
-		const data = this.getFilteredData();
-		const modeKey = (mode == "All") ? "All" : "Gender";
 
 		return (
 			<figure className="viz">
-				<svg width={this.props.width} height={this.props.height}>
+				<svg ref={ viz => (this.viz = viz) }
+					width={this.props.width} 
+					height={this.props.height}>
 					<g className="header">
 						{
 							this.genres.map((genre) => (
@@ -114,21 +136,21 @@ class TopNamesHeatMap extends React.Component {
 					</g>
 					<g className="">
 					{ 
-						data.map((item) => {
+						this.filteredData.map((item) => {
 							const genderClass = item.Sex == "M" ? " male" : " female";
 							const highlightClass = highlight && (highlight !== item.Name) ? " muted" : "";
-							const rating = item.Rating[modeKey];
-							const appearance = item.Appearance[modeKey];
+							const itemKey = generateKey(item);
 							return (
-								<g key={`${item.Name}_${item.Sex}_${item.Genre}`}
+								<g key={ itemKey }
+									data-item={ itemKey }
 									className={`item${genderClass}${highlightClass}`}
-									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(rating)})`}
+									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(9)})`}
 									onClick={ this.handleNameClick }>
 									<rect 
 										data-name={item.Name}
 										width={itemWidth}
 										height={itemHeight}
-										style={{fillOpacity: this.scale.appearance(appearance)}}>
+										style={{fillOpacity: 0.1}}>
 									</rect>
 									<text dx={itemCenter.x} dy={itemCenter.y}>
 										{ item.Name }
