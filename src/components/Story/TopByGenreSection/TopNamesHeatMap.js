@@ -29,12 +29,14 @@ class TopNamesHeatMap extends React.Component {
 
 	state = {
 		isLoading: true,
-		highlight: null
+		highlight: null,
+		animDuration: 600,
+		propsMode: null
 	};
 
-	source = [];
-	genres = [];
+	data = [];
 	filteredData = [];
+	genres = [];
 	scale = {};
 
 	setupScales = () => {
@@ -65,7 +67,7 @@ class TopNamesHeatMap extends React.Component {
 								(d) => (d.Rating.All < 10) :
 								(d) => (d.Sex == mode);
 
-		this.filteredData = this.source.filter(predicate);
+		this.filteredData = this.data.filter(predicate);
 	}
 
 	handleNameClick = (event) => {
@@ -74,11 +76,24 @@ class TopNamesHeatMap extends React.Component {
 		this.setState({ highlight });
 	}
 
+	static getDerivedStateFromProps(props, state) {
+		const isModeChanged = props.mode !== state.propsMode;
+		console.log()
+		if (isModeChanged == state.shouldAnimate) {
+			return null;
+		}
+
+		return {
+			propsMode: props.mode,
+			animDuration: isModeChanged ? 600 : 0
+		};
+	}
+
 	componentDidMount() {
 
 		d3.json("data/top_names/by_genre.json")
 			.then((source) => {
-				this.source = source;
+				this.data = source;
 				this.genres = getGenres(source);
 				this.setupScales();	
 				this.updateFilteredData();			
@@ -87,21 +102,42 @@ class TopNamesHeatMap extends React.Component {
 	}
 
 	componentDidUpdate() {
+
 		const mode = this.props.mode;
 		const modeKey = (mode == "All") ? "All" : "Gender";
+		const animDuration = this.state.animDuration;
 
 		const items = d3.select(this.viz)
 						.selectAll(".item")
 						.data(this.filteredData, function (d) { 
 							return !d ?	this.dataset.item : generateKey(d); 
 						});
+		// exit
 		items
+			.exit()
 			.transition()
-			.attr("transform", (d) => (`translate(${this.scale.genre(d.Genre)},${this.scale.rating(d.Rating[modeKey])})`));
-		
+				.duration(animDuration)
+			.style("opacity", 0)
+			.attr("transform", function() {
+				return `translate(${this.dataset.column},${this.dataset.row})`;
+			});
+
+		// update
 		items
 			.select("rect")
+			.transition()
+				.duration(animDuration)
 			.style("fill-opacity", (d) => this.scale.appearance(d.Appearance[modeKey]));
+
+		items
+			.transition()
+				.duration(animDuration)
+			.attr("transform", (d) => {
+				const x = this.scale.genre(d.Genre);
+				const y = this.scale.rating(d.Rating[modeKey]);
+				return `translate(${x},${y})`;
+			})
+			.style("opacity", 1);
 	}
 
 	render() {
@@ -109,15 +145,17 @@ class TopNamesHeatMap extends React.Component {
 		if (this.state.isLoading) {
 			return (<div className="preloader">Loading...</div>);
 		}
-
+		
+		// todo do not recalculate these items on each render
 		this.updateScales();
-		this.updateFilteredData();		
+		this.updateFilteredData();	
 
 		const itemWidth =  this.scale.genre.bandwidth();
 		const itemHeight = this.scale.rating.bandwidth();
 		const itemCenter = { x: itemWidth / 2, y: itemHeight / 2 };
 		
 		const highlight = this.state.highlight;
+		const bottom = this.props.height + 5;
 
 		return (
 			<figure className="viz">
@@ -136,21 +174,26 @@ class TopNamesHeatMap extends React.Component {
 					</g>
 					<g className="">
 					{ 
-						this.filteredData.map((item) => {
-							const genderClass = item.Sex == "M" ? " male" : " female";
+						this.data.map((item) => {
+							const isMale = item.Sex == "M";
+							const genderClass = isMale ? " male" : " female";
 							const highlightClass = highlight && (highlight !== item.Name) ? " muted" : "";
 							const itemKey = generateKey(item);
+							const initPos = { x: this.scale.genre(item.Genre), y: isMale ? 0 : bottom };
 							return (
 								<g key={ itemKey }
 									data-item={ itemKey }
+									data-column={ initPos.x }
+									data-row={ initPos.y }
 									className={`item${genderClass}${highlightClass}`}
-									transform={`translate(${this.scale.genre(item.Genre)},${this.scale.rating(9)})`}
+									transform={`translate(${initPos.x},${initPos.y})`}
+									style={{ opacity: 0 }}
 									onClick={ this.handleNameClick }>
 									<rect 
 										data-name={item.Name}
 										width={itemWidth}
 										height={itemHeight}
-										style={{fillOpacity: 0.1}}>
+										style={{ fillOpacity: 0.1 }}>
 									</rect>
 									<text dx={itemCenter.x} dy={itemCenter.y}>
 										{ item.Name }
