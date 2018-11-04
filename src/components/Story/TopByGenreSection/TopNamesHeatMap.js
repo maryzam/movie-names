@@ -78,7 +78,6 @@ class TopNamesHeatMap extends React.Component {
 
 	static getDerivedStateFromProps(props, state) {
 		const isModeChanged = props.mode !== state.propsMode;
-		console.log()
 		if (isModeChanged == state.shouldAnimate) {
 			return null;
 		}
@@ -116,7 +115,7 @@ class TopNamesHeatMap extends React.Component {
 		items
 			.exit()
 			.transition()
-				.duration(animDuration)
+				.duration(animDuration / 3)
 			.style("opacity", 0)
 			.attr("transform", function() {
 				return `translate(${this.dataset.column},${this.dataset.row})`;
@@ -167,7 +166,7 @@ class TopNamesHeatMap extends React.Component {
 							this.genres.map((genre) => (
 								<text key={genre}
 									transform={`translate(${this.scale.genre(genre) + itemCenter.x},${offset.header})`}>
-									{ genre }
+									{ genre.toUpperCase() }
 								</text>
 							))
 						}
@@ -207,7 +206,6 @@ class TopNamesHeatMap extends React.Component {
 			</figure>
 		);
 	}
-
 }
 
 export default TopNamesHeatMap;

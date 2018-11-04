@@ -1,5 +1,26 @@
 .top-by-genre {}
 
+.top-by-genre h4 {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.top-by-genre .description {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	min-height: 150px;
+	height: 20vh;
+}
+
+.top-by-genre .description div {
+	min-width: 20%;
+	padding: 5px 10px;
+}
+
 .top-by-genre text {
 	font-size: 0.75em;
 	text-anchor: middle;
@@ -22,6 +43,12 @@
 	stroke: #878787;
 }
 
+.top-by-genre .header text {
+	font-weight: bold;
+	pointer-events: none;
+}
+
+
 .top-by-genre .item text {
 	stroke: none;
 	fill: #000000;
@@ -37,9 +64,11 @@
 	background: #fff;
 	border: 1px solid #000;
 	cursor: pointer;
+	pointer-events: all;
 }
 
 .top-by-genre button.active {
 	background-color: black;
 	color: white;
 }
+
