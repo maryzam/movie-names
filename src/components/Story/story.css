@@ -3,5 +3,16 @@
 	flex-direction: column;
 
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
+}
+
+.story h4 {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.story p {
+	padding: 0 5px 10px 5px;
 }

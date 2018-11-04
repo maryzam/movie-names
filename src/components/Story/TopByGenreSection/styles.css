@@ -1,9 +1,5 @@
-.top-by-genre {}
-
-.top-by-genre h4 {
-	text-align: center;
-	text-transform: uppercase;
-	font-weight: bold;
+.top-by-genre {
+	flex-direction: column;
 }
 
 .top-by-genre .description {

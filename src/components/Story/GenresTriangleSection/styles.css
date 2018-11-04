@@ -1,0 +1,35 @@
+.genres-triangle {}
+
+.genres-triangle circle {
+ 	stroke: 1px;
+ 	fill-opacity: 0.3;
+}
+
+.genres-triangle .male {
+ 	color: #3FA3BA;
+ 	stroke: #3FA3BA;
+ 	fill: #8CBEC7;
+}
+
+.genres-triangle .female {
+ 	color: #CD2C6B;
+ 	stroke: #CD2C6B;
+ 	fill: #E1729D;
+}
+
+.genres-triangle .muted {
+ 	stroke: #878787;
+ 	fill: #B0B0B0;
+}
+
+.genres-triangle .axis path {
+	fill: none;
+	stroke: #aaa;
+	pointer-events: none;
+}
+
+.genres-triangle .axis .label {
+	font-size: 0.8em;
+	font-weight: bold;
+	text-anchor: middle;
+}

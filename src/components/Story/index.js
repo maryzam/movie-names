@@ -4,6 +4,7 @@ import { throttle } from 'lodash';
 import styles from './story.css';
 
 import TopByGenreSection from './TopByGenreSection';
+import GenresTriangleSection from './GenresTriangleSection';
 
 class Story extends React.Component {
 
@@ -62,6 +63,9 @@ class Story extends React.Component {
 
 		return (
 			<main className="story">
+				<GenresTriangleSection 
+					width = {this.state.viewport.width }
+					height = {this.state.viewport.height }/>
 				<TopByGenreSection 
 					width = {this.state.viewport.width }
 					height = {this.state.viewport.height }/>
