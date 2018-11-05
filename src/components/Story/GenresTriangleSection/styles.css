@@ -33,3 +33,26 @@
 	font-weight: bold;
 	text-anchor: middle;
 }
+
+.genres-triangle .tooltip {
+	display: block;
+	position: absolute;
+	z-index: 10;
+	
+	padding: 10px 5px;
+	border: 1px solid #dadada;
+	background: rgba(255, 255, 255, 0.75);
+	text-align: center;
+}
+
+.genres-triangle .tooltip p {
+	padding: 0;
+}
+
+.genres-triangle .tooltip p.name {
+	font-weight: bold;
+}
+
+.genres-triangle .tooltip p.total {
+	font-size: 0.75em;
+}

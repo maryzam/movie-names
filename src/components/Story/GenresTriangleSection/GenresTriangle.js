@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import * as d3 from 'd3';
+
+import NameTooltip from './NameTooltip';
 
 const minRatio = 0.5;
 const coeff = 1 / (1 - minRatio);
@@ -12,7 +14,9 @@ const triangle = {
 class GenresTriangle extends React.Component {
 
 	state = {
-		isLoading: true
+		isLoading: true,
+		tooltipPos: null,
+		tooltipInfo: null
 	}
 
 	data = [];
@@ -48,6 +52,7 @@ class GenresTriangle extends React.Component {
 
 		const { width, height } = this.props.size;
 		return (
+			<Fragment>
 			<figure className="viz">
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width }
@@ -57,7 +62,10 @@ class GenresTriangle extends React.Component {
 					 	{ this.renderNames() }
 					</g>
 				</svg>
+				
 			</figure>
+			<NameTooltip position={ this.state.tooltipPos } info={ this.state.tooltipInfo } />
+			</Fragment>
 		);
 	}
 
@@ -91,13 +99,31 @@ class GenresTriangle extends React.Component {
 								className={`${(item.sex == "M" ? "male" : "female")}`}
 								r={this.scale.radius(+item.total)}
 								cx={coords.x}
-								cy={coords.y}>							
+								cy={coords.y}
+								onMouseOver={ this.handleCircleOver(item) }
+								onMouseOut={ this.handleCircleOut }>							
 							</circle>
 						);
 					})
 				}
 			</g>
 		);
+	}
+
+	handleCircleOver = (item) => (e) => {
+		const x = e.pageX;
+		const y = e.pageY - 30;
+		this.setState({
+			tooltipInfo: item,
+			tooltipPos: { x, y }
+		});
+	}
+
+	handleCircleOut = (event) => {
+		this.setState({
+			tooltipInfo: null,
+			tooltipPos: null,
+		});
 	}
 
 	getCoordinates(item) {
