@@ -31,9 +31,10 @@ class GenresTriangle extends React.Component {
 						.curve(d3.curveLinearClosed);
 
 	componentDidMount() {
-		d3.tsv("data/triangle/top1000.tsv")
+		d3.tsv("data/triangle/top1000.tsv")	
 			.then((source) => {
 				this.data = source;
+				this.data.sort((a, b) => a.total - b.total);
 				this.setupScales();	
 				this.setState({ isLoading: false });
 			})
@@ -154,12 +155,12 @@ class GenresTriangle extends React.Component {
 		const { height } = this.props.size;
 		this.scale.coords
 				.domain([0, 1])
-				.range([0, Math.floor(height / 3 - 50)]);
+				.range([0, Math.floor(height / 3 - 70)]);
 	}
 
 	updateScales() {
 		const { height } = this.props.size;
-		this.scale.coords.range([0, Math.floor(height / 3 - 50)]);
+		this.scale.coords.range([0, Math.floor(height / 3 - 70)]);
 	}
 
 };
