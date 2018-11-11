@@ -5,6 +5,7 @@ import styles from './story.css';
 
 import TopByGenreSection from './TopByGenreSection';
 import GenresTriangleSection from './GenresTriangleSection';
+import CinemaVsRealSection from './CinemaVsRealSection';
 
 class Story extends React.Component {
 
@@ -61,14 +62,19 @@ class Story extends React.Component {
 
 	render() {
 
+		const { width, height } = this.state.viewport;
+
 		return (
 			<main className="story">
+				<CinemaVsRealSection 
+					width = { width }
+					height = { height }/>
 				<GenresTriangleSection 
-					width = {this.state.viewport.width }
-					height = {this.state.viewport.height }/>
+					width = { width }
+					height = { height }/>
 				<TopByGenreSection 
-					width = {this.state.viewport.width }
-					height = {this.state.viewport.height }/>
+					width = { width }
+					height = { height }/>
 			</main>
 		);
 	}
