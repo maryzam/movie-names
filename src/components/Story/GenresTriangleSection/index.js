@@ -5,19 +5,29 @@ import styles from './styles.css';
 import GenresTriangle from './GenresTriangle';
 import NamesFilter from './NamesFilter' 
 
-class GenresTriangleSection extends React.Component {
+class GenresTriangleSection extends React.PureComponent {
+
+	state = {
+		nameFilter: ""
+	};
+
+	updateFilter = (event) => {
+		const filter = event.target.value || "";
+		this.setState({ nameFilter: filter.toLowerCase() })
+	}
 
 	render() {
 
 		// todo support portrait mode
 		const { width, height } = this.props;
+		const { nameFilter } = this.state;
 		const vizSize = calcVizSize((width - 250), height);
 		const descWidth = width - vizSize.width;
-		
+
 		return(
 			<section className="genres-triangle">
 
-				<GenresTriangle size={ vizSize } />
+				<GenresTriangle size={ vizSize } filter= { nameFilter }/>
 
 				<article className="description" style={{ width : descWidth }}>
 					<div>
@@ -27,7 +37,7 @@ class GenresTriangleSection extends React.Component {
          				<p>However, <span className="female">Anna</span>, <span className="female">Teresa</span> and <span className="female">Cecilia</span> are without doubt Drama Queens and <span className="male">Bruce</span>,<span className="male">Wong</span> and <span className="male">Duke</span> are mainly adventure guys.</p>
           				<p><small>Yes, there are obviously more male characters in adventure/action movies & tv series and more female characters in dramas.</small></p>
 					</div>
-					<NamesFilter />
+					<NamesFilter onFilterChange={ this.updateFilter }/>
 				</article>
 
 			</section>

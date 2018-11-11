@@ -11,7 +11,32 @@ const triangle = {
 					comedy: { title: "Comedy", x: -Math.sqrt(3), y: 1}
 				};
 
-class GenresTriangle extends React.Component {
+function generateKey(item) {
+	return `${item.name}_${item.sex}`;
+};
+
+function isFiltered(item, filter) {
+	return !!filter && (filter.length > 0) && !item.name.toLowerCase().startsWith(filter);
+}
+
+const sortFiltered = (filter) => (first, second) => {
+	if (!filter || !filter.length) {
+		return (second.total - first.total) || (first.name > second.name);
+	}
+	const isFirstFiltered = isFiltered(first, filter);
+	const isSecondFiltered = isFiltered(second, filter);
+	if (isFirstFiltered === isSecondFiltered) {
+		return (second.total - first.total) || (first.name > second.name);
+	}
+	return isFirstFiltered ? -1: 1;
+}
+
+const getClassName = (item, filter) => {
+	const isFiltered = !item.name.toLowerCase().startsWith(filter);
+	return isFiltered ? "item muted": `item ${(item.sex == "M" ? "male" : "female")}`;
+}
+
+class GenresTriangle extends React.PureComponent {
 
 	state = {
 		isLoading: true,
@@ -34,7 +59,7 @@ class GenresTriangle extends React.Component {
 		d3.tsv("data/triangle/top1000.tsv")	
 			.then((source) => {
 				this.data = source;
-				this.data.sort((a, b) => a.total - b.total);
+				this.data.sort((a, b) => b.total - a.total);
 				this.setupScales();	
 				this.setState({ isLoading: false });
 			})
@@ -43,15 +68,26 @@ class GenresTriangle extends React.Component {
 			});
 	}
 
+	componentDidUpdate() {
+		const { filter } = this.props;
+		const items = d3.select(this.viz)
+						.selectAll(".item")
+						.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); });
+		items
+			.attr("class", (d) => getClassName(d, filter));
+	}
+
 	render() {
 
 		if (this.state.isLoading) {
 			return (<div className="preloader">Loading...</div>);
 		}
 
-		this.updateScales();
-
 		const { width, height } = this.props.size;
+
+		this.updateScales();
+		this.data.sort(sortFiltered(this.props.filter));
+
 		return (
 			<Fragment>
 			<figure className="viz">
@@ -90,14 +126,17 @@ class GenresTriangle extends React.Component {
 	}
 
 	renderNames() {
+		const { filter } = this.props;
 		return (
 			<g className="names">
 				{
-					this.data.map((item) => {
+					this.data.map((item, idx) => {
 						const coords = this.getCoordinates(item);
+						const key = generateKey(item);
 						return (
-							<circle key={`${item.name}_${item.sex}`}
-								className={`${(item.sex == "M" ? "male" : "female")}`}
+							<circle key={ key }
+								data-item={ key }
+								className={ getClassName(item, filter)}
 								r={this.scale.radius(+item.total)}
 								cx={coords.x}
 								cy={coords.y}

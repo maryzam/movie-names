@@ -1,10 +1,14 @@
 import React from 'react';
 
-class NamesFilter extends React.Component {
+const NamesFilter = ({ onFilterChange}) => (
+		<div>
+			<input 
+				type="text" 
+				className="search" 
+				placeholder="Enter a name..." 
+				onChange={ onFilterChange } />
+		</div>
+	);
 
-	render() {
-		return null; //todo
-	}
-}
 
 export default NamesFilter;

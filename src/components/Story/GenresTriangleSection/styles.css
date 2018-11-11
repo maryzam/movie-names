@@ -18,8 +18,8 @@
 }
 
 .genres-triangle .muted {
- 	stroke: #878787;
- 	fill: #B0B0B0;
+ 	stroke: #d6d6d6;
+ 	fill: #d6d6d6;
 }
 
 .genres-triangle .axis path {
@@ -55,4 +55,11 @@
 
 .genres-triangle .tooltip p.total {
 	font-size: 0.75em;
+}
+
+.genres-triangle .search {
+	pointer-events: all;
+	padding: 5px 10px;
+	border: solid 1px #dadada;
+	border-radius: 3px;
 }
