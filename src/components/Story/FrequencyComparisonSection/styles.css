@@ -1,1 +1,16 @@
 .frequency-comparison {}
+
+.frequency-comparison .node {
+	cursor: pointer;
+	fill-opacity: 0.5;
+}
+
+.frequency-comparison .female {
+	fill: #CD2C6B;
+	stroke: #CD2C6B;
+}
+
+.frequency-comparison .male {
+	fill: #3FA3BA;
+	stroke: #3FA3BA;
+}

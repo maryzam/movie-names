@@ -32,7 +32,7 @@ class FrequencyComparisonSection extends React.PureComponent {
 			<section className="frequency-comparison">
 
 				<FrequencyComparisonChart 
-					width={ width*0.8 } 
+					width={ width * 0.7 } 
 					height={ height }
 					mode={ currentMode }
 					gender={ currentGender }/>
