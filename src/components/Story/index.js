@@ -6,6 +6,7 @@ import styles from './story.css';
 import TopByGenreSection from './TopByGenreSection';
 import GenresTriangleSection from './GenresTriangleSection';
 import CinemaVsRealSection from './CinemaVsRealSection';
+import FrequencyComparisonSection from './FrequencyComparisonSection';
 
 class Story extends React.Component {
 
@@ -66,6 +67,9 @@ class Story extends React.Component {
 
 		return (
 			<main className="story">
+				<FrequencyComparisonSection 
+					width = { width }
+					height = { height }/>
 				<CinemaVsRealSection 
 					width = { width }
 					height = { height }/>
