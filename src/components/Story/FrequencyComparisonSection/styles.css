@@ -3,6 +3,7 @@
 .frequency-comparison .node {
 	cursor: pointer;
 	fill-opacity: 0.5;
+	font-size: 10px;
 }
 
 .frequency-comparison .female {
@@ -13,4 +14,14 @@
 .frequency-comparison .male {
 	fill: #3FA3BA;
 	stroke: #3FA3BA;
+}
+
+.frequency-comparison .Real {
+	fill: grey;
+	stroke: grey;
+}
+
+.frequency-comparison .Cinema {
+	fill: orange;
+	stroke: orange;
 }
