@@ -1,19 +1,26 @@
 .frequency-comparison {}
 
+.frequency-comparison text {
+	font-size: 10px;
+	font-weight: bold;
+	fill: #333;
+	text-anchor: middle;
+}
+
 .frequency-comparison .node {
 	cursor: pointer;
-	fill-opacity: 0.5;
-	font-size: 10px;
 }
 
 .frequency-comparison .female {
 	fill: #CD2C6B;
 	stroke: #CD2C6B;
+	opacity: 0.5;
 }
 
 .frequency-comparison .male {
 	fill: #3FA3BA;
 	stroke: #3FA3BA;
+	opacity: 0.7;
 }
 
 .frequency-comparison .Real {
@@ -24,4 +31,18 @@
 .frequency-comparison .Cinema {
 	fill: orange;
 	stroke: orange;
+}
+
+.frequency-comparison .axis rect {
+	fill: #fff;
+	stroke: none;
+}
+
+.frequency-comparison .axis line {
+	fill: none;
+	stroke: #dadada;
+}
+
+.frequency-comparison .axis text {
+	pointer-events: none;
 }

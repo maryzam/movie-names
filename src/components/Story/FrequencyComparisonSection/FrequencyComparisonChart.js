@@ -5,8 +5,8 @@ import * as d3 from 'd3';
 const SYMBOLS = {
 	Real: "⬤",
 	Cinema: "★",
-	M: "♂",
-	F: "♀"
+	M: "▼",
+	F: "▲"
 }
 
 const axisOffset = 15;
@@ -23,7 +23,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	scaleFreq = d3.scaleLinear();
 
 	componentDidMount() {
-		d3.json("data/top_names/top_comparison_50.json")	
+		d3.json("data/top_names/top_comparison_100.json")	
 			.then((source) => {
 				this.source = source;
 				this.setState({ isLoading: false });
@@ -75,12 +75,9 @@ class FrequencyComparisonChart extends React.PureComponent {
 					width={ width }
 					height={ height }>
 
-					<g className="axis">
+					<g transform={`translate(0, ${ Math.floor(height / 2) })`}>
 						{ this.renderAxis() }
-					</g>
-
-					<g className="nodes" transform={`translate(0, ${ Math.floor(height / 2) })`}>
-						{  this.renderNames() }
+						{ this.renderNames() }
 					</g>
 
 				</svg>
@@ -93,21 +90,43 @@ class FrequencyComparisonChart extends React.PureComponent {
 		const { mode, gender } = this.props;
 		const data = this.getCurrentData(mode, gender);
 
-		return data.map((info) => {
-			const key = generateKey(info);
-			return (
-				<text 
-					key={ key}
-					data-item={ key }
-					className={ `node ${info.Type} ${info.Sex == "M" ? "male" : "female" }`}
-					transform={ `translate(${this.scaleFreq(info.Frequency)},${0})`}
-				>{ SYMBOLS[info.Sex] }</text>
-			);
-		});
+		return (
+			<g className="nodes">
+			{
+				data.map((info) => {
+					const key = generateKey(info);
+					return (
+						<text 
+							key={ key}
+							data-item={ key }
+							className={ `node ${info.Type} ${info.Sex == "M" ? "male" : "female" }`}
+							transform={ `translate(${this.scaleFreq(info.Frequency)},${0})`}
+						>{ SYMBOLS[info.Sex] }</text>
+					); 
+				})
+			}
+			</g>
+		);
 	}
 
 	renderAxis() {
-
+		const size = this.scaleFreq.range();
+		const ticks = this.scaleFreq.ticks(5);
+		return (
+			<g className="axis">
+				<line x1={ size[0] } x2={ size[1] } />
+				{
+					ticks.map((tick) => (
+						<g key={tick}
+							className="tick"
+							transform={`translate(${this.scaleFreq(tick)}, 0)`}>
+							<rect width={ 30 } height={ 10 } x={ -15 } y={ -5 } />
+							<text >{tick}%</text>
+						</g>
+					))
+				}
+			</g>
+		);
 	}
 
 	updateScales() {
