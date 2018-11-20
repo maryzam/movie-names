@@ -3,24 +3,26 @@ import React from 'react';
 import styles from './styles.css';
 
 import FrequencyComparisonChart from "./FrequencyComparisonChart";
+import ModeSwitch from "./ModeSwitch";
+import GenderSwitch from "./GenderSwitch";
 
-const MODE = {
-	ALL: "All",
-	CINEMA: "Cinema",
-	REAL: "Real"
-};
-
-const GENDER = {
-	ALL: "All",
-	MALE: "Male",
-	FEMALE: "Female"
-};
+import { MODE, GENDER } from "./constants";
 
 class FrequencyComparisonSection extends React.PureComponent {
 
 	state = {
 		currentGender: GENDER.ALL,
 		currentMode: MODE.ALL
+	}
+
+	handleModeChanged = (event) => {
+		const currentMode = event.target.value;
+		this.setState({ currentMode });
+	}
+
+	handleGenderChanged = (event) => {
+		const currentGender = event.target.value;
+		this.setState({ currentGender });
 	}
 
 	render() {
@@ -40,7 +42,10 @@ class FrequencyComparisonSection extends React.PureComponent {
 				<article className="description">
 					
 					<h4>Frequency Distribution of the most popular names</h4>
-					<p></p>
+					<ModeSwitch 
+						currentMode={ currentMode } 
+						onChange={ this.handleModeChanged} />
+					<GenderSwitch currentGender={ currentGender } onChange={ this.handleGenderChanged } />
 
 				</article>
 
