@@ -2,13 +2,6 @@ import React from 'react';
 import memoize from "memoize-one";
 import * as d3 from 'd3';
 
-const SYMBOLS = {
-	Real: "⬤",
-	Cinema: "★",
-	M: "▼",
-	F: "▲"
-}
-
 const axisOffset = 15;
 
 const generateKey = (info) => `${info.Name}_${info.Sex}_${info.Type}`;
@@ -95,13 +88,16 @@ class FrequencyComparisonChart extends React.PureComponent {
 			{
 				data.map((info) => {
 					const key = generateKey(info);
+					const xPos = this.scaleFreq(info.Frequency);
 					return (
-						<text 
+						<g 
 							key={ key}
 							data-item={ key }
 							className={ `node ${info.Type} ${info.Sex == "M" ? "male" : "female" }`}
-							transform={ `translate(${this.scaleFreq(info.Frequency)},${0})`}
-						>{ SYMBOLS[info.Sex] }</text>
+							transform={ `translate(${xPos},0)`}
+						>
+							<text>▼</text>
+						</g>
 					); 
 				})
 			}
