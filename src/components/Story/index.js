@@ -3,6 +3,7 @@ import { throttle } from 'lodash';
 
 import styles from './story.css';
 
+import TopByDecadeSection from './TopByDecadeSection';
 import TopByGenreSection from './TopByGenreSection';
 import GenresTriangleSection from './GenresTriangleSection';
 import CinemaVsRealSection from './CinemaVsRealSection';
@@ -67,6 +68,9 @@ class Story extends React.Component {
 
 		return (
 			<main className="story">
+				<TopByDecadeSection 
+					width = { width }
+					height = { height }/>
 				<FrequencyComparisonSection 
 					width = { width }
 					height = { height }/>
