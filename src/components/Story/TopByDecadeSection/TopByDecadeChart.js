@@ -31,6 +31,13 @@ const calculateLinks = (data) => {
 			}
 		});
 	}
+	links.forEach((link) => {
+		link["isDouble"] = links.some(other => 
+			(other.from == link.from) &&
+			(other.till === link.till) &&
+			(other.gender !== link.gender)
+		);		
+	})
 	return links;
 };
 
@@ -113,16 +120,19 @@ class TopByDecadeChart extends React.PureComponent {
 		return (
 			<g className="links">
 				{ 
-					links.map((link) => (
-						<line 
-							key={ `${ link.from }_${ link.till}_${ link.gender }`}
-							className={ `link ${ link.gender }`}
-							x1={ fromX }
-							y1={ this.scales.order(link.from) + offset }
-							x2={ tillX }
-							y2= { this.scales.order(link.till) + offset }
-						/>
-					))
+					links.map((link) => {
+						const yOffset = offset + (link.isDouble && (link.gender === "male") ? 0 : 4);
+						return (
+							<line 
+								key={ `${ link.from }_${ link.till}_${ link.gender }`}
+								className={ `link ${ link.gender }`}
+								x1={ fromX }
+								y1={ this.scales.order(link.from) + yOffset }
+								x2={ tillX }
+								y2= { this.scales.order(link.till) + yOffset }
+							/>
+						)
+					})
 				}
 			</g>
 		);
