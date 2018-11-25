@@ -11,12 +11,33 @@ const getDistinct = (data, action) => {
 		result[current] = current;
 	});
 	return Object.keys(result);
-}
+};
+
+const genders = ["Male", "Female"];
+const calculateLinks = (data) => {
+	const links = [];
+	for (let i = 0; i < data.length; i++) {
+		const item = data[i];
+		if (item.Type === "Cinema") {
+			continue;
+		}
+		genders.forEach(gender => {
+			if (item[gender].IsAbsoluteTop) {
+				links.push({
+					from: item.Order,
+					till: data.find((d) => (d.Type === "Cinema") && (d[gender].Name == item[gender].Name)).Order,
+					gender: gender.toLowerCase()
+				});
+			}
+		});
+	}
+	return links;
+};
 
 class TopByDecadeChart extends React.PureComponent {
 
 	scales = {
-		type: d3.scaleBand().padding(0.5),
+		type: d3.scaleBand().paddingInner(0.5).paddingOuter(0.05),
 		order: d3.scaleBand().padding(0.3),
 		gender: d3.scalePoint().domain(["Male", "Female"]).padding(0.5)
 	};
@@ -27,44 +48,83 @@ class TopByDecadeChart extends React.PureComponent {
 
 		this.updateScales();
 
+		return (
+			<figure className="viz">
+				<svg ref={ viz => (this.viz = viz) }
+					width={ width }
+					height={ height }>
+					{ this.renderItems(data) }
+					{ this.renderLinks(data) }
+				</svg>
+			</figure>
+		);
+	}
+
+	renderItems(data) {
+
 		const borderLines = this.generateBorders(); 
 		const labelOffset = this.scales.order.bandwidth() / 2 + 5;
 		const labelMale = this.scales.gender("Male");
 		const labelFemale = this.scales.gender("Female");
 
 		return (
-			<figure className="viz">
-				<svg ref={ viz => (this.viz = viz) }
-					width={ width }
-					height={ height }>
-					{
-						data.Stats.map((item) => {
-							const y = this.scales.order(item.Order);
-							const x = this.scales.type(item.Type);
+			<g className="items">
+			{
+				data.Stats.map((item) => {
+					const y = this.scales.order(item.Order);
+					const x = this.scales.type(item.Type);
 
-							return (
-								<g 
-									className="item"
-									key={`${item.Type}_${item.Order}`}
-									transform={`translate(${x},${y})`}>
-									<path 
-										className="male"
-										d={ borderLines.male } />
-									<text transform={ `translate(${labelMale}, ${labelOffset})` }>
-										{ item.Male.Name }
-									</text>
-									<path 
-										className="female"
-										d={ borderLines.female } />
-									<text transform={ `translate(${labelFemale}, ${labelOffset})` }>
-										{ item.Female.Name }
-									</text>									
-								</g>
-							)}
-						)
-					}
-				</svg>
-			</figure>
+					return (
+						<g className="item"
+							key={`${item.Type}_${item.Order}`}
+							transform={`translate(${x},${y})`}>
+							<path 
+								className="male"
+								d={ borderLines.male } 
+								style={{ opacity: item.Male.IsAbsoluteTop ? 1 : 0.4 }} />
+							<text transform={ `translate(${labelMale}, ${labelOffset})` }>
+									{ item.Male.Name }
+							</text>
+							
+							<path 
+								className="female"
+								d={ borderLines.female } 
+								style={{ opacity: item.Female.IsAbsoluteTop ? 1 : 0.5 }}/>
+							<text transform={ `translate(${labelFemale}, ${labelOffset})` }>
+								{ item.Female.Name }
+							</text>									
+						</g>
+					);
+				}) 
+			}
+			</g>
+		);
+	}
+
+	renderLinks(data) {
+		
+		const links = calculateLinks(data.Stats);
+
+		const labelWidth = this.scales.type.bandwidth();
+		const fromX = this.scales.type("Real") + labelWidth + 5;
+		const tillX = this.scales.type("Cinema") - 5;
+		const offset = this.scales.order.bandwidth() / 2;
+
+		return (
+			<g className="links">
+				{ 
+					links.map((link) => (
+						<line 
+							key={ `${ link.from }_${ link.till}_${ link.gender }`}
+							className={ `link ${ link.gender }`}
+							x1={ fromX }
+							y1={ this.scales.order(link.from) + offset }
+							x2={ tillX }
+							y2= { this.scales.order(link.till) + offset }
+						/>
+					))
+				}
+			</g>
 		);
 	}
 
