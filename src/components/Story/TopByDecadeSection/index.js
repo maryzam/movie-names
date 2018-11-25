@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import styles from './styles.css';
 
 import TopByDecadeChart from './TopByDecadeChart';
+import DecadeSwitch from "./DecadeSwitch";
 
 class TopByDecadeSection extends React.PureComponent {
 
@@ -12,17 +13,17 @@ class TopByDecadeSection extends React.PureComponent {
 		decade: null,
 	}
 
-	source = [];
-	decadesRange = null;
+	source = null;
+	decades = null;
 
 	componentDidMount() {
 		d3.json("data/top_names/by_decades_flatten.json")
 			.then((source) => {
 				this.source = source;
-				this.updateDecadesRange();
+				this.updateDecades();
 				this.setState({ 
 					isLoading: false,
-					decade: this.decadesRange.first
+					decade: this.decades.range.first
 				});
 			});
 	}
@@ -41,20 +42,50 @@ class TopByDecadeSection extends React.PureComponent {
 				{
 					isLoading ? 
 						<div className="preloader">Loading...</div> :
-						<TopByDecadeChart
-							width={ width * 0.7 } 
-							height={ height } 
-							data={ this.source.find((d) => d.From === decade ) }/>
+						<article className="fixed">
+							<DecadeSwitch 
+								decade={ decade }
+								isFirst={ decade == this.decades.range.first }
+								isLast={ decade == this.decades.range.last } 
+								onSwitch={ this.onDecadeSwitch }/>
+							<TopByDecadeChart
+								width={ width * 0.7 } 
+								height={ height * 0.7 } 
+								data={ this.source.find((d) => d.From === decade ) }/>
+						</article>
 				}
 			</section>
 		);
 	}
 
-	updateDecadesRange() {
-		const range = d3.extent(this.source, d => d.From);
-		this.decadesRange = {
-			first: range[0],
-			last: range[1]
+	onDecadeSwitch = (event) => {
+
+		const direction = event.target.value;
+		const current = this.state.decade;
+		const currentPos = this.decades.all.findIndex(d => d === current)
+
+		if (direction == "next") {
+			const next = currentPos + 1;
+			if (next >= this.decades.all.length) { return; }
+			this.setState({ decade: this.decades.all[next] });
+		} 
+
+		if (direction == "prev") {
+			const prev = currentPos - 1;
+			if (prev < 0) { return; }
+			this.setState({ decade: this.decades.all[prev] });
+		}
+	}
+
+	updateDecades() {
+		const decades = this.source.map(d => d.From);
+		decades.sort((a, b) => (a - b));
+		this.decades = {
+			all: decades,
+			range: {
+				first: decades[0],
+				last: decades[(decades.length - 1)]
+			}
 		};
 	}
 } 

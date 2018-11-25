@@ -24,3 +24,28 @@
 .top-by-decades .item text {
 	text-anchor: middle;
 }
+
+.top-by-decades .decade-switch {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.top-by-decades .decade-switch button {
+	border: none;
+	box-shadow: none;
+	background: white;
+	font-size: 2em;
+	color: #999;
+	cursor: pointer;
+	pointer-events: all;
+}
+
+.top-by-decades .decade-switch button:disabled {
+	color: white;
+}
+
+.top-by-decades .decade-switch span {
+	font-size: 2em;
+	padding: 10px;
+}
