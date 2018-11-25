@@ -1,0 +1,18 @@
+.top-by-decades {  }
+
+.top-by-decades .item path { 
+	stroke: white;
+	stroke-width: 3px;
+}
+
+.top-by-decades .item text {
+	text-anchor: middle;
+}
+
+.top-by-decades .male {
+	fill: #8CBEC7;
+}
+
+.top-by-decades .female {
+	fill: #E1729D;
+}

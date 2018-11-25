@@ -1,4 +1,5 @@
 import React from 'react';
+import * as d3 from 'd3';
 
 import styles from './styles.css';
 
@@ -15,18 +16,21 @@ class TopByDecadeSection extends React.PureComponent {
 	decadesRange = null;
 
 	componentDidMount() {
-		d3.json("data/top_names/by_decades.json")
+		d3.json("data/top_names/by_decades_flatten.json")
 			.then((source) => {
 				this.source = source;
 				this.updateDecadesRange();
-				this.setState({ isLoading: false });
+				this.setState({ 
+					isLoading: false,
+					decade: this.decadesRange.first
+				});
 			});
 	}
 
 	render() {
 
 		const { width, height } = this.props;
-		const { isLoading, gender, decade } = this.state;
+		const { isLoading, decade } = this.state;
 
 		return (
 			<section className="top-by-decades">
@@ -37,22 +41,17 @@ class TopByDecadeSection extends React.PureComponent {
 				{
 					isLoading ? 
 						<div className="preloader">Loading...</div> :
-						<TopByDecadeSection 
-							width={ width } 
-							height={height } 
+						<TopByDecadeChart
+							width={ width * 0.7 } 
+							height={ height } 
 							data={ this.source.find((d) => d.From === decade ) }/>
 				}
-
-				<TopByDecadeChart
-					width = { width * 0.7 }
-					height = { height } />
-
 			</section>
 		);
 	}
 
 	updateDecadesRange() {
-		const range = d3.extent(source, d => d.From);
+		const range = d3.extent(this.source, d => d.From);
 		this.decadesRange = {
 			first: range[0],
 			last: range[1]
