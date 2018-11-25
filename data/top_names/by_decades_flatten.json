@@ -1,0 +1,1958 @@
+[
+  {
+    "From": 1960,
+    "Till": 1970,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jennifer",
+          "Sex": "F",
+          "Total": 1412052,
+          "Frequency": 1.3922506455806962
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 3039687,
+          "Frequency": 2.793789083527381
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 3266,
+          "Frequency": 1.2270076941572494
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 5848,
+          "Frequency": 1.595394961192727
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jessica",
+          "Sex": "F",
+          "Total": 1036469,
+          "Frequency": 1.0219344856806822
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 2094580,
+          "Frequency": 1.925137271888448
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 2806,
+          "Frequency": 1.054189709064679
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 4063,
+          "Frequency": 1.108428475944947
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 893950,
+          "Frequency": 0.8814140446788528
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 2006605,
+          "Frequency": 1.8442790800340496
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 2768,
+          "Frequency": 1.039913440730945
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 4003,
+          "Frequency": 1.0920598545920803
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 865644,
+          "Frequency": 0.8535049827081838
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 1922823,
+          "Frequency": 1.7672746920835496
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 2579,
+          "Frequency": 0.9689077903342149
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 3700,
+          "Frequency": 1.0093983167601042
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ashley",
+          "Sex": "F",
+          "Total": 843497,
+          "Frequency": 0.8316685524296418
+        },
+        "Male": {
+          "Name": "Christopher",
+          "Sex": "M",
+          "Total": 1918601,
+          "Frequency": 1.7633942341578972
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 2249,
+          "Frequency": 0.8449296705938928
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 3348,
+          "Frequency": 0.9133690714899537
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 823349,
+          "Frequency": 0.8118030899628489
+        },
+        "Male": {
+          "Name": "Robert",
+          "Sex": "M",
+          "Total": 1734326,
+          "Frequency": 1.594026307997405
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 1861,
+          "Frequency": 0.6991614570810291
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 3183,
+          "Frequency": 0.8683553627695707
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Kimberly",
+          "Sex": "F",
+          "Total": 784955,
+          "Frequency": 0.7739474930822628
+        },
+        "Male": {
+          "Name": "Matthew",
+          "Sex": "M",
+          "Total": 1521442,
+          "Frequency": 1.3983637298248357
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 1700,
+          "Frequency": 0.6386751622986295
+        },
+        "Male": {
+          "Name": "Frank",
+          "Sex": "M",
+          "Total": 3159,
+          "Frequency": 0.8618079142284241
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Amanda",
+          "Sex": "F",
+          "Total": 757845,
+          "Frequency": 0.7472176594772025
+        },
+        "Male": {
+          "Name": "William",
+          "Sex": "M",
+          "Total": 1496667,
+          "Frequency": 1.375592923309431
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Kate",
+          "Sex": "F",
+          "Total": 1562,
+          "Frequency": 0.5868297667708584
+        },
+        "Male": {
+          "Name": "Peter",
+          "Sex": "M",
+          "Total": 3152,
+          "Frequency": 0.8598982417372564
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Michelle",
+          "Sex": "F",
+          "Total": 756371,
+          "Frequency": 0.7457643295349724
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 1419696,
+          "Frequency": 1.3048485540542458
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Eva",
+          "Sex": "F",
+          "Total": 1480,
+          "Frequency": 0.556023082471748
+        },
+        "Male": {
+          "Name": "Mike",
+          "Sex": "M",
+          "Total": 2767,
+          "Frequency": 0.7548662547230293
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 752234,
+          "Frequency": 0.7416853431231637
+        },
+        "Male": {
+          "Name": "Joseph",
+          "Sex": "M",
+          "Total": 1379187,
+          "Frequency": 1.2676165620811872
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female":{
+            "Name":"Julia",
+            "Sex":"F",
+            "Total":1452,
+            "Frequency":0.54550372685741766
+        },
+        "Male":{
+          "Name":"Joe",
+          "Sex":"M",
+          "Total":2713,
+          "Frequency":0.74013449550544941
+        }
+      }
+    ]
+  },
+  {
+    "From": 1970,
+    "Till": 1980,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jennifer",
+          "Sex": "F",
+          "Total": 1247641,
+          "Frequency": 1.500308601750397
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 2206433,
+          "Frequency": 2.4642827581894267
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 3038,
+          "Frequency": 1.2042748188434522
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 5422,
+          "Frequency": 1.5680082362365488
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jessica",
+          "Sex": "F",
+          "Total": 1022796,
+          "Frequency": 1.2299288309985799
+        },
+        "Male": {
+          "Name": "Christopher",
+          "Sex": "M",
+          "Total": 1681398,
+          "Frequency": 1.8778907408718895
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 2763,
+          "Frequency": 1.095263767104825
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 3887,
+          "Frequency": 1.1240959081983521
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ashley",
+          "Sex": "F",
+          "Total": 840925,
+          "Frequency": 1.011225994438266
+        },
+        "Male": {
+          "Name": "Matthew",
+          "Sex": "M",
+          "Total": 1415442,
+          "Frequency": 1.5808543997561486
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 2541,
+          "Frequency": 1.007262118064915
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 3858,
+          "Frequency": 1.1157092909259694
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 779441,
+          "Frequency": 0.9372904840871142
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 1360524,
+          "Frequency": 1.519518532990991
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 2397,
+          "Frequency": 0.9501799673363248
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 3439,
+          "Frequency": 0.9945371310249892
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Amanda",
+          "Sex": "F",
+          "Total": 740666,
+          "Frequency": 0.8906629157137828
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 1321720,
+          "Frequency": 1.476179792068977
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 2126,
+          "Frequency": 0.8427545308957141
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 3260,
+          "Frequency": 0.9427714588954536
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 739901,
+          "Frequency": 0.8897429907671522
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 1209283,
+          "Frequency": 1.3506030986082898
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 1791,
+          "Frequency": 0.709959249686841
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 2984,
+          "Frequency": 0.8629539979582925
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 725055,
+          "Frequency": 0.8718904342211695
+        },
+        "Male": {
+          "Name": "Joshua",
+          "Sex": "M",
+          "Total": 1189728,
+          "Frequency": 1.3287628481513782
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 1633,
+          "Frequency": 0.6473274454151934
+        },
+        "Male": {
+          "Name": "Frank",
+          "Sex": "M",
+          "Total": 2976,
+          "Frequency": 0.860640448365911
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Melissa",
+          "Sex": "F",
+          "Total": 605969,
+          "Frequency": 0.7286875816794145
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 1177604,
+          "Frequency": 1.3152220045543652
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Kate",
+          "Sex": "F",
+          "Total": 1520,
+          "Frequency": 0.6025338132462302
+        },
+        "Male": {
+          "Name": "Peter",
+          "Sex": "M",
+          "Total": 2880,
+          "Frequency": 0.8328778532573332
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Stephanie",
+          "Sex": "F",
+          "Total": 592241,
+          "Frequency": 0.7121794383234095
+        },
+        "Male": {
+          "Name": "Joseph",
+          "Sex": "M",
+          "Total": 1096083,
+          "Frequency": 1.224174238893518
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Marie",
+          "Sex": "F",
+          "Total": 1401,
+          "Frequency": 0.5553617581302425
+        },
+        "Male": {
+          "Name": "Mike",
+          "Sex": "M",
+          "Total": 2601,
+          "Frequency": 0.7521928112230291
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Nicole",
+          "Sex": "F",
+          "Total": 565253,
+          "Frequency": 0.6797259292258088
+        },
+        "Male": {
+          "Name": "Robert",
+          "Sex": "M",
+          "Total": 1083454,
+          "Frequency": 1.2100693796237487
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sara",
+          "Sex": "F",
+          "Total": 1377,
+          "Frequency": 0.5458480663421441
+        },
+        "Male": {
+          "Name":"James",
+          "Sex":"M",
+          "Total":2521,
+          "Frequency":0.72905731529921425
+        }
+      }
+    ]
+  },
+  {
+    "From": 1980,
+    "Till": 1990,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jessica",
+          "Sex": "F",
+          "Total": 879305,
+          "Frequency": 1.298681618941804
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 1498786,
+          "Frequency": 2.0527629655968886
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 2761,
+          "Frequency": 1.18581319040011
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 4909,
+          "Frequency": 1.538900418189684
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ashley",
+          "Sex": "F",
+          "Total": 819857,
+          "Frequency": 1.2108804294991733
+        },
+        "Male": {
+          "Name": "Christopher",
+          "Sex": "M",
+          "Total": 1205784,
+          "Frequency": 1.6514624100500532
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 2657,
+          "Frequency": 1.1411465580923912
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 3622,
+          "Frequency": 1.1354445538160591
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 693053,
+          "Frequency": 1.0235984010695653
+        },
+        "Male": {
+          "Name": "Matthew",
+          "Sex": "M",
+          "Total": 1137483,
+          "Frequency": 1.557916191101362
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 2286,
+          "Frequency": 0.9818069370715868
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 3592,
+          "Frequency": 1.1260399882129444
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jennifer",
+          "Sex": "F",
+          "Total": 665869,
+          "Frequency": 0.9834492365256198
+        },
+        "Male": {
+          "Name": "Joshua",
+          "Sex": "M",
+          "Total": 1049332,
+          "Frequency": 1.437183072310333
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 2173,
+          "Frequency": 0.933274923121854
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 3085,
+          "Frequency": 0.9671028295203045
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 660609,
+          "Frequency": 0.9756805267882318
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 933047,
+          "Frequency": 1.2779171454505716
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 1957,
+          "Frequency": 0.840505763713515
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 3066,
+          "Frequency": 0.9611466046383318
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Amanda",
+          "Sex": "F",
+          "Total": 616731,
+          "Frequency": 0.9108753089446753
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 914569,
+          "Frequency": 1.2526093602975883
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 1696,
+          "Frequency": 0.7284096960951055
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 2734,
+          "Frequency": 0.8570694119638614
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 582197,
+          "Frequency": 0.8598706279425926
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 876772,
+          "Frequency": 1.2008419419932634
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 1500,
+          "Frequency": 0.6442302736690203
+        },
+        "Male": {
+          "Name": "Frank",
+          "Sex": "M",
+          "Total": 2699,
+          "Frequency": 0.8460974187602275
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Samantha",
+          "Sex": "F",
+          "Total": 528906,
+          "Frequency": 0.7811629643275471
+        },
+        "Male": {
+          "Name": "Joseph",
+          "Sex": "M",
+          "Total": 851158,
+          "Frequency": 1.1657605690682438
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Kate",
+          "Sex": "F",
+          "Total": 1437,
+          "Frequency": 0.6171726021749214
+        },
+        "Male": {
+          "Name": "Peter",
+          "Sex": "M",
+          "Total": 2583,
+          "Frequency": 0.8097330984281836
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Stephanie",
+          "Sex": "F",
+          "Total": 431775,
+          "Frequency": 0.637706206627504
+        },
+        "Male": {
+          "Name": "Andrew",
+          "Sex": "M",
+          "Total": 850938,
+          "Frequency": 1.1654592533017292
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sara",
+          "Sex": "F",
+          "Total": 1335,
+          "Frequency": 0.573364943565428
+        },
+        "Male": {
+          "Name": "Mike",
+          "Sex": "M",
+          "Total": 2406,
+          "Frequency": 0.7542461613698064
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Lauren",
+          "Sex": "F",
+          "Total": 421481,
+          "Frequency": 0.6225025758220532
+        },
+        "Male": {
+          "Name": "Jacob",
+          "Sex": "M",
+          "Total": 836446,
+          "Frequency": 1.1456107619911418
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Julia",
+          "Sex": "F",
+          "Total": 1288,
+          "Frequency": 0.553179061657132
+        },
+        "Male": {
+          "Name":"James",
+          "Sex":"M",
+          "Total":2368,
+          "Frequency":0.74233371160586092
+        }
+      }
+    ]
+  },
+  {
+    "From": 1990,
+    "Till": 2000,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 561299,
+          "Frequency": 1.1107014544337923
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 835096,
+          "Frequency": 1.5306666247293896
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 2491,
+          "Frequency": 1.1916778690446006
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 4360,
+          "Frequency": 1.5162264045959744
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ashley",
+          "Sex": "F",
+          "Total": 467686,
+          "Frequency": 0.9254595508246454
+        },
+        "Male": {
+          "Name": "Jacob",
+          "Sex": "M",
+          "Total": 712218,
+          "Frequency": 1.305440718350365
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 2448,
+          "Frequency": 1.1711069544043284
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 3242,
+          "Frequency": 1.1274325696559975
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Jessica",
+          "Sex": "F",
+          "Total": 409833,
+          "Frequency": 0.8109797259125073
+        },
+        "Male": {
+          "Name": "Matthew",
+          "Sex": "M",
+          "Total": 678528,
+          "Frequency": 1.243689544129517
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 2020,
+          "Frequency": 0.9663545947290619
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 3229,
+          "Frequency": 1.1229117111101838
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Samantha",
+          "Sex": "F",
+          "Total": 407773,
+          "Frequency": 0.806903386927165
+        },
+        "Male": {
+          "Name": "Joshua",
+          "Sex": "M",
+          "Total": 652762,
+          "Frequency": 1.1964624513727833
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 1903,
+          "Frequency": 0.9103825711729727
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 2808,
+          "Frequency": 0.9765054458957559
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emma",
+          "Sex": "F",
+          "Total": 397978,
+          "Frequency": 0.7875209886934625
+        },
+        "Male": {
+          "Name": "Christopher",
+          "Sex": "M",
+          "Total": 650925,
+          "Frequency": 1.193095371911706
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 1738,
+          "Frequency": 0.831447666157975
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 2711,
+          "Frequency": 0.9427728859769923
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 388002,
+          "Frequency": 0.767780426694543
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 587569,
+          "Frequency": 1.076968705425032
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 1518,
+          "Frequency": 0.7262011261379782
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 2450,
+          "Frequency": 0.8520079567110407
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 383232,
+          "Frequency": 0.7583415252576098
+        },
+        "Male": {
+          "Name": "Andrew",
+          "Sex": "M",
+          "Total": 565863,
+          "Frequency": 1.0371832798495582
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 1347,
+          "Frequency": 0.6443958609406171
+        },
+        "Male": {
+          "Name": "Frank",
+          "Sex": "M",
+          "Total": 2365,
+          "Frequency": 0.8224484969884127
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Olivia",
+          "Sex": "F",
+          "Total": 379362,
+          "Frequency": 0.7506835486200979
+        },
+        "Male": {
+          "Name": "Joseph",
+          "Sex": "M",
+          "Total": 551741,
+          "Frequency": 1.0112987419348411
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Kate",
+          "Sex": "F",
+          "Total": 1280,
+          "Frequency": 0.6123435055708907
+        },
+        "Male": {
+          "Name": "Peter",
+          "Sex": "M",
+          "Total": 2264,
+          "Frequency": 0.7873249036709371
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Madison",
+          "Sex": "F",
+          "Total": 369832,
+          "Frequency": 0.7318255337995584
+        },
+        "Male": {
+          "Name": "William",
+          "Sex": "M",
+          "Total": 543294,
+          "Frequency": 0.9958160417673285
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sara",
+          "Sex": "F",
+          "Total": 1240,
+          "Frequency": 0.5932077710218003
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 2176,
+          "Frequency": 0.7567221688992752
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Hannah",
+          "Sex": "F",
+          "Total": 367423,
+          "Frequency": 0.7270585917531072
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 530892,
+          "Frequency": 0.9730841313284162
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Rachel",
+          "Sex": "F",
+          "Total": 1207,
+          "Frequency": 0.5774207900188009
+        },
+        "Male": {
+          "Name":"Mike",
+          "Sex":"M",
+          "Total":2162,
+          "Frequency":0.75185355200378357
+        }
+      }
+    ]
+  },
+  {
+    "From": 2000,
+    "Till": 2010,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emma",
+          "Sex": "F",
+          "Total": 339802,
+          "Frequency": 1.044420016047336
+        },
+        "Male": {
+          "Name": "Jacob",
+          "Sex": "M",
+          "Total": 413884,
+          "Frequency": 1.1796776017991535
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 2171,
+          "Frequency": 1.2391481783779772
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 3530,
+          "Frequency": 1.4582558763993887
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 324072,
+          "Frequency": 0.9960720756219572
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 372782,
+          "Frequency": 1.0625261564928628
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 2049,
+          "Frequency": 1.1695138726377132
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 2734,
+          "Frequency": 1.1294253728260422
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Olivia",
+          "Sex": "F",
+          "Total": 303477,
+          "Frequency": 0.9327710054973114
+        },
+        "Male": {
+          "Name": "Ethan",
+          "Sex": "M",
+          "Total": 327315,
+          "Frequency": 0.9329333200435144
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 1656,
+          "Frequency": 0.9452000844744037
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 2581,
+          "Frequency": 1.066220514727145
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Isabella",
+          "Sex": "F",
+          "Total": 291549,
+          "Frequency": 0.8961089436159434
+        },
+        "Male": {
+          "Name": "Matthew",
+          "Sex": "M",
+          "Total": 326922,
+          "Frequency": 0.9318131673014246
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 1568,
+          "Frequency": 0.8949720606617542
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 2306,
+          "Frequency": 0.9526170116082125
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Madison",
+          "Sex": "F",
+          "Total": 277937,
+          "Frequency": 0.8542709165930408
+        },
+        "Male": {
+          "Name": "William",
+          "Sex": "M",
+          "Total": 325521,
+          "Frequency": 0.9278199510376391
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 1423,
+          "Frequency": 0.8122099759704567
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 2216,
+          "Frequency": 0.9154376833147436
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sophia",
+          "Sex": "F",
+          "Total": 272135,
+          "Frequency": 0.8364378110400816
+        },
+        "Male": {
+          "Name": "Joshua",
+          "Sex": "M",
+          "Total": 323648,
+          "Frequency": 0.9224814113787738
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 1247,
+          "Frequency": 0.7117539283451578
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 2034,
+          "Frequency": 0.8402528194323956
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Abigail",
+          "Sex": "F",
+          "Total": 250209,
+          "Frequency": 0.7690457613409807
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 315342,
+          "Frequency": 0.8988071399390859
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 1146,
+          "Frequency": 0.6541058555601852
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 1906,
+          "Frequency": 0.7873755525261288
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ava",
+          "Sex": "F",
+          "Total": 230438,
+          "Frequency": 0.7082773487440216
+        },
+        "Male": {
+          "Name": "Alexander",
+          "Sex": "M",
+          "Total": 297106,
+          "Frequency": 0.8468297724969781
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sara",
+          "Sex": "F",
+          "Total": 1093,
+          "Frequency": 0.6238548866730212
+        },
+        "Male": {
+          "Name": "Frank",
+          "Sex": "M",
+          "Total": 1860,
+          "Frequency": 0.7683727847316891
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 210608,
+          "Frequency": 0.6473275929502986
+        },
+        "Male": {
+          "Name": "Andrew",
+          "Sex": "M",
+          "Total": 293028,
+          "Frequency": 0.8352064063844031
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Kate",
+          "Sex": "F",
+          "Total": 1082,
+          "Frequency": 0.6175763836964401
+        },
+        "Male":  {
+          "Name": "Mike",
+          "Sex": "M",
+          "Total": 1818,
+          "Frequency": 0.7510224315280704
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Hannah",
+          "Sex": "F",
+          "Total": 208650,
+          "Frequency": 0.6413094577085382
+        },
+        "Male": {
+          "Name": "Joseph",
+          "Sex": "M",
+          "Total": 291074,
+          "Frequency": 0.8296369955496873
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Rachel",
+          "Sex": "F",
+          "Total": 1033,
+          "Frequency": 0.5896085068007603
+        },
+        "Male": {
+          "Name":"Peter",
+          "Sex":"M",
+          "Total":1818,
+          "Frequency":0.75102243152807036
+        }
+      }
+    ]
+  },
+  {
+    "From": 2010,
+    "Till": 2020,
+    "Stats": [
+      {
+        "Order": 0,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emma",
+          "Sex": "F",
+          "Total": 158573,
+          "Frequency": 1.126701379619987
+        },
+        "Male": {
+          "Name": "Noah",
+          "Sex": "M",
+          "Total": 145195,
+          "Frequency": 0.9589803811748047
+        }
+      },
+      {
+        "Order": 0,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Sarah",
+          "Sex": "F",
+          "Total": 1310,
+          "Frequency": 1.260245507369069
+        },
+        "Male": {
+          "Name": "John",
+          "Sex": "M",
+          "Total": 2067,
+          "Frequency": 1.4338036375743954
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Real",
+        "Female": {
+          "Name": "Sophia",
+          "Sex": "F",
+          "Total": 152936,
+          "Frequency": 1.0866490650587572
+        },
+        "Male": {
+          "Name": "Jacob",
+          "Sex": "M",
+          "Total": 140091,
+          "Frequency": 0.9252696069365994
+        }
+      },
+      {
+        "Order": 1,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Anna",
+          "Sex": "F",
+          "Total": 1146,
+          "Frequency": 1.102474314080117
+        },
+        "Male": {
+          "Name": "David",
+          "Sex": "M",
+          "Total": 1632,
+          "Frequency": 1.1320597660964749
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Real",
+        "Female": {
+          "Name": "Olivia",
+          "Sex": "F",
+          "Total": 147486,
+          "Frequency": 1.0479254329213257
+        },
+        "Male": {
+          "Name": "Mason",
+          "Sex": "M",
+          "Total": 133535,
+          "Frequency": 0.8819686986478703
+        }
+      },
+      {
+        "Order": 2,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Maria",
+          "Sex": "F",
+          "Total": 948,
+          "Frequency": 0.9119944587678455
+        },
+        "Male": {
+          "Name": "Jack",
+          "Sex": "M",
+          "Total": 1456,
+          "Frequency": 1.0099748893605804
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Real",
+        "Female": {
+          "Name": "Isabella",
+          "Sex": "F",
+          "Total": 142064,
+          "Frequency": 1.0094007478847837
+        },
+        "Male": {
+          "Name": "Liam",
+          "Sex": "M",
+          "Total": 133019,
+          "Frequency": 0.8785606344811553
+        }
+      },
+      {
+        "Order": 3,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Mary",
+          "Sex": "F",
+          "Total": 898,
+          "Frequency": 0.8638934852041406
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 1374,
+          "Frequency": 0.9530944354268115
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Real",
+        "Female": {
+          "Name": "Ava",
+          "Sex": "F",
+          "Total": 125937,
+          "Frequency": 0.8948143230260025
+        },
+        "Male": {
+          "Name": "William",
+          "Sex": "M",
+          "Total": 131241,
+          "Frequency": 0.8668173436121253
+        }
+      },
+      {
+        "Order": 4,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Laura",
+          "Sex": "F",
+          "Total": 801,
+          "Frequency": 0.770577596490553
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 1254,
+          "Frequency": 0.8698547467432471
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Real",
+        "Female": {
+          "Name": "Mia",
+          "Sex": "F",
+          "Total": 103580,
+          "Frequency": 0.7359621682192948
+        },
+        "Male": {
+          "Name": "Ethan",
+          "Sex": "M",
+          "Total": 125561,
+          "Frequency": 0.8293022186761916
+        }
+      },
+      {
+        "Order": 5,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Alice",
+          "Sex": "F",
+          "Total": 720,
+          "Frequency": 0.6926540193173509
+        },
+        "Male": {
+          "Name": "Paul",
+          "Sex": "M",
+          "Total": 1224,
+          "Frequency": 0.8490448245723561
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Real",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 100414,
+          "Frequency": 0.7134669353115686
+        },
+        "Male": {
+          "Name": "Michael",
+          "Sex": "M",
+          "Total": 122265,
+          "Frequency": 0.8075328785725231
+        }
+      },
+      {
+        "Order": 6,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Lisa",
+          "Sex": "F",
+          "Total": 706,
+          "Frequency": 0.6791857467195136
+        },
+        "Male": {
+          "Name": "Tom",
+          "Sex": "M",
+          "Total": 1181,
+          "Frequency": 0.8192172694607456
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Real",
+        "Female": {
+          "Name": "Abigail",
+          "Sex": "F",
+          "Total": 99356,
+          "Frequency": 0.7059495769993847
+        },
+        "Male": {
+          "Name": "Alexander",
+          "Sex": "M",
+          "Total": 118376,
+          "Frequency": 0.7818469065873389
+        }
+      },
+      {
+        "Order": 7,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Emily",
+          "Sex": "F",
+          "Total": 672,
+          "Frequency": 0.6464770846961942
+        },
+        "Male": {
+          "Name": "Alex",
+          "Sex": "M",
+          "Total": 1095,
+          "Frequency": 0.7595621592375245
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Real",
+        "Female": {
+          "Name": "Madison",
+          "Sex": "F",
+          "Total": 84803,
+          "Frequency": 0.6025468213120376
+        },
+        "Male": {
+          "Name": "James",
+          "Sex": "M",
+          "Total": 112387,
+          "Frequency": 0.7422909060166863
+        }
+      },
+      {
+        "Order": 8,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Rachel",
+          "Sex": "F",
+          "Total": 669,
+          "Frequency": 0.643591026282372
+        },
+        "Male": {
+          "Name": "Mike",
+          "Sex": "M",
+          "Total": 1079,
+          "Frequency": 0.7484635340797159
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Real",
+        "Female": {
+          "Name": "Elizabeth",
+          "Sex": "F",
+          "Total": 77233,
+          "Frequency": 0.5487600515358254
+        },
+        "Male": {
+          "Name": "Daniel",
+          "Sex": "M",
+          "Total": 111658,
+          "Frequency": 0.7374760246648737
+        }
+      },
+      {
+        "Order": 9,
+        "Type": "Cinema",
+        "Female": {
+          "Name": "Emma",
+          "Sex": "F",
+          "Total": 663,
+          "Frequency": 0.6378189094547274
+        },
+        "Male": {
+          "Name":"Frank",
+          "Sex":"M",
+          "Total":1073,
+          "Frequency":0.74430154964553763
+        }
+      }
+    ]
+  }
+]
