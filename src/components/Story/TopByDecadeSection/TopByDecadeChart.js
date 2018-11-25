@@ -44,7 +44,7 @@ const calculateLinks = (data) => {
 class TopByDecadeChart extends React.PureComponent {
 
 	scales = {
-		type: d3.scaleBand().paddingInner(0.5).paddingOuter(0.05),
+		type: d3.scaleBand().paddingInner(0.5).paddingOuter(0.1),
 		order: d3.scaleBand().padding(0.3),
 		gender: d3.scalePoint().domain(["Male", "Female"]).padding(0.5)
 	};
@@ -62,8 +62,29 @@ class TopByDecadeChart extends React.PureComponent {
 					height={ height }>
 					{ this.renderItems(data) }
 					{ this.renderLinks(data) }
+					{ this.renderAxis() }
 				</svg>
 			</figure>
+		);
+	}
+
+	renderAxis() {
+		const topOffset = 15;
+		const cinemaX = this.scales.type("Cinema") + this.scales.type.bandwidth() + 5;
+		const realX = this.scales.type("Real") - 5;
+		return (
+			<g className="axis">
+				<text
+					 className="real"
+					 transform={ `translate(${realX},${topOffset})rotate(270)`}>
+					 { "<-------------------------- Real Life ---" }
+				</text>
+				<text 
+					className="cinema"
+					transform={ `translate(${ cinemaX },${topOffset})rotate(90)` }>
+					{ "--- Movies & TV Series ---------------->" }
+				</text>
+			</g>			
 		);
 	}
 

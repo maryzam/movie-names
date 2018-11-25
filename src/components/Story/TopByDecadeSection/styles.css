@@ -49,3 +49,17 @@
 	font-size: 2em;
 	padding: 10px;
 }
+
+.top-by-decades .axis text {
+	text-transform: uppercase;
+	font-size: 0.75em;
+	fill: #777;
+}
+
+.top-by-decades .axis .real {
+	text-anchor: end;
+}
+
+.top-by-decades .axis .cinema {
+	text-anchor: start;
+}
