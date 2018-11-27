@@ -17,7 +17,7 @@ class TopByDecadeSection extends React.PureComponent {
 	decades = null;
 
 	componentDidMount() {
-		d3.json("data/top_names/by_decades_flatten.json")
+		d3.json("data/top_names/by_decades.json")
 			.then((source) => {
 				this.source = source;
 				this.updateDecades();
@@ -51,7 +51,7 @@ class TopByDecadeSection extends React.PureComponent {
 							<TopByDecadeChart
 								width={ width * 0.7 } 
 								height={ height * 0.7 } 
-								data={ this.source.find((d) => d.From === decade ) }/>
+								data={ this.source.find((d) => d.Decade === decade ) }/>
 						</article>
 				}
 			</section>
@@ -78,7 +78,7 @@ class TopByDecadeSection extends React.PureComponent {
 	}
 
 	updateDecades() {
-		const decades = this.source.map(d => d.From);
+		const decades = this.source.map(d => d.Decade);
 		decades.sort((a, b) => (a - b));
 		this.decades = {
 			all: decades,
