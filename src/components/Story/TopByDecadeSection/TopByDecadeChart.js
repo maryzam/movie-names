@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import * as d3 from 'd3';
+
+const slopeFactor = 0.1;
+const genders = ["Male", "Female"];
 
 const getDistinct = (data, action) => {
 	if (!data || data.length < 1) {
@@ -13,7 +16,6 @@ const getDistinct = (data, action) => {
 	return Object.keys(result);
 };
 
-const genders = ["Male", "Female"];
 const calculateLinks = (data) => {
 	const links = [];
 	for (let i = 0; i < data.length; i++) {
@@ -46,7 +48,7 @@ class TopByDecadeChart extends React.PureComponent {
 	scales = {
 		type: d3.scaleBand().paddingInner(0.5).paddingOuter(0.1),
 		order: d3.scaleBand().padding(0.3),
-		gender: d3.scalePoint().domain(["Male", "Female"]).padding(0.5)
+		gender: d3.scaleBand().domain(genders)
 	};
 
 	render() {
@@ -91,42 +93,46 @@ class TopByDecadeChart extends React.PureComponent {
 	renderItems(data) {
 
 		const borderLines = this.generateBorders(); 
-		const labelOffset = this.scales.order.bandwidth() / 2 + 5;
-		const labelMale = this.scales.gender("Male");
-		const labelFemale = this.scales.gender("Female");
-
+		
 		return (
 			<g className="items">
-			{
-				data.Stats.map((item) => {
+			{ this.renderItemsForGender("Male", data, borderLines) }
+			{ this.renderItemsForGender("Female", data, borderLines) }
+			
+			</g>
+		);
+	}
+
+	renderItemsForGender(gender, data, borderLines) {
+
+		const currentClassName = gender.toLowerCase();
+
+		const center = {
+			x: this.scales.gender.bandwidth() / 2,
+			y: this.scales.order.bandwidth() / 2 + 5
+		};
+
+		const genderOffset = this.scales.gender(gender);
+
+		return data.Stats.map((item) => {
+
 					const y = this.scales.order(item.Order);
-					const x = this.scales.type(item.Type);
+					const x = this.scales.type(item.Type) + genderOffset;
 
 					return (
 						<g className="item"
-							key={`${item.Type}_${item.Order}`}
+							key={`${item.Type}_${gender}_${item[gender].Name}`}
 							transform={`translate(${x},${y})`}>
 							<path 
-								className="male"
-								d={ borderLines.male } 
-								style={{ opacity: item.Male.IsAbsoluteTop ? 1 : 0.4 }} />
-							<text transform={ `translate(${labelMale}, ${labelOffset})` }>
-									{ item.Male.Name }
+								className={ currentClassName }
+								d={ borderLines[gender] } 
+								style={{ opacity: item[gender].IsAbsoluteTop ? 1 : 0.4 }} />
+							<text transform={ `translate(${center.x}, ${center.y})` }>
+									{ item[gender].Name }
 							</text>
-							
-							<path 
-								className="female"
-								d={ borderLines.female } 
-								style={{ opacity: item.Female.IsAbsoluteTop ? 1 : 0.5 }}/>
-							<text transform={ `translate(${labelFemale}, ${labelOffset})` }>
-								{ item.Female.Name }
-							</text>									
 						</g>
 					);
-				}) 
-			}
-			</g>
-		);
+				});
 	}
 
 	renderLinks(data) {
@@ -171,17 +177,17 @@ class TopByDecadeChart extends React.PureComponent {
 	}
 
 	generateBorders() {
-		const width = this.scales.type.bandwidth();
+		const width = this.scales.gender.bandwidth();
 		const height = this.scales.order.bandwidth();
 
-		const slopeFactor = 0.55;
-		const cTop = width * slopeFactor;
+		const cTop = width * (1 + slopeFactor);
 		const cBottom = width * ( 1 - slopeFactor);
-		
-		const malePath = `M 0 0 L 0 ${ height } L ${ cBottom } ${ height } L ${ cTop } 0 Z`;
-		const femalePath = `M ${ cTop } 0 L ${ cBottom } ${ height } L ${ width } ${ height } L ${ width } 0 Z`;
+		const xSlopeOffset = width * slopeFactor;
 
-		return { male: malePath, female: femalePath };
+		return {
+			Male: `M 0 0 L 0 ${ height } L ${ cBottom } ${ height } L ${ cTop } 0 Z`,
+			Female: `M ${ xSlopeOffset } 0 L ${ -xSlopeOffset } ${ height } L ${ width } ${ height } L ${ width } 0 Z`
+		}
 	}
 }
 
