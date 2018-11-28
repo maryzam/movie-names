@@ -5,7 +5,6 @@ class FrequencyRatioChart extends React.PureComponent {
 
 	state = {
 		isLoading: true,
-		gender: 'All'
 	}
 
 	data = [];
@@ -31,7 +30,6 @@ class FrequencyRatioChart extends React.PureComponent {
 		}
 
 		const { width, height } = this.props;
-		const { gender } = this.state;
 
 		this.updateScales(width, height);
 
@@ -40,33 +38,42 @@ class FrequencyRatioChart extends React.PureComponent {
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
-				{
-					this.data.map((item) => {
-						const itemHeight = this.scales.ratio(item[gender].Ratio);
-						const isCinematic = item[gender].Ratio > 0.51;
-						return (
-							<rect key={`{${item.Order}`}
-								className={`item ${isCinematic ? "cinema" : ""}`}
-								rx="3" ry="3"
-								x={ this.scales.order(item.Order) }
-								y={ itemHeight }
-								width={ this.scales.order.bandwidth() }
-								height={ height - itemHeight }/>
-						)
-					})
-				}
+				
+					{ this.renderItems("Male", height / 2) }
+						{ this.renderItems("Female", height / 2) }
 
-				<line className="middle-line" 
-					x1={0} y1={ height / 2}
-					x2={ width } y2={ height / 2}
-				/>
 				</svg>
 			</figure>
 		);
 	}
 
+	renderItems(gender, chartHeight) {
+		return (
+			<g> 
+			{
+				this.data.map((item) => {
+					
+					const itemHeight = this.scales.ratio(item[gender].Ratio);
+					const isCinematic = item[gender].Ratio > 0.51;
+					const level = this.scales.ratio(item[gender].Ratio);
+
+					return (
+						<rect key={`${gender}_${item.Order}`}
+							className={`item ${isCinematic ? "cinema" : ""}`}
+							rx="3" ry="3"
+							x={ this.scales.order(item.Order) }
+							y={ (gender == "Female") ? chartHeight : level }
+							width={ this.scales.order.bandwidth() }
+							height={ chartHeight - level }/>
+						);
+					})
+			}
+			</g>
+		);
+	}
+
 	updateScales(width, height) {
-		this.scales.ratio.range([ height, 0 ]);
+		this.scales.ratio.range([ height / 2, 0 ]);
 		this.scales.order.range([ 0, width ]);
 	}
 }
