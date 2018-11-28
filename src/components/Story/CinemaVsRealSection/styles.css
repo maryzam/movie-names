@@ -1,1 +1,17 @@
-.cinema-vs-real {}
+.cinema-vs-real { flex-direction: column; }
+
+.cinema-vs-real .item {
+	stroke: white;
+	stroke-width: 1px;
+	fill: #777;
+}
+
+.cinema-vs-real .cinema {
+	fill: orange;
+}
+
+.cinema-vs-real .middle-line {
+	stroke: #777;
+	stroke-width: 1px;
+	stroke-dasharray: 1 3;
+}
