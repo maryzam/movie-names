@@ -68,13 +68,13 @@ class Story extends React.Component {
 
 		return (
 			<main className="story">
+				<CinemaVsRealSection 
+					width = { width }
+					height = { height }/>
 				<TopByDecadeSection 
 					width = { width }
 					height = { height }/>
 				<FrequencyComparisonSection 
-					width = { width }
-					height = { height }/>
-				<CinemaVsRealSection 
 					width = { width }
 					height = { height }/>
 				<GenresTriangleSection 

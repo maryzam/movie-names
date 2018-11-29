@@ -1,26 +1,62 @@
 import React from 'react';
 import * as d3 from 'd3';
 
+const decadeDuration = 10;
+const thisYear = 2018;
+
 class FrequencyRatioChart extends React.PureComponent {
 
 	state = {
 		isLoading: true,
-	}
+		decade: null,
+	};
 
-	data = [];
+	timer = null;
+
+	source = [];
+	decades = [];
 	scales = {
 		ratio: d3.scaleLinear().domain([0, 1]),
 		order: d3.scaleBand().padding(0)
 	};
 
+	showNextDecade = () => {
+		const nextDecade = this.state.decade + decadeDuration;
+		if (nextDecade > thisYear) {
+			clearInterval(this.timer);
+			return;
+		} 
+		this.setState({ decade: nextDecade });
+	};
+
+	showDecade = (event) => {
+		const decade = +event.target.dataset.decade;
+		this.setState({ decade });
+	}
+
 	componentDidMount() {
-		d3.json("data/top_names/frequencies.json")
+		d3.json("data/top_names/frequencies_decades.json")
 			.then((source) => {
-				this.data = source;
-				const orders = source.map(d => d.Order);
+				const firtsDecade = d3.min(source, (d) => d.Decade);
+				const orders = source.find(d => d.Decade === firtsDecade).Stats.map(d => d.Order);
+
+				this.source = source;
+				this.decades = source.map(d => d.Decade);
 				this.scales.order.domain(orders.sort());
-				this.setState({ isLoading: false });
+
+				this.timer = setInterval(this.showNextDecade, 500);
+				
+				this.setState({ 
+					isLoading: false,
+					decade: firtsDecade
+				});
 			});
+	}
+
+	componentWillUnmount() {
+		if (this.timer) {
+			clearInterval(this.timer);
+		}
 	}
 
 	render() {
@@ -30,6 +66,9 @@ class FrequencyRatioChart extends React.PureComponent {
 		}
 
 		const { width, height } = this.props;
+		const { decade } = this.state;
+
+		const data = this.source.find(d => d.Decade === decade).Stats;
 
 		this.updateScales(width, height);
 
@@ -38,20 +77,38 @@ class FrequencyRatioChart extends React.PureComponent {
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
-				
-					{ this.renderItems("Male", height / 2) }
-						{ this.renderItems("Female", height / 2) }
-
+					{ this.renderItems(data, "Male", height / 2) }
+					{ this.renderItems(data, "Female", height / 2) }
+					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
 				</svg>
 			</figure>
 		);
 	}
 
-	renderItems(gender, chartHeight) {
+	renderDecades(x, y) {
+		const currentDecade = this.state.decade;
+		return (
+			<text className="decades" transform={`translate(${x}, ${y})`}>
+			{
+				this.decades.map(decade => (
+					<tspan
+						key={decade}
+						data-decade={decade}
+						className={ (decade === currentDecade) ? "current" : ""}
+						onClick={ this.showDecade }>
+							{ ` ${decade} ` }
+					</tspan>
+				))
+			}
+			</text>
+		);
+	}
+
+	renderItems(data, gender, chartHeight) {
 		return (
 			<g> 
 			{
-				this.data.map((item) => {
+				data.map((item) => {
 					
 					const itemHeight = this.scales.ratio(item[gender].Ratio);
 					const isCinematic = item[gender].Ratio > 0.51;
@@ -74,7 +131,7 @@ class FrequencyRatioChart extends React.PureComponent {
 
 	updateScales(width, height) {
 		this.scales.ratio.range([ height / 2, 0 ]);
-		this.scales.order.range([ 0, width ]);
+		this.scales.order.range([ width - 20, 20 ]);
 	}
 }
 
