@@ -2,12 +2,19 @@
 
 .cinema-vs-real .item {
 	stroke: white;
-	stroke-width: 1px;
+	stroke-width: 0.5px;
 	fill: #777;
+	fill-opacity: 0.75;
 }
 
 .cinema-vs-real .cinema {
 	fill: orange;
+	stroke: orange;
+}
+
+.cinema-vs-real .none {
+	fill: #dadada;
+	stroke: #dadada;
 }
 
 .cinema-vs-real .middle-line {
@@ -24,6 +31,27 @@
 }
 
 .cinema-vs-real .decades .current {
-	font-size: 1.25em;
+	font-size: 1.5em;
 	fill: black;
+}
+
+.cinema-vs-real .axis .start {
+	text-anchor: start;
+}
+
+.cinema-vs-real .axis .middle {
+	text-anchor: middle;
+}
+
+.cinema-vs-real .axis .end {
+	text-anchor: end;
+}
+
+.cinema-vs-real .axis .small {
+	font-size: 0.8em;
+	fill: #aaa;
+}
+
+.cinema-vs-real .axis {
+	fill: #777;
 }

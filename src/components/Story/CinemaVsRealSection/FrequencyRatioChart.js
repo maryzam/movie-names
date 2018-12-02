@@ -73,19 +73,24 @@ class FrequencyRatioChart extends React.PureComponent {
 		const { width, height } = this.props;
 		const { decade } = this.state;
 
-		const data = this.source.find(d => d.Decade === decade).Stats
-						.filter(d => +d.Order  < maxOrder);
+		const data = this.source
+						.find(d => d.Decade === decade).Stats
+						.filter(d => +d.Order  < maxOrder)
+						.sort((first, second) => (second.Order - first.Order));
 
 		this.updateScales(width, height);
+
+		const chartHeight =  Math.floor(height / 2) - 20;
 
 		return (
 			<figure className="viz">
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
-					{ this.renderItems(data, "Male", height / 2) }
-					{ this.renderItems(data, "Female", height / 2) }
+					{ this.renderItems(data, "Male", chartHeight) }
+					{ this.renderItems(data, "Female", height - chartHeight) }
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
+					{ this.generateOrderAxis(width / 2, height / 2 + 5)}
 				</svg>
 			</figure>
 		);
@@ -110,24 +115,19 @@ class FrequencyRatioChart extends React.PureComponent {
 		);
 	}
 
-	renderItems(data, gender, chartHeight) {
+	renderItems(data, gender, baseLine) {
+		
 		return (
 			<g> 
 			{
 				data.map((item) => {
-					
-					const itemHeight = this.scales.ratio(item[gender].Ratio);
 					const isCinematic = item[gender].Ratio > 0.51;
-					const level = this.scales.ratio(item[gender].Ratio);
-
+					const isNonCinematic = item[gender].Ratio < 0.01;
 					return (
-						<rect key={`${gender}_${item.Order}`}
-							className={`item ${isCinematic ? "cinema" : ""}`}
-							rx="3" ry="3"
-							x={ this.scales.order(item.Order) }
-							y={ (gender == "Female") ? chartHeight : level }
-							width={ this.scales.order.bandwidth() }
-							height={ chartHeight - level }/>
+						<path 
+							key={`${gender}_${item.Order}`}
+							className={`item ${isCinematic ? "cinema" : ""} ${isNonCinematic ? "none" : ""}`}
+							d= { this.generateBarLine(item, gender, baseLine) } />
 						);
 					})
 			}
@@ -135,9 +135,37 @@ class FrequencyRatioChart extends React.PureComponent {
 		);
 	}
 
+	generateOrderAxis = (x, y) => {
+		return (
+			<g className="axis order"
+				transform={ `translate(${x}, ${y})` }>
+				<text className="middle">
+					<tspan className="small">{"<------- less popular ---  "}</tspan>
+					<tspan>{ `Top ${ maxOrder } of Real Names` }</tspan>
+					<tspan className="small">{ "  --- more popular ------->" }</tspan>
+				</text>
+			</g>
+		);
+	}
+
+	generateBarLine = (item, gender, baseLine) => {
+
+		const genderCoeff = gender === "Male" ? -1 : 1;
+		const height = baseLine + this.scales.ratio(item[gender].Ratio) * genderCoeff;
+		const width = this.scales.order.bandwidth();
+		const left = this.scales.order(item.Order);
+		const right = left + width;
+		const controlPoint = height + 0.5 * width * genderCoeff;
+		return `M ${left} ${baseLine}
+				L ${left} ${height}
+				C ${left} ${controlPoint} ${right} ${controlPoint} ${right} ${height}
+				L ${right} ${baseLine} Z`;
+	};
+
 	updateScales(width, height) {
-		this.scales.ratio.range([ height / 2, 0 ]);
 		this.scales.order.range([ width - 20, 20 ]);
+		const offset = this.scales.order.bandwidth();
+		this.scales.ratio.range([0, height / 2 - offset - 20]);
 	}
 }
 
