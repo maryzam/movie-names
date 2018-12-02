@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 
 const decadeDuration = 10;
 const thisYear = 2018;
+const maxOrder = 50;
 
 class FrequencyRatioChart extends React.PureComponent {
 
@@ -40,11 +41,14 @@ class FrequencyRatioChart extends React.PureComponent {
 				const firtsDecade = d3.min(source, (d) => d.Decade);
 				const orders = source
 					.find(d => d.Decade === firtsDecade).Stats
-					.map(d => d.Order);
+					.map(d => +d.Order)
+					.filter(d => d < maxOrder);
+
+				console.log(orders);
 
 				this.source = source;
 				this.decades = source.map(d => d.Decade);
-				this.scales.order.domain(orders.sort());
+				this.scales.order.domain(orders);
 
 				this.timer = setInterval(this.showNextDecade, 500);
 				
@@ -70,7 +74,8 @@ class FrequencyRatioChart extends React.PureComponent {
 		const { width, height } = this.props;
 		const { decade } = this.state;
 
-		const data = this.source.find(d => d.Decade === decade).Stats;
+		const data = this.source.find(d => d.Decade === decade).Stats
+						.filter(d => +d.Order  < maxOrder);
 
 		this.updateScales(width, height);
 
