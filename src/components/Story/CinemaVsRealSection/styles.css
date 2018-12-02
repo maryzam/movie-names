@@ -1,9 +1,17 @@
-.cinema-vs-real { flex-direction: column; }
+.cinema-vs-real { }
 
 .cinema-vs-real .item {
 	stroke: white;
 	stroke-width: 1px;
 	fill: #777;
+}
+
+.cinema-vs-real .male {
+	stroke: #8CBEC7;
+}
+
+.cinema-vs-real .female {
+	stroke: #E1729D;
 }
 
 .cinema-vs-real .cinema {

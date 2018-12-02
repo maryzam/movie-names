@@ -38,7 +38,9 @@ class FrequencyRatioChart extends React.PureComponent {
 		d3.json("data/top_names/frequencies_decades.json")
 			.then((source) => {
 				const firtsDecade = d3.min(source, (d) => d.Decade);
-				const orders = source.find(d => d.Decade === firtsDecade).Stats.map(d => d.Order);
+				const orders = source
+					.find(d => d.Decade === firtsDecade).Stats
+					.map(d => d.Order);
 
 				this.source = source;
 				this.decades = source.map(d => d.Decade);
@@ -77,9 +79,9 @@ class FrequencyRatioChart extends React.PureComponent {
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
-					{ this.renderItems(data, "Male", height / 2) }
-					{ this.renderItems(data, "Female", height / 2) }
-					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
+					{ this.renderItems(data, "Male", width / 2) }
+					{ this.renderItems(data, "Female", width / 2) }
+					{ this.renderDecades(width / 2, 25) }
 				</svg>
 			</figure>
 		);
@@ -104,24 +106,24 @@ class FrequencyRatioChart extends React.PureComponent {
 		);
 	}
 
-	renderItems(data, gender, chartHeight) {
+	renderItems(data, gender, chartWidth) {
 		return (
 			<g> 
 			{
 				data.map((item) => {
 					
-					const itemHeight = this.scales.ratio(item[gender].Ratio);
+					const itemWidth = this.scales.ratio(item[gender].Ratio);
 					const isCinematic = item[gender].Ratio > 0.51;
 					const level = this.scales.ratio(item[gender].Ratio);
 
 					return (
 						<rect key={`${gender}_${item.Order}`}
-							className={`item ${isCinematic ? "cinema" : ""}`}
+							className={`item ${isCinematic ? "cinema" : ""} ${ gender.toLowerCase() }`}
 							rx="3" ry="3"
-							x={ this.scales.order(item.Order) }
-							y={ (gender == "Female") ? chartHeight : level }
-							width={ this.scales.order.bandwidth() }
-							height={ chartHeight - level }/>
+							x={ (gender == "Female") ? chartWidth : level }
+							y={ this.scales.order(item.Order) }
+							height={ this.scales.order.bandwidth() }
+							width={ chartWidth - level }/>
 						);
 					})
 			}
@@ -130,8 +132,8 @@ class FrequencyRatioChart extends React.PureComponent {
 	}
 
 	updateScales(width, height) {
-		this.scales.ratio.range([ height / 2, 0 ]);
-		this.scales.order.range([ width - 20, 20 ]);
+		this.scales.ratio.range([ width / 2, 0 ]);
+		this.scales.order.range([ 50,  height - 20 ]);
 	}
 }
 
