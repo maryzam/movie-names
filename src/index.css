@@ -11,20 +11,15 @@ html, body {
 }
 
 body {
-	font-family: 'Titillium Web', sans-serif;
+	background: black;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	color: #dadada;
 }
 
-header {
-
-}
-
-footer {
-
-}
-
-main {
-	
+h1, h2 {
+	font-family: 'Monoton', 'Roboto', sans-serif;
+	text-align: center;
 }
 
 section {
