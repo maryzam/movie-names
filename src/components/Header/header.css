@@ -13,10 +13,17 @@ header {
 	justify-content: center;
 
 	color: white;
-	font-size: 2em;
 }
-
 
 header * {
 	text-align: center;
+}
+
+header h1 {
+	font-size: 4em;
+}
+
+header p.description {
+	padding: 20px 10%;
+	font-size:  1.5em;
 }

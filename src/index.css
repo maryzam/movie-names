@@ -35,3 +35,8 @@ section {
 article {
 	pointer-events: none;
 }
+
+a {
+	color: white;
+	font-weight: bold;
+}
