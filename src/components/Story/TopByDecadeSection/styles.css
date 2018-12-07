@@ -1,13 +1,13 @@
 .top-by-decades {  }
 
 .top-by-decades .male {
-	fill: #8CBEC7;
-	stroke: #8CBEC7;
+	fill: var(--male);
+	stroke: var(--male);
 }
 
 .top-by-decades .female {
-	fill: #E1729D;
-	stroke: #E1729D;
+	fill: var(--female);
+	stroke: var(--female);
 }
 
 .top-by-decades .link {

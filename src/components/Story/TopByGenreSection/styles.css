@@ -23,14 +23,14 @@
 }
 
 .top-by-genre .female {
-	fill: #E1729D;
-	stroke: #CD2C6B;
+	fill: var(--female);
+	stroke: var(--female);
 	opacity: 1;
 }
 
 .top-by-genre .male {
-	fill: #8CBEC7;
-	stroke: #3FA3BA;
+	fill: var(--male);
+	stroke: var(--male);
 	opacity: 1;
 }
 

@@ -6,15 +6,15 @@
 }
 
 #top_names .male {
-    fill: #8CBEC7;
-    stroke: #3FA3BA;
-    color: #3FA3BA;
+    fill: var(--male);
+    stroke: var(--male);
+    color: var(--male);
 }
 
 #top_names .female {
-    fill: #F4CBDB;
-    stroke: #EA8F98;
-    color: #EA8F98;
+    fill: var(--female);
+    stroke: var(--female);
+    color: var(--female);
 }
 
 #top_names text {

@@ -6,15 +6,15 @@
 }
 
 .genres-triangle .male {
- 	color: #3FA3BA;
- 	stroke: #3FA3BA;
- 	fill: #8CBEC7;
+ 	color: var(--male);
+ 	stroke: var(--male);
+ 	fill: var(--male);
 }
 
 .genres-triangle .female {
- 	color: #CD2C6B;
- 	stroke: #CD2C6B;
- 	fill: #E1729D;
+ 	color: var(--female);
+ 	stroke: var(--female);
+ 	fill: var(--female);
 }
 
 .genres-triangle .muted {
