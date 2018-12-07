@@ -126,7 +126,7 @@ class TopByDecadeChart extends React.PureComponent {
 							<path 
 								className={ currentClassName }
 								d={ borderLines[gender] } 
-								style={{ opacity: item[gender].IsAbsoluteTop ? 1 : 0.4 }} />
+								style={{ opacity: item[gender].IsAbsoluteTop ? 1 : 0.6 }} />
 							<text transform={ `translate(${center.x}, ${center.y})` }>
 									{ item[gender].Name }
 							</text>

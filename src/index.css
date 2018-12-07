@@ -3,6 +3,8 @@
 	--female: #E20A6D;
 	--cinema: #FECE0A;
 	--real: #dadada;
+	--background: #000;
+	--main-text: #dadada;
 }
 
 * {
@@ -18,15 +20,19 @@ html, body {
 }
 
 body {
-	background: black;
+	background: var(--background);
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
-	color: #dadada;
+	color: var(--main-text);
 }
 
 h1, h2 {
 	font-family: 'Monoton', 'Roboto', sans-serif;
 	text-align: center;
+}
+
+h4, h6 {
+	padding-bottom: 1em; 
 }
 
 section {
@@ -44,6 +50,6 @@ article {
 }
 
 a {
-	color: white;
+	color: var(--main-text);
 	font-weight: bold;
 }

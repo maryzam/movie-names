@@ -16,3 +16,7 @@
 .story p {
 	padding: 0 5px 10px 5px;
 }
+
+.story text {
+	fill: var(--main-text);
+}

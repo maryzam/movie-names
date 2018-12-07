@@ -17,15 +17,17 @@
 }
 
 .top-by-decades .item path { 
-	stroke: white;
+	stroke: var(--background);
 	stroke-width: 3px;
 }
 
 .top-by-decades .item text {
+	fill: var(--background);
 	text-anchor: middle;
 }
 
 .top-by-decades .decade-switch {
+	font-family: 'Monoton', 'Roboto', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
@@ -34,15 +36,15 @@
 .top-by-decades .decade-switch button {
 	border: none;
 	box-shadow: none;
-	background: white;
+	background: var(--background);
+	color: var(--main-text);
 	font-size: 2em;
-	color: #999;
 	cursor: pointer;
 	pointer-events: all;
 }
 
 .top-by-decades .decade-switch button:disabled {
-	color: white;
+	color: var(--background);
 }
 
 .top-by-decades .decade-switch span {
@@ -53,7 +55,7 @@
 .top-by-decades .axis text {
 	text-transform: uppercase;
 	font-size: 0.75em;
-	fill: #777;
+	fill: var(--main-text);
 }
 
 .top-by-decades .axis .real {
