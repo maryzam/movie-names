@@ -18,8 +18,8 @@
 }
 
 .genres-triangle .muted {
- 	stroke: #d6d6d6;
- 	fill: #d6d6d6;
+ 	stroke: var(--muted);
+ 	fill: var(--muted);
 }
 
 .genres-triangle .axis path {
@@ -40,8 +40,8 @@
 	z-index: 10;
 	
 	padding: 10px 5px;
-	border: 1px solid #dadada;
-	background: rgba(255, 255, 255, 0.75);
+	border: 1px solid var(--main-text);
+	background: rgba(0, 0, 0, 0.5);
 	text-align: center;
 }
 
@@ -60,6 +60,8 @@
 .genres-triangle .search {
 	pointer-events: all;
 	padding: 5px 10px;
-	border: solid 1px #dadada;
 	border-radius: 3px;
+	border: solid 1px var(--main-text);
+	color: var(--main-text);
+	background: var(--background);
 }
