@@ -1,20 +1,28 @@
-.cinema-vs-real { flex-direction: column; }
+.cinema-vs-real { 
+	flex-direction: column; 
+}
 
 .cinema-vs-real .item {
-	stroke: white;
-	stroke-width: 0.5px;
-	fill: #777;
-	fill-opacity: 0.75;
+	stroke-width: 2px;
+	fill-opacity: 0;
+}
+
+.cinema-vs-real .female {
+	stroke: url(#female-grad);
+	fill: url(#female-grad);
+}
+
+.cinema-vs-real .male {
+	stroke: url(#male-grad);
+	fill: url(#male-grad);
 }
 
 .cinema-vs-real .cinema {
-	fill: orange;
-	stroke: orange;
+	fill-opacity: 0.7;
 }
 
 .cinema-vs-real .none {
-	fill: #dadada;
-	stroke: #dadada;
+	stroke: var(--muted);
 }
 
 .cinema-vs-real .middle-line {
@@ -31,8 +39,9 @@
 }
 
 .cinema-vs-real .decades .current {
+	font-family: 'Monoton', 'Roboto', sans-serif;
 	font-size: 1.5em;
-	fill: black;
+	fill: var(--main-text);
 }
 
 .cinema-vs-real .axis .start {

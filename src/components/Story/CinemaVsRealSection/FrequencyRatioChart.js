@@ -1,6 +1,8 @@
 import React from 'react';
 import * as d3 from 'd3';
 
+import Gradient from "./Gradient";
+
 const decadeDuration = 10;
 const thisYear = 2018;
 const maxOrder = 50;
@@ -87,6 +89,10 @@ class FrequencyRatioChart extends React.PureComponent {
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
+					<def>
+						<Gradient name="male-grad" topColor="#05ABC3" bottomColor="#016775" />
+						<Gradient name="female-grad" topColor="#9C0047" bottomColor="#E20A6D" />
+					</def>
 					{ this.renderItems(data, "Male", chartHeight) }
 					{ this.renderItems(data, "Female", height - chartHeight) }
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
@@ -121,13 +127,16 @@ class FrequencyRatioChart extends React.PureComponent {
 			<g> 
 			{
 				data.map((item) => {
-					const isCinematic = item[gender].Ratio > 0.51;
-					const isNonCinematic = item[gender].Ratio < 0.01;
+					const cinematicClass = item[gender].Ratio > 0.51 
+											? "cinema" 
+											:  item[gender].Ratio < 0.01 
+													? "none" 
+													: "";
 					return (
 						<path 
 							key={`${gender}_${item.Order}`}
-							className={`item ${isCinematic ? "cinema" : ""} ${isNonCinematic ? "none" : ""}`}
-							d= { this.generateBarLine(item, gender, baseLine) } />
+							className={`item ${gender.toLowerCase()} ${ cinematicClass }`}
+							d= { this.generateBarLine(item, gender, baseLine) }/>
 						);
 					})
 			}
