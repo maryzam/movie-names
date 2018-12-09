@@ -67,3 +67,20 @@
 .cinema-vs-real .axis {
 	fill: var(--basic-grey);
 }
+
+.cinema-vs-real .tooltip {
+	pointer-events: none;
+}
+
+.cinema-vs-real .tooltip text{
+	text-anchor: middle;
+	fill: var(--main-text);
+	font-size: 0.7em;
+}
+
+.cinema-vs-real .tooltip rect {
+	stroke: var(--main-text);
+	stroke-width: 1px;
+	fill: var(--background);
+	fill-opacity: 0.7;
+}

@@ -12,6 +12,7 @@ class FrequencyRatioChart extends React.PureComponent {
 	state = {
 		isLoading: true,
 		decade: null,
+		highlight: null
 	};
 
 	timer = null;
@@ -35,6 +36,15 @@ class FrequencyRatioChart extends React.PureComponent {
 	showDecade = (event) => {
 		const decade = +event.target.dataset.decade;
 		this.setState({ decade });
+	}
+
+	handleItemOver = (event) => {
+		const { order, gender } = event.target.dataset;
+		this.setState({ highlight: { order, gender } });
+	}
+
+	handleItemOut = (event) => {
+		this.setState({ highlight: null });
 	}
 
 	componentDidMount() {
@@ -96,7 +106,8 @@ class FrequencyRatioChart extends React.PureComponent {
 					{ this.renderItems(data, "Male", chartHeight) }
 					{ this.renderItems(data, "Female", height - chartHeight) }
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
-					{ this.generateOrderAxis(width / 2, height / 2 + 5)}
+					{ this.renderOrderAxis(width / 2, height / 2 + 5)}
+					{ this.renderTooltip() }
 				</svg>
 			</figure>
 		);
@@ -129,13 +140,17 @@ class FrequencyRatioChart extends React.PureComponent {
 				data.map((item) => {
 					const cinematicClass = item[gender].Ratio > 0.49 
 											? "cinema" 
-											:  item[gender].Ratio < 0.1 
-													? "none" 
-													: "";
+											: item[gender].Ratio < 0.1 
+											 		? "none" 
+											 		: "";
 					return (
 						<path 
 							key={`${gender}_${item.Order}`}
+							data-order={ item.Order }
+							data-gender={ gender }
 							className={`item ${gender.toLowerCase()} ${ cinematicClass }`}
+							onMouseOver={ this.handleItemOver }
+							onMouseOut={ this.handleItemOut }
 							d= { this.generateBarLine(item, gender, baseLine) }/>
 						);
 					})
@@ -144,7 +159,7 @@ class FrequencyRatioChart extends React.PureComponent {
 		);
 	}
 
-	generateOrderAxis = (x, y) => {
+	renderOrderAxis = (x, y) => {
 		return (
 			<g className="axis order"
 				transform={ `translate(${x}, ${y})` }>
@@ -153,6 +168,38 @@ class FrequencyRatioChart extends React.PureComponent {
 					<tspan>{ `Top ${ maxOrder } of Real Names` }</tspan>
 					<tspan className="small">{ "  --- less popular ------->" }</tspan>
 				</text>
+			</g>
+		);
+	}
+
+	renderTooltip() {
+		const { highlight, decade } = this.state;
+		if (!highlight) { return null; }
+
+		const current = this.source
+							.find(d => d.Decade === decade).Stats
+							.find(d => d.Order == highlight.order);
+		if (!current) { return null; }
+
+		const isMale = highlight.gender === "Male";
+		const info = current[highlight.gender];
+		const genderCoeff = isMale ? -1 : 1;
+		const genderOffset = isMale ? 50 : 10;
+		const baseLine = Math.floor(this.props.height / 2);
+		const x = this.scales.order(highlight.order) + 0.5 * this.scales.order.bandwidth();
+		const y = baseLine + (this.scales.ratio(info.Ratio) + genderOffset ) * genderCoeff;
+
+		return (
+			<g className="tooltip"
+				transform={ `translate(${x}, ${y})` }>
+				<rect 
+					x="-2.5em"
+					width="5em"
+					height="2.5em"
+					fill="blue">
+				</rect>
+				<text dy="1.5em">{ info.Name }</text>
+				<text dy="2.5em">{ `(ratio: ${Math.round(info.Ratio * 100)}%)` }</text>
 			</g>
 		);
 	}
@@ -172,7 +219,7 @@ class FrequencyRatioChart extends React.PureComponent {
 	};
 
 	updateScales(width, height) {
-		this.scales.order.range([ 20, width - 20 ]);
+		this.scales.order.range([ 30, width - 30 ]);
 		const offset = this.scales.order.bandwidth();
 		this.scales.ratio.range([0, height / 2 - offset - 20]);
 	}
