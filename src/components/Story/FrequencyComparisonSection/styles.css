@@ -3,7 +3,7 @@
 .frequency-comparison text {
 	font-size: 10px;
 	font-weight: bold;
-	fill: #333;
+	fill: var(--main-text);
 
 	text-anchor: middle;
 	alignment-baseline: middle;
@@ -14,32 +14,32 @@
 }
 
 .frequency-comparison .female text {
-	opacity: 0.5;
+	fill-opacity: 0.4;
 	transform: rotate(180deg) translate(0, 1em);
 }
 
 .frequency-comparison .male text {
-	opacity: 0.7;
+	fill-opacity: 0.6;
 }
 
 .frequency-comparison .Real text{
-	fill: grey;
-	stroke: grey;
+	fill: var(--real);
+	stroke: var(--real);
 }
 
 .frequency-comparison .Cinema text {
-	fill: orange;
-	stroke: orange;
+	fill: var(--cinema);
+	stroke: var(--cinema);
 }
 
 .frequency-comparison .axis rect {
-	fill: #fff;
+	fill: var(--background);
 	stroke: none;
 }
 
 .frequency-comparison .axis line {
 	fill: none;
-	stroke: #dadada;
+	stroke: var(--cinema);
 }
 
 .frequency-comparison .axis text {
@@ -48,14 +48,15 @@
 
 .frequency-comparison button {
 	padding: 2px 10px;
-	background: #fff;
-	border: 1px solid #000;
+	background: var(--background);
+	border: 1px solid var(--main-text);
+	color: var(--main-text);
 	cursor: pointer;
 	pointer-events: all;
 }
 
 .frequency-comparison button.active {
-	background-color: black;
-	color: white;
+	background-color: var(--main-text);
+	color: var(--background);
 }
 

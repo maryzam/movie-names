@@ -110,7 +110,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 		const ticks = this.scaleFreq.ticks(5);
 		return (
 			<g className="axis">
-				<line x1={ size[0] } x2={ size[1] } />
+				<line x1={ 0 } x2={ size[1] } y1={-3} y2={-3}/>
 				{
 					ticks.map((tick) => (
 						<g key={tick}
