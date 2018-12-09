@@ -127,9 +127,9 @@ class FrequencyRatioChart extends React.PureComponent {
 			<g> 
 			{
 				data.map((item) => {
-					const cinematicClass = item[gender].Ratio > 0.51 
+					const cinematicClass = item[gender].Ratio > 0.49 
 											? "cinema" 
-											:  item[gender].Ratio < 0.01 
+											:  item[gender].Ratio < 0.1 
 													? "none" 
 													: "";
 					return (
@@ -149,9 +149,9 @@ class FrequencyRatioChart extends React.PureComponent {
 			<g className="axis order"
 				transform={ `translate(${x}, ${y})` }>
 				<text className="middle">
-					<tspan className="small">{"<------- less popular ---  "}</tspan>
+					<tspan className="small">{"<------- more popular ---  "}</tspan>
 					<tspan>{ `Top ${ maxOrder } of Real Names` }</tspan>
-					<tspan className="small">{ "  --- more popular ------->" }</tspan>
+					<tspan className="small">{ "  --- less popular ------->" }</tspan>
 				</text>
 			</g>
 		);
@@ -172,7 +172,7 @@ class FrequencyRatioChart extends React.PureComponent {
 	};
 
 	updateScales(width, height) {
-		this.scales.order.range([ width - 20, 20 ]);
+		this.scales.order.range([ 20, width - 20 ]);
 		const offset = this.scales.order.bandwidth();
 		this.scales.ratio.range([0, height / 2 - offset - 20]);
 	}

@@ -1,4 +1,5 @@
 .cinema-vs-real { 
+	--basic-grey: #777;
 	flex-direction: column; 
 }
 
@@ -22,17 +23,19 @@
 }
 
 .cinema-vs-real .none {
-	stroke: var(--muted);
+	stroke: var(--basic-grey);
+	fill: var(--muted);
+	fill-opacity: 1;
 }
 
 .cinema-vs-real .middle-line {
-	stroke: #777;
+	stroke: var(--basic-grey);
 	stroke-width: 1px;
 	stroke-dasharray: 1 3;
 }
 
 .cinema-vs-real .decades {
-	fill: #777;
+	fill: var(--basic-grey);
 	font-weight: bold;
 	text-anchor: middle;
 	cursor: pointer;
@@ -62,5 +65,5 @@
 }
 
 .cinema-vs-real .axis {
-	fill: #777;
+	fill: var(--basic-grey);
 }
