@@ -47,7 +47,7 @@
 
 .top-by-genre .item text {
 	stroke: none;
-	fill: #000000;
+	fill: var(--main-text);
 	pointer-events: none;
 }
 
@@ -57,14 +57,15 @@
 
 .top-by-genre button {
 	padding: 2px 10px;
-	background: #fff;
-	border: 1px solid #000;
+	color: var(--main-text);
+	background: var(--background);
+	border: 1px solid var(--main-text);
 	cursor: pointer;
 	pointer-events: all;
 }
 
 .top-by-genre button.active {
-	background-color: black;
-	color: white;
+	background-color: var(--main-text);
+	color: var(--background);
 }
 
