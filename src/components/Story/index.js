@@ -9,6 +9,8 @@ import GenresTriangleSection from './GenresTriangleSection';
 import CinemaVsRealSection from './CinemaVsRealSection';
 import FrequencyComparisonSection from './FrequencyComparisonSection';
 
+import Conclusion from './Conclusion';
+
 class Story extends React.Component {
 
 	state = {
@@ -83,6 +85,7 @@ class Story extends React.Component {
 				<TopByGenreSection 
 					width = { width }
 					height = { height }/>
+				<Conclusion />
 			</main>
 		);
 	}

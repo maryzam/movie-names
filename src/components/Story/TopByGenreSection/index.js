@@ -45,6 +45,7 @@ class TopByGenreSection extends React.PureComponent {
 					width={ width }
 					height={ vizHeight }
 					mode={ currentMode }/>
+
 			</section>
 		);
 	}
