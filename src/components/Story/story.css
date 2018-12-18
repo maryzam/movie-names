@@ -1,8 +1,12 @@
 .story {
+	margin: auto;
 	display: flex;
 	flex-direction: column;
 
+	max-width: 1024px;
+	min-width: 450px;
 	width: 100%;
+
 	min-height: 100vh;
 }
 

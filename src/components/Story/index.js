@@ -36,7 +36,9 @@ class Story extends React.Component {
 	}
 
 	onResize = (event) => {
-		const width = document.documentElement.clientWidth;
+		const size = this.container.getBoundingClientRect();
+		console.log(size);
+		const width = Math.floor(size.width);
 		const height = document.documentElement.clientHeight;
 		this.setState({
 			viewport: { width, height }
@@ -69,7 +71,7 @@ class Story extends React.Component {
 		const { width, height } = this.state.viewport;
 
 		return (
-			<main className="story">
+			<main className="story" ref={ container => { this.container = container }}>
 				<CinemaVsRealSection 
 					width = { width }
 					height = { height }/>
