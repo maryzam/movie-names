@@ -4,7 +4,7 @@ import styles from './styles.css';
 
 import FrequencyRatioChart from './FrequencyRatioChart';
 
-const CinemaVsRealSection = ({ width, height }) => (
+const CinemaVsRealSection = ({ width, height, scroll }) => (
 
 		<section className="cinema-vs-real">
 			
@@ -14,7 +14,7 @@ const CinemaVsRealSection = ({ width, height }) => (
           		<p>Let's compare the frequency of top 50 most popular US names according to information from social security card applications and their number of occurrences in the film industry.</p>
 			</article>
 
-			<FrequencyRatioChart width={ width } height={ height * 0.7 }/>
+			<FrequencyRatioChart width={ width } height={ height * 0.7 } scroll={ scroll }/>
 
 			<article className="description" style={{ width : width }}>
          		<p>Almost all of the top 50 names in US are not so popular in movies & tv series. Everyone can easily remember several <span className="real">Christophers</span>, <span className="real">Donalds</span>, <span className="real">Matthews</span>, <span className="real">Patricias</span> or <span className="real">Dorothies</span> from school, University or neighbourhood. But writers do not rush to call the main characters with such names. Seems that they just don't want to use too ordinary names in their scenarios.</p>

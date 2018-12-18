@@ -7,6 +7,9 @@ const decadeDuration = 10;
 const thisYear = 2018;
 const maxOrder = 50;
 
+const decadeTransitionDuration = 1500;
+const animationDuration = 500;
+
 class FrequencyRatioChart extends React.PureComponent {
 
 	state = {
@@ -61,8 +64,6 @@ class FrequencyRatioChart extends React.PureComponent {
 				this.decades = source.map(d => d.Decade);
 				this.scales.order.domain(orders);
 
-				this.timer = setInterval(this.showNextDecade, 500);
-				
 				this.setState({ 
 					isLoading: false,
 					decade: firtsDecade
@@ -73,6 +74,26 @@ class FrequencyRatioChart extends React.PureComponent {
 	componentWillUnmount() {
 		if (this.timer) {
 			clearInterval(this.timer);
+		}
+	}
+
+	componentDidUpdate() {
+		if (this.state.isLoading ||	!this.viz) {
+			return;
+		}
+		this.ensureAutoplay();
+	}
+
+	ensureAutoplay() {
+		if (this.timer) 
+		{
+			return;
+		}
+		const { height, top } = this.viz.getBoundingClientRect();
+		const { scroll } = this.props;
+		const middleTop = scroll + height * 0.45;
+		if (middleTop > top) {
+			this.timer = setInterval(this.showNextDecade, decadeTransitionDuration);
 		}
 	}
 
@@ -222,7 +243,7 @@ class FrequencyRatioChart extends React.PureComponent {
 		this.scales.order.range([ 30, width - 30 ]);
 		const offset = this.scales.order.bandwidth();
 		this.scales.ratio.range([0, height / 2 - offset - 20]);
-	}
+	};
 }
 
 export default FrequencyRatioChart;

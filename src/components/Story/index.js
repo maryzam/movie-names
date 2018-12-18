@@ -18,26 +18,16 @@ class Story extends React.Component {
 			width: 0,
 			height: 0
 		},
-		page: {
-			x: 0,
-			y: 0
-		}
+		scroll: 0
 	};
 
 	onScroll = (event) => {
 		const top = event.pageY || window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-		const left = event.pageX || window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
-		this.setState({
-			page: {
-				x: Math.round(left),
-				y: Math.round(top)
-			}
-		});
+		this.setState({ scroll: Math.round(top) });
 	}
 
 	onResize = (event) => {
 		const size = this.container.getBoundingClientRect();
-		console.log(size);
 		const width = Math.floor(size.width);
 		const height = document.documentElement.clientHeight;
 		this.setState({
@@ -62,8 +52,7 @@ class Story extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return (nextState.viewport.width !== this.state.viewport.width) ||
 				(nextState.viewport.height !== this.state.viewport.height) ||
-				(nextState.page.x !== this.state.page.x) ||
-				(nextState.page.y !== this.state.page.y);
+				(nextState.scroll !== this.state.scroll);
 	}
 
 	render() {
@@ -74,7 +63,8 @@ class Story extends React.Component {
 			<main className="story" ref={ container => { this.container = container }}>
 				<CinemaVsRealSection 
 					width = { width }
-					height = { height }/>
+					height = { height } 
+					scroll= { this.state.scroll }/>
 				<TopByDecadeSection 
 					width = { width }
 					height = { height }/>
