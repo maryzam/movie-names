@@ -1,1 +1,12 @@
-.conclusion { }
+.conclusion { 
+	display: block;
+	height: 100%;
+}
+
+.conclusion {
+	padding: 1em;
+}
+
+.conclusion p {
+	padding-bottom: 1em;
+}

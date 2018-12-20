@@ -7,7 +7,7 @@ const decadeDuration = 10;
 const thisYear = 2018;
 const maxOrder = 50;
 
-const decadeTransitionDuration = 1500;
+const decadeTransitionDuration = 700;
 const animationDuration = 500;
 
 class FrequencyRatioChart extends React.PureComponent {
@@ -53,6 +53,9 @@ class FrequencyRatioChart extends React.PureComponent {
 	componentDidMount() {
 		d3.json("data/top_names/frequencies_decades.json")
 			.then((source) => {
+				
+				this.processRatio(source);
+
 				const firtsDecade = d3.min(source, (d) => d.Decade);
 
 				const orders = source
@@ -64,11 +67,13 @@ class FrequencyRatioChart extends React.PureComponent {
 				this.decades = source.map(d => d.Decade);
 				this.scales.order.domain(orders);
 
+
 				this.setState({ 
 					isLoading: false,
 					decade: firtsDecade
 				});
-			});
+			})
+			.catch((error) => console.log(error));
 	}
 
 	componentWillUnmount() {
@@ -159,7 +164,7 @@ class FrequencyRatioChart extends React.PureComponent {
 			<g> 
 			{
 				data.map((item) => {
-					const cinematicClass = item[gender].Ratio > 0.49 
+					const cinematicClass = item[gender].Ratio > 1.1 
 											? "cinema" 
 											: item[gender].Ratio < 0.1 
 											 		? "none" 
@@ -220,7 +225,7 @@ class FrequencyRatioChart extends React.PureComponent {
 					fill="blue">
 				</rect>
 				<text dy="1.5em">{ info.Name }</text>
-				<text dy="2.5em">{ `(ratio: ${Math.round(info.Ratio * 100)}%)` }</text>
+				<text dy="2.5em">{ `(ratio: ${Math.round(info.Ratio * 100) / 100})` }</text>
 			</g>
 		);
 	}
@@ -244,6 +249,22 @@ class FrequencyRatioChart extends React.PureComponent {
 		const offset = this.scales.order.bandwidth();
 		this.scales.ratio.range([0, height / 2 - offset - 20]);
 	};
+
+	processRatio(source) {
+		let maxRatio = 0;
+		source.forEach(d => {
+			d.Stats.forEach(info => {
+				["All", "Male", "Female"].forEach(gender => {
+					info[gender].Ratio = info[gender].Ratio / (1 - info[gender].Ratio);
+					if (maxRatio < info[gender].Ratio) {
+						maxRatio = info[gender].Ratio;
+					}
+				})
+			})
+		});
+		console.log("maxRatio", maxRatio);
+		this.scales.ratio.domain([0, maxRatio * 0.7]);
+	}
 }
 
 export default FrequencyRatioChart;

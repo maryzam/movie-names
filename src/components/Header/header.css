@@ -27,3 +27,8 @@ header p.description {
 	padding: 20px 10%;
 	font-size:  1.5em;
 }
+
+header a {
+	font-weight: bold;
+	color: val(--background);
+}
