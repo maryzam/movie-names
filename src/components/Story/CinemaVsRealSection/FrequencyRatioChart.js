@@ -133,6 +133,7 @@ class FrequencyRatioChart extends React.PureComponent {
 					{ this.renderItems(data, "Female", height - chartHeight) }
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
 					{ this.renderOrderAxis(width / 2, height / 2 + 5)}
+					{ this.renderBaseLines(width, chartHeight, height - chartHeight) }
 					{ this.renderTooltip() }
 				</svg>
 			</figure>
@@ -194,6 +195,17 @@ class FrequencyRatioChart extends React.PureComponent {
 					<tspan>{ `Top ${ maxOrder } of Real Names` }</tspan>
 					<tspan className="small">{ "  --- less popular ------->" }</tspan>
 				</text>
+			</g>
+		);
+	}
+
+	renderBaseLines(width, top, bottom) {
+		const barWidth = this.scales.order.bandwidth();
+		const offset = this.scales.ratio(1.0) + 0.5 * barWidth;
+		return (
+			<g className="axis">
+				<line className="base-line" x1={30} x2={width-30} y1={top - offset} y2={top - offset} />
+				<line className="base-line"  x1={30} x2={width-30} y1={bottom + offset} y2={bottom + offset} />
 			</g>
 		);
 	}
