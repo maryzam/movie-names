@@ -35,12 +35,7 @@ class TopByDecadeSection extends React.PureComponent {
 
 		return (
 			<section className="top-by-decades">
-				<article>
-					<h4>Top Names by Decades</h4>
-					<p>Same conclusion can be confirmed by comparing top names from daily life with most common names from cinema.</p>
-					<p>These two lists almost do not overlap. However, favorites do not change a lot from one decade to another for both of them.</p>
-					<p>Does it mean that films follow the same trends with just different preferences? Let's find out it!</p>			
-				</article>
+				
 				{
 					isLoading ? 
 						<div className="preloader">Loading...</div> :
@@ -56,6 +51,15 @@ class TopByDecadeSection extends React.PureComponent {
 								data={ this.source.find((d) => d.Decade === decade ) }/>
 						</article>
 				}
+
+				<article>
+					<h4>Top Names by Decades</h4>
+					<p>Same conclusion can be confirmed by comparing top names from daily life with most common names from cinema.</p>
+					<p>These two lists almost do not overlap. However, <strong>favorites do not change a lot from one decade to another for both of them.</strong></p>
+					<p>Does it mean that cinema wold & our reality share the same trends but with different preferences?</p>
+					<p>Let's find out it!</p>			
+				</article>
+
 			</section>
 		);
 	}

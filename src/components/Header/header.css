@@ -1,7 +1,7 @@
 header {
 	background-color: #fccf31;
 	background-image: linear-gradient(141deg, #fccf31 0%, #f55555 100%);
-	color: var(--bright-text);
+	color: #fff;
 }
 
 header {
@@ -12,16 +12,16 @@ header {
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
-
-	color: white;
 }
 
 header * {
 	text-align: center;
+	color: #fff;
 }
 
 header h1 {
 	font-size: 4em;
+	color: #fff;
 }
 
 header p.description {

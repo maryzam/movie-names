@@ -1,4 +1,7 @@
-.frequency-comparison {}
+.frequency-comparison {
+	flex-direction: column;
+	position: relative;
+}
 
 .frequency-comparison text {
 	font-size: 10px;
@@ -9,8 +12,19 @@
 	alignment-baseline: middle;
 }
 
+
+.frequency-comparison .description {
+	min-height: 100vh;
+}
+
 .frequency-comparison .node {
 	cursor: pointer;
+}
+
+.frequency-comparison .viz {
+	position: sticky;
+	top: 0;
+	left: 0;
 }
 
 .frequency-comparison .female text {

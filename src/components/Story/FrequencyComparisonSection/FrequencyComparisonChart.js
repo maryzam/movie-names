@@ -31,8 +31,8 @@ class FrequencyComparisonChart extends React.PureComponent {
 			return;
 		}
 
-		const { mode, gender } = this.props;
-		const data = this.getCurrentData(mode, gender);
+		const { gender } = this.props;
+		const data = this.getCurrentData(gender);
 		const simulation = d3.forceSimulation(data)
 		      .force("x", d3.forceX((d) => this.scaleFreq(d.Frequency)).strength(1))
 		      .force("y", d3.forceY(0))
@@ -42,11 +42,10 @@ class FrequencyComparisonChart extends React.PureComponent {
 		 				.selectAll('.node')
 		 				.data(data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
 		 				.attr("transform", (d) => {
-		 					const isTop = (d.Type === "Real") || (mode !== "All");
+		 					const isTop = (d.Type === "Real");
 		 					if (isTop && (d.y > -axisOffset)) {
 		 						d.y = -axisOffset;
-		 					}
-		 					if (!isTop && (d.y < axisOffset)) {
+		 					} else if (!isTop && (d.y < axisOffset)) {
 		 						d.y = axisOffset;
 		 					}
 		 					return `translate(${d.x},${d.y})`
@@ -80,8 +79,8 @@ class FrequencyComparisonChart extends React.PureComponent {
 
 	renderNames() {
 
-		const { mode, gender } = this.props;
-		const data = this.getCurrentData(mode, gender);
+		const { gender } = this.props;
+		const data = this.getCurrentData(gender);
 
 		return (
 			<g className="nodes">
@@ -126,29 +125,25 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	updateScales() {
-		const { mode, gender, width } = this.props;
+		const { gender, width } = this.props;
 
-		const data = this.getCurrentData(mode, gender);
+		const data = this.getCurrentData(gender);
 		const freqRange = d3.extent(data, d => d.Frequency);
-		const offset = width * 0.1;
+		const offset = width * 0.05;
 
 		this.scaleFreq
 				.domain(freqRange)
-				.range([offset, (width - offset)])
+				.range([offset, width-offset])
 				.nice();
 	}
 
-	getCurrentData = memoize((mode, gender) => {
+	getCurrentData = memoize((gender) => {
 		const result = [];
 		this.source.forEach((item) => {
-			if (mode !== "Real") {
-				const cinemaInfo = item.Cinema[gender];
-				result.push({ Type: "Cinema", ...cinemaInfo});
-			}
-			if (mode !== "Cinema") {
-				const realInfo = item.Real[gender];
-				result.push({ Type: "Real", ...realInfo});
-			}
+			const cinemaInfo = item.Cinema[gender];
+			const realInfo = item.Real[gender];
+			result.push({ Type: "Cinema", ...cinemaInfo});
+			result.push({ Type: "Real", ...realInfo});
 		});
 		return result;
 	});

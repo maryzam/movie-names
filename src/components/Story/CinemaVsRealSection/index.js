@@ -9,8 +9,7 @@ const CinemaVsRealSection = ({ width, height, scroll }) => (
 		<section className="cinema-vs-real">
 			
 			<article className="description" style={{ width : width }}>
-				<h4>Are common names really popular?</h4>
-				<p>My own name (Mary) is quite popular in many countries. So, since childhood I've rarely been surprised to meet the namesake in daily life. But movies were a different matter!</p>
+				<p>My own name is Mary. This is a quite popular girl name in many countries. So, since childhood I've rarely been surprised to meet the namesake in daily life. But movies were a different matter!</p>
 				<p>However, after hundred of watched movies and TV serias I assumed that most of the characters had pretty ordinar names as well.
 				 James Bond, Jeff Lebowski and Sarah Connor hardly could impress anybody with their first names. <strong>Does it mean that common for real life names are popular in the cinema wold as well?</strong></p>
           		<p>To find out the answer, I took <strong>50 most popular <span className="female">female</span> and <span className="male">male</span> US names</strong> for each decade since 1960 year 
