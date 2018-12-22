@@ -1,6 +1,7 @@
 header {
 	background-color: #fccf31;
 	background-image: linear-gradient(141deg, #fccf31 0%, #f55555 100%);
+	color: var(--bright-text);
 }
 
 header {

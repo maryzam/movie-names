@@ -31,6 +31,7 @@ class FrequencyRatioChart extends React.PureComponent {
 		const nextDecade = this.state.decade + decadeDuration;
 		if (nextDecade > thisYear) {
 			clearInterval(this.timer);
+			this.timer = "done";
 			return;
 		} 
 		this.setState({ decade: nextDecade });
@@ -94,10 +95,9 @@ class FrequencyRatioChart extends React.PureComponent {
 		{
 			return;
 		}
-		const { height, top } = this.viz.getBoundingClientRect();
+		const { top, height } = this.viz.getBoundingClientRect();
 		const { scroll } = this.props;
-		const middleTop = scroll + height * 0.45;
-		if (middleTop > top) {
+		if (scroll > top) {
 			this.timer = setInterval(this.showNextDecade, decadeTransitionDuration);
 		}
 	}
@@ -116,9 +116,11 @@ class FrequencyRatioChart extends React.PureComponent {
 						.filter(d => +d.Order  < maxOrder)
 						.sort((first, second) => (second.Order - first.Order));
 
-		this.updateScales(width, height);
+		const chartHeight = height - 50;
+		const chartWidth = width - 60;
+		this.updateScales(chartWidth, height);
 
-		const chartHeight =  Math.floor(height / 2) - 20;
+		const maxBarHeight =  Math.floor(chartHeight / 2) - 20;
 
 		return (
 			<figure className="viz">
@@ -129,12 +131,14 @@ class FrequencyRatioChart extends React.PureComponent {
 						<Gradient name="male-grad" topColor="#05ABC3" bottomColor="#016775" />
 						<Gradient name="female-grad" topColor="#9C0047" bottomColor="#E20A6D" />
 					</def>
-					{ this.renderItems(data, "Male", chartHeight) }
-					{ this.renderItems(data, "Female", height - chartHeight) }
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
-					{ this.renderOrderAxis(width / 2, height / 2 + 5)}
-					{ this.renderBaseLines(width, chartHeight, height - chartHeight) }
-					{ this.renderTooltip() }
+					<g transform="translate(30, 50)">
+						{ this.renderItems(data, "Male", maxBarHeight) }
+						{ this.renderItems(data, "Female", chartHeight - maxBarHeight) }
+						{ this.renderOrderAxis(chartWidth / 2, chartHeight / 2 + 5)}
+						{ this.renderBaseLines(chartWidth, maxBarHeight, chartHeight - maxBarHeight) }
+						{ this.renderTooltip(chartHeight) }
+					</g>
 				</svg>
 			</figure>
 		);
@@ -143,19 +147,24 @@ class FrequencyRatioChart extends React.PureComponent {
 	renderDecades(x, y) {
 		const currentDecade = this.state.decade;
 		return (
-			<text className="decades" transform={`translate(${x}, ${y})`}>
-			{
-				this.decades.map(decade => (
-					<tspan
-						key={decade}
-						data-decade={decade}
-						className={ (decade === currentDecade) ? "current" : ""}
-						onClick={ this.showDecade }>
-							{ ` ${decade} ` }
-					</tspan>
-				))
-			}
-			</text>
+			<g transform={`translate(${x}, ${y})`}>
+				<text className="decades" >
+				{
+					this.decades.map(decade => (
+						<tspan
+							key={decade}
+							data-decade={decade}
+							className={ (decade === currentDecade) ? "current" : ""}
+							onClick={ this.showDecade }>
+								{ ` ${decade} ` }
+						</tspan>
+					))
+				}
+				</text>
+				<text className="note" dy="1.5em">
+					(Hover bars for more information)
+				</text>
+			</g>
 		);
 	}
 
@@ -204,13 +213,13 @@ class FrequencyRatioChart extends React.PureComponent {
 		const offset = this.scales.ratio(1.0) + 0.5 * barWidth;
 		return (
 			<g className="axis">
-				<line className="base-line" x1={30} x2={width-30} y1={top - offset} y2={top - offset} />
-				<line className="base-line"  x1={30} x2={width-30} y1={bottom + offset} y2={bottom + offset} />
+				<line className="base-line" x1={0} x2={width} y1={top - offset} y2={top - offset} />
+				<line className="base-line"  x1={0} x2={width} y1={bottom + offset} y2={bottom + offset} />
 			</g>
 		);
 	}
 
-	renderTooltip() {
+	renderTooltip(height) {
 		const { highlight, decade } = this.state;
 		if (!highlight) { return null; }
 
@@ -223,7 +232,7 @@ class FrequencyRatioChart extends React.PureComponent {
 		const info = current[highlight.gender];
 		const genderCoeff = isMale ? -1 : 1;
 		const genderOffset = isMale ? 50 : 10;
-		const baseLine = Math.floor(this.props.height / 2);
+		const baseLine = Math.floor(height / 2);
 		const x = this.scales.order(highlight.order) + 0.5 * this.scales.order.bandwidth();
 		const y = baseLine + (this.scales.ratio(info.Ratio) + genderOffset ) * genderCoeff;
 
@@ -257,9 +266,9 @@ class FrequencyRatioChart extends React.PureComponent {
 	};
 
 	updateScales(width, height) {
-		this.scales.order.range([ 30, width - 30 ]);
+		this.scales.order.range([ 0, width ]);
 		const offset = this.scales.order.bandwidth();
-		this.scales.ratio.range([0, height / 2 - offset - 20]);
+		this.scales.ratio.range([0, height / 2 - 20 - offset]);
 	};
 
 	processRatio(source) {

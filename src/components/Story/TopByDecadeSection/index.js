@@ -37,7 +37,9 @@ class TopByDecadeSection extends React.PureComponent {
 			<section className="top-by-decades">
 				<article>
 					<h4>Top Names by Decades</h4>
-					<p>How the preferences has been changed in movie industry and real life</p>			
+					<p>Same conclusion can be confirmed by comparing top names from daily life with most common names from cinema.</p>
+					<p>These two lists almost do not overlap. However, favorites do not change a lot from one decade to another for both of them.</p>
+					<p>Does it mean that films follow the same trends with just different preferences? Let's find out it!</p>			
 				</article>
 				{
 					isLoading ? 

@@ -8,21 +8,21 @@
 	fill-opacity: 0;
 }
 
-.cinema-vs-real .female {
+.cinema-vs-real figure .female {
 	stroke: url(#female-grad);
 	fill: url(#female-grad);
 }
 
-.cinema-vs-real .male {
+.cinema-vs-real figure .male {
 	stroke: url(#male-grad);
 	fill: url(#male-grad);
 }
 
-.cinema-vs-real .cinema {
+.cinema-vs-real figure .cinema {
 	fill-opacity: 0.7;
 }
 
-.cinema-vs-real .none {
+.cinema-vs-real figure .none {
 	stroke: var(--basic-grey);
 	fill: var(--muted);
 	fill-opacity: 1;
@@ -35,7 +35,7 @@
 }
 
 .cinema-vs-real .decades {
-	fill: var(--basic-grey);
+	fill: var(--bright-text);
 	font-weight: bold;
 	text-anchor: middle;
 	cursor: pointer;
@@ -44,7 +44,7 @@
 .cinema-vs-real .decades .current {
 	font-family: 'Monoton', 'Roboto', sans-serif;
 	font-size: 1.5em;
-	fill: var(--main-text);
+	fill: var(--bright-text);
 }
 
 .cinema-vs-real .axis .start {
@@ -61,11 +61,11 @@
 
 .cinema-vs-real .axis .small {
 	font-size: 0.8em;
-	fill: #aaa;
+	fill: var(--basic-grey);
 }
 
 .cinema-vs-real .axis .base-line {
-	stroke: var(--main-text);
+	stroke: var(--bright-text);
 	stroke-width: 1px;
 	stroke-dasharray: 1 3;
 }
@@ -80,13 +80,18 @@
 
 .cinema-vs-real .tooltip text{
 	text-anchor: middle;
-	fill: var(--main-text);
+	fill: var(--bright-text);
 	font-size: 0.7em;
 }
 
 .cinema-vs-real .tooltip rect {
-	stroke: var(--main-text);
+	stroke: var(--bright-text);
 	stroke-width: 1px;
 	fill: var(--background);
 	fill-opacity: 0.7;
+}
+
+.cinema-vs-real .note {
+	text-anchor: middle;
+	font-size: 0.7em;
 }

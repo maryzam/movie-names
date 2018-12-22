@@ -15,6 +15,7 @@
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 1.1em;
+	color: var(--bright-text);
 }
 
 .story p {
@@ -23,4 +24,16 @@
 
 .story text {
 	fill: var(--main-text);
+}
+
+.story span.female {
+	color: var(--female);
+}
+
+.story span.male {
+	color: var(--male);
+}
+
+.story strong {
+	color: var(--bright-text);
 }

@@ -31,6 +31,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
+	color: var(--bright-text);
 }
 
 .top-by-decades .decade-switch button {

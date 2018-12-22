@@ -4,8 +4,9 @@
 	--cinema: #FECE0A;
 	--real: #dadada;
 	--background: #000;
-	--main-text: #dadada;
 	--muted: #414141;
+	--bright-text: #dadada;
+	--main-text: #999;
 }
 
 * {
@@ -30,6 +31,7 @@ body {
 h1, h2 {
 	font-family: 'Monoton', 'Roboto', sans-serif;
 	text-align: center;
+	color: var(--bright-text);
 }
 
 h4, h6 {
@@ -42,7 +44,6 @@ section {
 	flex-shrink: 0;
 	align-items: center;
 
-	height: 100vh;
 	width: 100%;
 	padding-top: 10%;
 }
