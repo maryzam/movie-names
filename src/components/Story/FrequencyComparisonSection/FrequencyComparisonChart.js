@@ -2,6 +2,8 @@ import React from 'react';
 import memoize from "memoize-one";
 import * as d3 from 'd3';
 
+import { GENDER } from "./constants";
+
 const axisOffset = 15;
 
 const generateKey = (info) => `${info.Name}_${info.Sex}_${info.Type}`;
@@ -10,10 +12,19 @@ class FrequencyComparisonChart extends React.PureComponent {
 
 	state = {
 		isLoading: true,
-	}
+		gender: GENDER.ALL,
+		dontResetSimulation: false
+	};
 
 	source = [];
 	scaleFreq = d3.scaleLinear();
+
+	isInvisible = () => {
+		const { height, scroll } = this.props;
+		const { top, bottom } = this.viz.getBoundingClientRect();
+		const middle = height / 2;
+		return ( top > middle) || ( bottom < middle);
+	}
 
 	componentDidMount() {
 		d3.json("data/top_names/top_comparison_100.json")	
@@ -27,7 +38,12 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	componentDidUpdate() {
-		if (this.state.isLoading) {
+		const  { dontResetSimulation, isLoading } = this.state;
+		if (isLoading || dontResetSimulation) {
+			return;
+		}
+
+		if (this.isInvisible()) {
 			return;
 		}
 
@@ -51,6 +67,8 @@ class FrequencyComparisonChart extends React.PureComponent {
 		 					return `translate(${d.x},${d.y})`
 		 				});
 		      });
+
+		this.setState({ dontResetSimulation: true });
 	}
 
 	render() {
@@ -60,7 +78,8 @@ class FrequencyComparisonChart extends React.PureComponent {
 
 		this.updateScales();
 
-		const { width, height } = this.props;
+		const { width, height, scroll } = this.props;
+		
 		return (
 			<figure className="viz">
 				<svg ref={ viz => (this.viz = viz) }

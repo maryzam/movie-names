@@ -21,7 +21,7 @@ class FrequencyComparisonSection extends React.PureComponent {
 
 	render() {
 
-		const { width, height } = this.props;
+		const { width, height, scroll } = this.props;
 		const { currentGender, showSwitch } = this.state;
 
 		return (
@@ -30,6 +30,7 @@ class FrequencyComparisonSection extends React.PureComponent {
 				<FrequencyComparisonChart 
 					width={ width } 
 					height={ height }
+					scroll= { scroll }
 					gender={ currentGender }/>
 
 				<article className="description">
@@ -37,7 +38,9 @@ class FrequencyComparisonSection extends React.PureComponent {
 					<h4>Frequency Distribution of the most popular names</h4>
 					{ 
 						showSwitch 
-							? <GenderSwitch currentGender={ currentGender } onChange={ this.handleGenderChanged } /> 
+							? <GenderSwitch 
+								currentGender={ currentGender } 
+								onChange={ this.handleGenderChanged } /> 
 							: null
 					}
 

@@ -58,19 +58,21 @@ class Story extends React.Component {
 	render() {
 
 		const { width, height } = this.state.viewport;
-
+		const { scroll } = this.state;
+		
 		return (
 			<main className="story" ref={ container => { this.container = container }}>
 				<CinemaVsRealSection 
 					width = { width }
 					height = { height } 
-					scroll= { this.state.scroll }/>
+					scroll= { scroll }/>
 				<TopByDecadeSection 
 					width = { width }
 					height = { height }/>
 				<FrequencyComparisonSection 
 					width = { width }
-					height = { height }/>
+					height = { height }
+					scroll= { scroll } />
 				<GenresTriangleSection 
 					width = { width }
 					height = { height }/>
