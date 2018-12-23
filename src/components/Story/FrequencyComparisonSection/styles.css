@@ -3,6 +3,14 @@
 	position: relative;
 }
 
+.frequency-comparison h4 {
+	padding-top: 1em;
+}
+
+.frequency-comparison article {
+	position: relative;
+}
+
 .frequency-comparison text {
 	font-size: 10px;
 	font-weight: bold;
@@ -12,9 +20,20 @@
 	alignment-baseline: middle;
 }
 
-
 .frequency-comparison .description {
 	min-height: 100vh;
+}
+
+.frequency-comparison .description .content {
+	background: rgba(0, 0, 0, 0.7);
+	width: 70%;
+	margin: auto;
+	padding: 10px;
+	min-width: 300px;
+}
+
+.frequency-comparison .description .content p {
+	padding-bottom: 0.5em;
 }
 
 .frequency-comparison .node {

@@ -4,19 +4,18 @@ import * as d3 from 'd3';
 
 import { GENDER } from "./constants";
 
+const allGenders = Object.values(GENDER);
 const axisOffset = 15;
 
-const generateKey = (info) => `${info.Name}_${info.Sex}_${info.Type}`;
+const generateKey = (info) => `${info.Type}_${info.Order}`;
 
 class FrequencyComparisonChart extends React.PureComponent {
 
 	state = {
-		isLoading: true,
-		gender: GENDER.ALL,
-		dontResetSimulation: false
+		isLoading: true
 	};
 
-	source = [];
+	data = [];
 	scaleFreq = d3.scaleLinear();
 
 	isInvisible = () => {
@@ -29,7 +28,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	componentDidMount() {
 		d3.json("data/top_names/top_comparison_100.json")	
 			.then((source) => {
-				this.source = source;
+				this.data = this.flattenData(source);
 				this.setState({ isLoading: false });
 			})
 			.catch((err) => {
@@ -37,26 +36,24 @@ class FrequencyComparisonChart extends React.PureComponent {
 			});
 	}
 
-	componentDidUpdate() {
-		const  { dontResetSimulation, isLoading } = this.state;
-		if (isLoading || dontResetSimulation) {
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.isLoading ||	this.isInvisible()) {
 			return;
 		}
 
-		if (this.isInvisible()) {
+		const  { gender } = this.props;
+		if (prevProps.gender == gender) {
 			return;
 		}
 
-		const { gender } = this.props;
-		const data = this.getCurrentData(gender);
-		const simulation = d3.forceSimulation(data)
-		      .force("x", d3.forceX((d) => this.scaleFreq(d.Frequency)).strength(1))
+		const simulation = d3.forceSimulation(this.data)
+		      .force("x", d3.forceX((d) => this.scaleFreq(d[gender].Frequency)).strength(1))
 		      .force("y", d3.forceY(0))
 		      .force("collide", d3.forceCollide(7))
 		      .on("tick", () => {
 		 			d3.select(this.viz)
 		 				.selectAll('.node')
-		 				.data(data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
+		 				.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
 		 				.attr("transform", (d) => {
 		 					const isTop = (d.Type === "Real");
 		 					if (isTop && (d.y > -axisOffset)) {
@@ -67,8 +64,6 @@ class FrequencyComparisonChart extends React.PureComponent {
 		 					return `translate(${d.x},${d.y})`
 		 				});
 		      });
-
-		this.setState({ dontResetSimulation: true });
 	}
 
 	render() {
@@ -79,40 +74,39 @@ class FrequencyComparisonChart extends React.PureComponent {
 		this.updateScales();
 
 		const { width, height, scroll } = this.props;
-		
+
 		return (
-			<figure className="viz">
-				<svg ref={ viz => (this.viz = viz) }
-					width={ width }
-					height={ height }>
+				<figure>
+					<svg ref={ viz => (this.viz = viz) }
+						width={ width }
+						height={ height }>
 
-					<g transform={`translate(0, ${ Math.floor(height / 2) })`}>
-						{ this.renderAxis() }
-						{ this.renderNames() }
-					</g>
+						<g transform={`translate(0, ${ Math.floor(height / 2) })`}>
+							{ this.renderAxis() }
+							{ this.renderNames() }
+						</g>
 
-				</svg>
-			</figure>
+					</svg>
+				</figure>
 		);
 	}
 
 	renderNames() {
-
 		const { gender } = this.props;
-		const data = this.getCurrentData(gender);
-
 		return (
 			<g className="nodes">
 			{
-				data.map((info) => {
-					const key = generateKey(info);
-					const xPos = this.scaleFreq(info.Frequency);
+				this.data.map((item) => {
+					const key = generateKey(item);
+					const info = item[gender];
+					const xPos = item.x || this.scaleFreq(info.Frequency);
+					const yPos = item.y || 0;
 					return (
 						<g 
 							key={ key}
 							data-item={ key }
-							className={ `node ${info.Type} ${info.Sex == "M" ? "male" : "female" }`}
-							transform={ `translate(${xPos},0)`}
+							className={ `node ${item.Type} ${info.Sex == "M" ? "male" : "female" }`}
+							transform={ `translate(${xPos},${yPos})`}
 						>
 							<text>▼</text>
 						</g>
@@ -144,28 +138,37 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	updateScales() {
-		const { gender, width } = this.props;
+		console.log(this.data[0]);
+		const topitems = this.data.filter(d => d.Order < 10 && d.Type == "Cinema");
+		let fr = 0;
+		let names = ""
+		topitems.forEach((item) => {
+			fr = fr + item.All.Frequency;
+			names = `${names}, <span className="male">${item.All.Name}</span>`;
+		});
+		console.log(100 / fr);
 
-		const data = this.getCurrentData(gender);
-		const freqRange = d3.extent(data, d => d.Frequency);
+		const { width, gender, scroll } = this.props;
+		const freqMin = d3.min(this.data, d => d3.min(allGenders, g => d[g].Frequency));
+		const freqMax = d3.max(this.data, d => d3.max(allGenders, g => d[g].Frequency));
 		const offset = width * 0.05;
 
 		this.scaleFreq
-				.domain(freqRange)
+				.domain([freqMin, freqMax])
 				.range([offset, width-offset])
 				.nice();
 	}
 
-	getCurrentData = memoize((gender) => {
+	flattenData(source) {
 		const result = [];
-		this.source.forEach((item) => {
-			const cinemaInfo = item.Cinema[gender];
-			const realInfo = item.Real[gender];
-			result.push({ Type: "Cinema", ...cinemaInfo});
-			result.push({ Type: "Real", ...realInfo});
+		source.forEach((item, order) => {
+			const cinemaInfo = item.Cinema;
+			const realInfo = item.Real;
+			result.push({ Type: "Cinema", "Order": order, ...cinemaInfo});
+			result.push({ Type: "Real", "Order": order, ...realInfo});
 		});
 		return result;
-	});
+	}
 }
 
 export default FrequencyComparisonChart;
