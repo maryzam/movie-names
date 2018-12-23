@@ -47,7 +47,7 @@
 
 .top-by-genre .item text {
 	stroke: none;
-	fill: var(--main-text);
+	fill: #fff;
 	pointer-events: none;
 }
 

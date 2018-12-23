@@ -66,13 +66,17 @@ class FrequencyComparisonSection extends React.PureComponent {
 				
 				<article className="description" data-gender={ GENDER.MALE }>
 					<div className="content">
-						<p>Male</p>
+						<p>Interesting that people less creative when choosing names for boys (marked ▼ on chart).</p>
+						<p>Occurance comparison among only <span className="male">male names</span> tells us that one of the 10 most common of them is used by over than 17% of men in the United States. Seems, that it's not so hard to guess a name of your new friend or colleague, is it?</p>
+						<p>On the other hand, the writers strive to diversify the names of the heroes of their senaries. All the names except Jonh have frequency coefficient belong 1.2% in the cinema world.</p>
 					</div>
 				</article>
 
 				<article className="description" data-gender={ GENDER.FEMALE }>
 					<div className="content">
-						<p>Female</p>
+						<p>Oposite to the male names, <span className="female">female names</span> (marked ▲ on chart) tend to be more "unique" in our dayly life as well as in film industry.</p>
+						<p>However, first 5 most common female character names are more obviously distinguish from the other common names from the other top 100 names. So, we must recognize that real parents become more diligent and creative calling their baby-girls than writers chosing a name for a new female character.</p>
+						<p>But gender is not the only component of the name's popularity in the movies & TV series.</p>
 					</div>
 				</article>
 

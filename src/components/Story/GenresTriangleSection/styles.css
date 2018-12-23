@@ -1,4 +1,6 @@
-.genres-triangle {}
+.genres-triangle {
+	padding-top: 1em;
+}
 
 .genres-triangle circle {
  	stroke: 1px;

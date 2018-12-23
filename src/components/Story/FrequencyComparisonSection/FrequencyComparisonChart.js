@@ -139,14 +139,14 @@ class FrequencyComparisonChart extends React.PureComponent {
 
 	updateScales() {
 		console.log(this.data[0]);
-		const topitems = this.data.filter(d => d.Order < 10 && d.Type == "Cinema");
+		const topitems = this.data.filter(d => d.Order < 10 && d.Type == "Real");
 		let fr = 0;
 		let names = ""
 		topitems.forEach((item) => {
-			fr = fr + item.All.Frequency;
-			names = `${names}, <span className="male">${item.All.Name}</span>`;
+			fr = fr + item.Male.Frequency;
+			console.log(item.Male.Frequency);
 		});
-		console.log(100 / fr);
+		console.log("male", 100 / fr, fr);
 
 		const { width, gender, scroll } = this.props;
 		const freqMin = d3.min(this.data, d => d3.min(allGenders, g => d[g].Frequency));
