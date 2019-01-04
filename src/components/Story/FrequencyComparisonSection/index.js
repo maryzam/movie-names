@@ -52,13 +52,13 @@ class FrequencyComparisonSection extends React.PureComponent {
 				<article className="description" data-gender={ GENDER.ALL }>
 					<div className="content">
 						<p>
-							To define the most common names it's not enought to just sort the names by the number of people named by them. We also need to check how often these names used compared to their closest neighbors from the ordered list.
+							To define the most common names it's not enough to just sort the names by the number of people named by them. We also need to check how often these names are used compared to their closest neighbors from the ordered list.
 						</p>
 						<p>
-							The frequency distribution chart makes obvious that in <span className="real">real life</span> top 6 names use much more often rather than all other. <strong>Every 19th baby in the US borned since 1960 was called <span className="male">Michael</span>, <span className="male">David</span>, <span className="male">James</span>, <span className="male">John</span> or <span className="male">Christopher</span></strong>.
+							The frequency distribution chart makes obvious that in <span className="real">real life</span> top 6 names are used much more often rather than all the others. <strong>Every 19th baby in the US born since 1960 was called <span className="male">Michael</span>, <span className="male">David</span>, <span className="male">James</span>, <span className="male">John</span> or <span className="male">Christopher</span></strong>.
 						</p>
 						<p>
-							At the same time <span className="cinema">character names</span> have lower bias of occurance among the 100 most common of them. Only person called <span className="male">John</span> occurres on our screen in 1% of movies and tv series.
+							At the same time <span className="cinema">character names</span> have lower bias of occurence among the 100 most common of them. Only person called <span className="male">John</span> occures on our screen in 1% of movies and tv series.
 							All other <span className="cinema">cinema names</span> are much less common and there isn't such a large gap between them.
 						</p>
 					</div>
@@ -66,16 +66,16 @@ class FrequencyComparisonSection extends React.PureComponent {
 				
 				<article className="description" data-gender={ GENDER.MALE }>
 					<div className="content">
-						<p>Interesting that people less creative when choosing names for boys (marked ▼ on chart).</p>
-						<p>Occurance comparison among only <span className="male">male names</span> tells us that one of the 10 most common of them is used by over than 17% of men in the United States. Seems, that it's not so hard to guess a name of your new friend or colleague, is it?</p>
-						<p>On the other hand, the writers strive to diversify the names of the heroes of their senaries. All the names except Jonh have frequency coefficient belong 1.2% in the cinema world.</p>
+						<p>Interesting that people are less creative when choosing names for boys (marked ▼ on chart).</p>
+						<p>Occurence comparison among only <span className="male">male names</span> tells us that one of the 10 most common of them is used by over than 17% of men in the United States. Seems, that it's not so hard to guess a name of your new friend or colleague, is it?</p>
+						<p>On the other hand, the writers strive to diversify the names of the heroes of their scenarios. All the names except Jonh have frequency coefficient around 1.2% in the cinema world.</p>
 					</div>
 				</article>
 
 				<article className="description" data-gender={ GENDER.FEMALE }>
 					<div className="content">
-						<p>Oposite to the male names, <span className="female">female names</span> (marked ▲ on chart) tend to be more "unique" in our dayly life as well as in film industry.</p>
-						<p>However, first 5 most common female character names are more obviously distinguish from the other common names from the other top 100 names. So, we must recognize that real parents become more diligent and creative calling their baby-girls than writers chosing a name for a new female character.</p>
+						<p>Oposite to the male names, <span className="female">female names</span> (marked ▲ on chart) tend to be more "unique" in our daily life as well as in film industry.</p>
+						<p>However, first 5 most common female character names are more obviously distinguished from the other common names from the other top 100 names. So, we must recognize that real world parents become more diligent and creative calling their baby-girls than writers chosing a name for a new female character.</p>
 						<p>But gender is not the only component of the name's popularity in the movies & TV series.</p>
 					</div>
 				</article>

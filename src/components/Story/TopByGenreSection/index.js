@@ -30,14 +30,20 @@ class TopByGenreSection extends React.PureComponent {
 				<article className="description">
 					<div>
 						<h4>Top 10 Names By Genres</h4>
-							<GenderModeSwitch 
+						<GenderModeSwitch 
 							currentMode={ currentMode }
 							onClick={ this.handleModeChange }
-						/>							
+						/>	
+						<p className="centered"><small>Click on a name to highlight it over genres</small></p>
 					</div>
 					<div>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						<p>But if we compare 10 most common names across main cinema genres, 
+						we'll find out that movie world is almost as straight in it's preferences as real life.  
+						<span className="male">John</span>, <span className="female">Mary</span>, <span className="male">David</span> and <span className="female">Anna</span>  
+						are basic picks for a new character no matter what genre we are talking about.</p> 
+						<p>Only Historical movies have distinguished themselves from another genres List of top names. 
+						However, it's mostly due to the objective reasons rather than the desires of directors and screenwriters. 
+						It would be weird to call King Richard - John, wouldn't it? </p>
 					</div>					
 				</article>
 				

@@ -156,7 +156,7 @@ class FrequencyRatioChart extends React.PureComponent {
 							data-decade={decade}
 							className={ (decade === currentDecade) ? "current" : ""}
 							onClick={ this.showDecade }>
-								{ ` ${decade} ` }
+								{ ` ${decade}${(decade === currentDecade) ? "'s": ""} ` }
 						</tspan>
 					))
 				}

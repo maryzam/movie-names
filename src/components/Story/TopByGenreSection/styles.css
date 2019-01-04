@@ -20,6 +20,7 @@
 .top-by-genre text {
 	font-size: 0.75em;
 	text-anchor: middle;
+	fill: var(--bright-text);
 }
 
 .top-by-genre .female {
@@ -57,15 +58,14 @@
 
 .top-by-genre button {
 	padding: 2px 10px;
-	color: var(--main-text);
+	color: var(--bright-text);
 	background: var(--background);
-	border: 1px solid var(--main-text);
+	border: 1px solid var(--bright-text);
 	cursor: pointer;
 	pointer-events: all;
 }
 
 .top-by-genre button.active {
-	background-color: var(--main-text);
+	background-color: var(--bright-text);
 	color: var(--background);
 }
-

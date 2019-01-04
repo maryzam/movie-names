@@ -37,3 +37,7 @@
 .story strong {
 	color: var(--bright-text);
 }
+
+.story .centered {
+	text-align: center;
+}
