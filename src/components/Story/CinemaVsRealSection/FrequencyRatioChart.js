@@ -127,10 +127,10 @@ class FrequencyRatioChart extends React.PureComponent {
 				<svg ref={ viz => (this.viz = viz) }
 					width={ width } 
 					height={ height }>
-					<def>
+					<defs>
 						<Gradient name="male-grad" topColor="#05ABC3" bottomColor="#016775" />
 						<Gradient name="female-grad" topColor="#9C0047" bottomColor="#E20A6D" />
-					</def>
+					</defs>
 					{ this.renderDecades(width / 2, Math.max(50, height * 0.1)) }
 					<g transform="translate(30, 50)">
 						{ this.renderItems(data, "Male", maxBarHeight) }
@@ -242,8 +242,7 @@ class FrequencyRatioChart extends React.PureComponent {
 				<rect 
 					x="-2.5em"
 					width="5em"
-					height="2.5em"
-					fill="blue">
+					height="2.5em">
 				</rect>
 				<text dy="1.5em">{ info.Name }</text>
 				<text dy="2.5em">{ `(ratio: ${Math.round(info.Ratio * 100) / 100})` }</text>
@@ -283,7 +282,6 @@ class FrequencyRatioChart extends React.PureComponent {
 				})
 			})
 		});
-		console.log("maxRatio", maxRatio);
 		this.scales.ratio.domain([0, maxRatio * 0.7]);
 	}
 }
