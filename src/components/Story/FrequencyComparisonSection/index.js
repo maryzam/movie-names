@@ -8,7 +8,7 @@ import FrequencyComparisonChart from "./FrequencyComparisonChart";
 class FrequencyComparisonSection extends React.PureComponent {
 
 	state = {
-		gender: GENDER.ALL
+		gender: null
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -18,18 +18,18 @@ class FrequencyComparisonSection extends React.PureComponent {
 			min: -height * offset,
 			max: height * (1 - offset)
 		};
-
-		const allArticles = this.node.getElementsByClassName("description");
-		for (let i = 0; i < allArticles.length; i++) {
-			const article = allArticles[i];
+		let currentGender = null;
+		const allArticles = this.node.getElementsByTagName("article");
+		for (let idx = 0; idx < allArticles.length; idx++) {
+			const article = allArticles[idx];
 			const { top } = article.getBoundingClientRect();
 			if ((top > range.min) && (top < range.max)) {
-				const gender = article.dataset.gender;
-				if (prevState.gender !== gender) {
-					this.setState({ gender });
-				}
-				return;
+				currentGender = article.dataset.gender;
+				
 			}
+		}
+		if (prevState.gender !== currentGender && !!currentGender) {
+			this.setState({ gender: currentGender });
 		}
 	}
 
@@ -40,7 +40,7 @@ class FrequencyComparisonSection extends React.PureComponent {
 				ref={ node => (this.node = node) } 
 				className="frequency-comparison">
 
-				<article className="viz">
+				<article className="viz" data-gender={ GENDER.ALL }>
 					<h4>Are the top names really popular?</h4>
 					<FrequencyComparisonChart 
 						width={ width } 

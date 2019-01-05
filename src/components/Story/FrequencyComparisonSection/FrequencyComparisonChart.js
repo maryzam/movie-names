@@ -18,13 +18,6 @@ class FrequencyComparisonChart extends React.PureComponent {
 	data = [];
 	scaleFreq = d3.scaleLinear();
 
-	isInvisible = () => {
-		const { height, scroll } = this.props;
-		const { top, bottom } = this.viz.getBoundingClientRect();
-		const middle = height / 2;
-		return ( top > middle) || ( bottom < middle);
-	}
-
 	componentDidMount() {
 		d3.json("data/top_names/top_comparison_100.json")	
 			.then((source) => {
@@ -37,14 +30,15 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.state.isLoading ||	this.isInvisible()) {
+		if (this.state.isLoading) {
+			return;
+		}
+		if ((this.props.gender === null) || (prevProps.gender === this.props.gender)) {
 			return;
 		}
 
-		const  { gender } = this.props;
-		if (prevProps.gender == gender) {
-			return;
-		}
+		console.log("run simulation");
+		const gender = this.ensureGender();
 
 		const simulation = d3.forceSimulation(this.data)
 		      .force("x", d3.forceX((d) => this.scaleFreq(d[gender].Frequency)).strength(1))
@@ -67,6 +61,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	render() {
+		console.log(this.props.gender);
 		if (this.state.isLoading) {
 			return (<div className="preloader">Loading...</div>);
 		}
@@ -92,7 +87,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	renderNames() {
-		const { gender } = this.props;
+		const gender = this.ensureGender();
 		return (
 			<g className="nodes">
 			{
@@ -138,7 +133,8 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	updateScales() {
-		const { width, gender, scroll } = this.props;
+		const { width, scroll } = this.props;
+
 		const freqMin = d3.min(this.data, d => d3.min(allGenders, g => d[g].Frequency));
 		const freqMax = d3.max(this.data, d => d3.max(allGenders, g => d[g].Frequency));
 		const offset = width * 0.05;
@@ -158,6 +154,10 @@ class FrequencyComparisonChart extends React.PureComponent {
 			result.push({ Type: "Real", "Order": order, ...realInfo});
 		});
 		return result;
+	}
+
+	ensureGender() {
+		return this.props.gender || GENDER.ALL;
 	}
 }
 
