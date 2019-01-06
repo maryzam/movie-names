@@ -46,27 +46,20 @@
 	left: 0;
 }
 
-.frequency-comparison .female text {
+.frequency-comparison .female {
 	fill-opacity: 0.4;
-	transform: rotate(180deg) translate(0, 1em);
 }
 
-.frequency-comparison .male text {
+.frequency-comparison .male {
 	fill-opacity: 0.7;
 }
 
-.frequency-comparison circle {
-	fill-opacity: 0.3;
-}
-
-.frequency-comparison .Real text,
-.frequency-comparison .Real circle {
+.frequency-comparison .Real {
 	fill: var(--real);
 	stroke: var(--real);
 }
 
-.frequency-comparison .Cinema text,
-.frequency-comparison .Cinema circle {
+.frequency-comparison .Cinema {
 	fill: var(--cinema);
 	stroke: var(--cinema);
 }

@@ -4,14 +4,17 @@ import * as d3 from 'd3';
 
 import { GENDER } from "./constants";
 
-import forceBoundary from "../../../utils/forceBoundary"
-
 const allGenders = Object.values(GENDER);
 const axisOffset = 15;
 const cellSize = 10;
 
 const generateKey = (info) => `${info.Type}_${info.Order}`;
 const ensureGender = (gender) => gender || GENDER.ALL;
+const getTransform = (info, fromBaseLine = false) => {
+	const angle = (info.Sex === "M") ? 0 : 180;
+	const y = fromBaseLine ? info.pos.baseLine : info.pos.y;
+	return `translate(${info.pos.x},${y})rotate(${angle})`;
+}
 
 class FrequencyComparisonChart extends React.PureComponent {
 
@@ -44,20 +47,26 @@ class FrequencyComparisonChart extends React.PureComponent {
 
 		const currentGender = ensureGender(gender);
 		const prevGender = ensureGender(prevProps.gender);
+		const fromBaseLine = !prevProps.gender || !prevProps.gender.length;
+
+		console.log(this.data[0]);
 
 		d3.select(this.viz)
 		 	.selectAll('.node')
 		 	.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
-		 		.attr("transform", (d) => `translate(${d[prevGender].pos.x},${d[prevGender].pos.y})`)
+		 		.attr("transform", (d) => getTransform(d[prevGender], fromBaseLine))
 		 	.transition()
-		 		.attr("transform", (d) => `translate(${d[currentGender].pos.x},${d[currentGender].pos.y})`);
+		 		.duration(1000)
+		 		.attr("transform", (d) => getTransform(d[currentGender]));
 	}
 
 	render() {
+
 		if (this.state.isLoading) {
 			return (<div className="preloader">Loading...</div>);
 		}
 
+		// todo recalculate only on box change
 		this.updateScales();
 		this.updateGridPositions();
 
@@ -89,13 +98,11 @@ class FrequencyComparisonChart extends React.PureComponent {
 					const info = item[gender];
 
 					return (
-						<g 
+						<polygon 
 							key={ key}
 							data-item={ key }
 							className={ `node ${item.Type} ${info.Sex == "M" ? "male" : "female" }`}
-						>
-							<circle r="3"></circle>
-						</g>
+							points="0,4 3.46,-2 -3.46,-2" />
 					); 
 				})
 			}
@@ -150,7 +157,6 @@ class FrequencyComparisonChart extends React.PureComponent {
 	updateGridPositions() {
 		const gridColumns = {};
 		const maxPerColumn = Math.floor(((this.props.height / 2) - axisOffset) / cellSize) - 1;
-		console.log(maxPerColumn);
 
 		this.data.map((item) => {
 			const sign = (item.Type === "Real") ? -1 : 1;
@@ -174,7 +180,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 				item[gender]["pos"] = {
 					x: gridX * cellSize, 
 					y: sign * height,
-					accX: accurateX
+					baseLine: sign * axisOffset
 				};
 
 				currentColumn[gridX]++;
