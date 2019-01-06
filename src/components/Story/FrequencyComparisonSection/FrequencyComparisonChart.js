@@ -4,8 +4,11 @@ import * as d3 from 'd3';
 
 import { GENDER } from "./constants";
 
+import forceBoundary from "../../../utils/forceBoundary"
+
 const allGenders = Object.values(GENDER);
 const axisOffset = 15;
+const simulationTicksTotal = 2000;
 
 const generateKey = (info) => `${info.Type}_${info.Order}`;
 
@@ -37,31 +40,33 @@ class FrequencyComparisonChart extends React.PureComponent {
 			return;
 		}
 
-		console.log("run simulation");
 		const gender = this.ensureGender();
+		const { width, height } = this.props;
+
+		const y0 = (d) => {
+		 	return (d.Type === "Real") ? -height / 2 : axisOffset;
+		}
+
+		const y1 = (d) => {
+		 	return (d.Type === "Real") ? -2 * axisOffset : height / 2;
+		}
 
 		const simulation = d3.forceSimulation(this.data)
 		      .force("x", d3.forceX((d) => this.scaleFreq(d[gender].Frequency)).strength(1))
-		      .force("y", d3.forceY(0))
-		      .force("collide", d3.forceCollide(7))
-		      .on("tick", () => {
-		 			d3.select(this.viz)
-		 				.selectAll('.node')
-		 				.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
-		 				.attr("transform", (d) => {
-		 					const isTop = (d.Type === "Real");
-		 					if (isTop && (d.y > -axisOffset)) {
-		 						d.y = -axisOffset;
-		 					} else if (!isTop && (d.y < axisOffset)) {
-		 						d.y = axisOffset;
-		 					}
-		 					return `translate(${d.x},${d.y})`
-		 				});
-		      });
+		      .force("collide", d3.forceCollide(7).strength(1))
+		      //.force("bounded", forceBoundary(0, y0, Math.floor(width), y1).border(10))
+		      .stop();
+
+		simulation.tick(simulationTicksTotal);
+
+		d3.select(this.viz)
+		 	.selectAll('.node')
+		 	.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
+		 	.transition()
+		 	.attr("transform", (d) => `translate(${d.x},${d.y})`);
 	}
 
 	render() {
-		console.log(this.props.gender);
 		if (this.state.isLoading) {
 			return (<div className="preloader">Loading...</div>);
 		}
@@ -87,6 +92,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	renderNames() {
+		const mid = this.props.height / 2;
 		const gender = this.ensureGender();
 		return (
 			<g className="nodes">
@@ -94,14 +100,15 @@ class FrequencyComparisonChart extends React.PureComponent {
 				this.data.map((item) => {
 					const key = generateKey(item);
 					const info = item[gender];
-					const xPos = item.x || this.scaleFreq(info.Frequency);
-					const yPos = item.y || 0;
+
+					item.x = item.x || this.scaleFreq(info.Frequency);
+					item.y  = item.y || ((item.Type === "Real") ? -mid / 2 : 0.75 * mid);
 					return (
 						<g 
 							key={ key}
 							data-item={ key }
 							className={ `node ${item.Type} ${info.Sex == "M" ? "male" : "female" }`}
-							transform={ `translate(${xPos},${yPos})`}
+							transform={ `translate(${item.x},${item.y})`}
 						>
 							<text>▼</text>
 						</g>
