@@ -8,9 +8,10 @@ import forceBoundary from "../../../utils/forceBoundary"
 
 const allGenders = Object.values(GENDER);
 const axisOffset = 15;
-const simulationTicksTotal = 2000;
+const cellSize = 10;
 
 const generateKey = (info) => `${info.Type}_${info.Order}`;
+const ensureGender = (gender) => gender || GENDER.ALL;
 
 class FrequencyComparisonChart extends React.PureComponent {
 
@@ -36,34 +37,20 @@ class FrequencyComparisonChart extends React.PureComponent {
 		if (this.state.isLoading) {
 			return;
 		}
-		if ((this.props.gender === null) || (prevProps.gender === this.props.gender)) {
+		const { width, height, gender } = this.props;
+		if ((gender === null) || (prevProps.gender === gender)) {
 			return;
 		}
 
-		const gender = this.ensureGender();
-		const { width, height } = this.props;
-
-		const y0 = (d) => {
-		 	return (d.Type === "Real") ? -height / 2 : axisOffset;
-		}
-
-		const y1 = (d) => {
-		 	return (d.Type === "Real") ? -2 * axisOffset : height / 2;
-		}
-
-		const simulation = d3.forceSimulation(this.data)
-		      .force("x", d3.forceX((d) => this.scaleFreq(d[gender].Frequency)).strength(1))
-		      .force("collide", d3.forceCollide(7).strength(1))
-		      //.force("bounded", forceBoundary(0, y0, Math.floor(width), y1).border(10))
-		      .stop();
-
-		simulation.tick(simulationTicksTotal);
+		const currentGender = ensureGender(gender);
+		const prevGender = ensureGender(prevProps.gender);
 
 		d3.select(this.viz)
 		 	.selectAll('.node')
 		 	.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
+		 		.attr("transform", (d) => `translate(${d[prevGender].pos.x},${d[prevGender].pos.y})`)
 		 	.transition()
-		 	.attr("transform", (d) => `translate(${d.x},${d.y})`);
+		 		.attr("transform", (d) => `translate(${d[currentGender].pos.x},${d[currentGender].pos.y})`);
 	}
 
 	render() {
@@ -72,6 +59,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 		}
 
 		this.updateScales();
+		this.updateGridPositions();
 
 		const { width, height, scroll } = this.props;
 
@@ -92,8 +80,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 	}
 
 	renderNames() {
-		const mid = this.props.height / 2;
-		const gender = this.ensureGender();
+		const gender = ensureGender(this.props.gender);
 		return (
 			<g className="nodes">
 			{
@@ -101,16 +88,13 @@ class FrequencyComparisonChart extends React.PureComponent {
 					const key = generateKey(item);
 					const info = item[gender];
 
-					item.x = item.x || this.scaleFreq(info.Frequency);
-					item.y  = item.y || ((item.Type === "Real") ? -mid / 2 : 0.75 * mid);
 					return (
 						<g 
 							key={ key}
 							data-item={ key }
 							className={ `node ${item.Type} ${info.Sex == "M" ? "male" : "female" }`}
-							transform={ `translate(${item.x},${item.y})`}
 						>
-							<text>▼</text>
+							<circle r="3"></circle>
 						</g>
 					); 
 				})
@@ -163,8 +147,39 @@ class FrequencyComparisonChart extends React.PureComponent {
 		return result;
 	}
 
-	ensureGender() {
-		return this.props.gender || GENDER.ALL;
+	updateGridPositions() {
+		const gridColumns = {};
+		const maxPerColumn = Math.floor(((this.props.height / 2) - axisOffset) / cellSize) - 1;
+		console.log(maxPerColumn);
+
+		this.data.map((item) => {
+			const sign = (item.Type === "Real") ? -1 : 1;
+			gridColumns[item.Type] = gridColumns[item.Type] || {};
+
+			allGenders.forEach((gender) => {
+				const accurateX = this.scaleFreq(item[gender].Frequency);
+				let gridX = Math.round(accurateX / cellSize);
+
+				gridColumns[item.Type][gender] = gridColumns[item.Type][gender] || {};
+				const currentColumn = gridColumns[item.Type][gender];
+				currentColumn[gridX] = currentColumn[gridX] || 0;
+
+				while (currentColumn[gridX] > maxPerColumn) {
+					gridX++;
+					currentColumn[gridX] = currentColumn[gridX] || 0;
+				}
+
+				const height = currentColumn[gridX] * cellSize + axisOffset;
+
+				item[gender]["pos"] = {
+					x: gridX * cellSize, 
+					y: sign * height,
+					accX: accurateX
+				};
+
+				currentColumn[gridX]++;
+			})
+		});
 	}
 }
 

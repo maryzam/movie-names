@@ -55,12 +55,18 @@
 	fill-opacity: 0.7;
 }
 
-.frequency-comparison .Real text{
+.frequency-comparison circle {
+	fill-opacity: 0.3;
+}
+
+.frequency-comparison .Real text,
+.frequency-comparison .Real circle {
 	fill: var(--real);
 	stroke: var(--real);
 }
 
-.frequency-comparison .Cinema text {
+.frequency-comparison .Cinema text,
+.frequency-comparison .Cinema circle {
 	fill: var(--cinema);
 	stroke: var(--cinema);
 }
