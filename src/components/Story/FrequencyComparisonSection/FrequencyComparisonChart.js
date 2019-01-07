@@ -56,7 +56,7 @@ class FrequencyComparisonChart extends React.PureComponent {
 		 	.data(this.data, function (d) { return !d ?	this.dataset.item : generateKey(d); } )
 		 		.attr("transform", (d) => getTransform(d[prevGender], fromBaseLine))
 		 	.transition()
-		 		.duration(1000)
+		 		.duration(600)
 		 		.attr("transform", (d) => getTransform(d[currentGender]));
 	}
 
