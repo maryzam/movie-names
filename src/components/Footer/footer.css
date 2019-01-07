@@ -22,3 +22,8 @@ footer h4 {
 	font-weight: bold;
 	padding-top: 1em;
 }
+
+footer a {
+	color: black;
+	font-size: bold;
+}
